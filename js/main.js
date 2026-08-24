@@ -965,20 +965,6 @@
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) return;
 
-    // Hero parallax
-    safe(function () {
-      gsap.to('.hero__bg img', {
-        yPercent: 15,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.hero',
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
-    });
-
     // Showcase horizontal scroll hint
     safe(function () {
       var track = document.querySelector('.showcase__track');

@@ -1,0 +1,29 @@
+LA TERRAZA DE LUPITA BY MISTER MECHADA
+Versión final — 22 de agosto de 2026
+
+CONTENIDO
+Este paquete contiene la página web estática completa, lista para visualizar y
+subir a un hosting compatible con HTML, CSS y JavaScript.
+
+VISUALIZAR EN UN PC
+1. Extrae por completo el archivo ZIP.
+2. Abre la carpeta Terraza_Lupita_Web_Final.
+3. Puedes abrir index.html con Chrome, Edge o Firefox.
+4. Para una prueba idéntica al hosting, se recomienda usar la extensión
+   “Live Server” de Visual Studio Code o ejecutar un servidor local.
+
+SUBIR A HOSTINGER / APACHE
+1. Sube TODO el contenido de esta carpeta dentro de public_html o de la carpeta
+   asignada al subdominio.
+2. Conserva exactamente la estructura de las carpetas assets, css, js y lib.
+3. Conserva también el archivo .htaccess. En Windows puede aparecer oculto.
+4. No es necesario ejecutar una compilación ni instalar dependencias.
+
+FUNCIONAMIENTO
+- La carta, los configuradores y el carrito funcionan en el navegador.
+- El pedido se prepara y se envía a WhatsApp para confirmación del restaurante.
+- No incluye pago en línea ni base de datos.
+- Los precios y la disponibilidad se confirman al enviar el pedido.
+
+ARCHIVO PRINCIPAL
+index.html

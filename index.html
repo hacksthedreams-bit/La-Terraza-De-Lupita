@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La Terraza de Lupita by Mister Mechada — Restaurante Fusión Chilena-Mexicana en Batuco</title>
+<meta name="description" content="Restaurante de comida fusión chilena-mexicana en Batuco, Lampa. Explora la carta, personaliza tu pedido y solicita delivery, retiro o atención a la mesa por WhatsApp.">
+<meta name="theme-color" content="#0E0B09">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:title" content="La Terraza de Lupita by Mister Mechada">
+<meta property="og:description" content="Dos culturas. Una experiencia llena de sabor. Carta digital, delivery, retiro y pedidos a la mesa en Batuco.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:image" content="assets/img/hero-final.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "La Terraza de Lupita by Mister Mechada",
+  "description": "Restaurante de comida fusión chilena-mexicana en Batuco. Chorrillanas, sándwiches, cocina mexicana, hamburguesas y postres.",
+  "url": "https://lasterrazasdelupita.cl",
+  "telephone": "+56990998900",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Chile 1040",
+    "addressLocality": "Batuco, Lampa",
+    "addressRegion": "Región Metropolitana",
+    "addressCountry": "CL"
+  },
+  "servesCuisine": ["Chilena", "Mexicana", "Tex-Mex", "Fusión"],
+  "priceRange": "$$",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday"],
+      "opens": "19:00",
+      "closes": "00:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Friday","Saturday"],
+      "opens": "19:00",
+      "closes": "01:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/mister_mechada_oficial/",
+    "https://www.facebook.com/share/1C8872zJEe/?mibextid=wwXIfr",
+    "https://www.tiktok.com/@lasterrazasdelupita"
+  ]
+}
+</script>
+<link rel="stylesheet" href="css/styles.css?v=20260822">
+</head>
+<body>
+
+<!-- ═══ SPLASH LOADER ═══ -->
+<div class="splash" id="splash" aria-hidden="true">
+  <div class="splash__inner">
+    <span class="splash__brand">La Terraza de Lupita</span>
+    <span class="splash__sub">by Mister Mechada</span>
+    <div class="splash__bar"><div class="splash__fill"></div></div>
+  </div>
+</div>
+
+<!-- ═══ CUSTOM CURSOR (desktop) ═══ -->
+<div class="cursor cursor--outer" id="cursor-outer"></div>
+<div class="cursor cursor--inner" id="cursor-inner"></div>
+
+<!-- ═══ SCROLL PROGRESS ═══ -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header" id="site-header">
+<div class="shell header-inner">
+  <a class="brand-lockup" href="#inicio" aria-label="La Terraza de Lupita by Mister Mechada — volver al inicio">
+    <img src="assets/brand/terraza-lupita.png" alt="La Terraza de Lupita" width="443" height="560">
+    <span class="brand-lockup__divider" aria-hidden="true"></span>
+    <img src="assets/brand/mister-mechada.png" alt="Mister Mechada" width="502" height="560">
+  </a>
+  <nav class="header-nav" id="header-nav">
+    <a href="#la-fusion">La Fusión</a>
+    <a href="#carta">Carta</a>
+    <a href="#galeria">Galería</a>
+    <a href="#ubicacion">Ubicación</a>
+  </nav>
+  <button class="hamburger" id="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+</header>
+
+<!-- ═══ MOBILE NAV OVERLAY ═══ -->
+<div class="mobile-nav" id="mobile-nav">
+  <nav class="mobile-nav__links">
+    <a href="#la-fusion">La Fusión</a>
+    <a href="#carta">Carta</a>
+    <a href="#galeria">Galería</a>
+    <a href="#solo-local">Solo en el Local</a>
+    <a href="#ubicacion">Ubicación</a>
+    <a href="#horarios">Horarios</a>
+    <a class="mobile-nav__cta" href="https://wa.me/56990998900" target="_blank" rel="noreferrer">Pedir por WhatsApp</a>
+  </nav>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="inicio">
+  <div class="hero__bg">
+    <picture>
+      <source media="(min-width:1600px)" srcset="assets/img/hero-final-2560.webp">
+      <img src="assets/img/hero-final.webp" alt="Chorrillana de carne recién preparada en La Terraza de Lupita" width="1536" height="864" fetchpriority="high">
+    </picture>
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <span class="hero__eyebrow reveal-up">Batuco, Lampa — Chile</span>
+    <h1 class="hero__title">
+      <span class="hero__line reveal-up">La Terraza</span>
+      <span class="hero__line hero__line--gold reveal-up">de Lupita</span>
+      <span class="hero__line hero__line--small reveal-up">by Mister Mechada</span>
+    </h1>
+    <p class="hero__claim reveal-up">Dos culturas. Una experiencia llena de sabor.</p>
+    <div class="hero__actions reveal-up">
+      <a class="btn btn--primary magnetic" href="#carta">Explorar la carta</a>
+      <a class="btn btn--whatsapp magnetic" href="https://wa.me/56990998900" target="_blank" rel="noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Pedir ahora
+      </a>
+    </div>
+  </div>
+  <div class="hero__scroll-hint" aria-hidden="true">
+    <span>Descubre</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE TICKER ═══ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Chorrillanas</span><span class="marquee__dot"></span>
+    <span>Burritos</span><span class="marquee__dot"></span>
+    <span>Hamburguesas</span><span class="marquee__dot"></span>
+    <span>Quesadillas</span><span class="marquee__dot"></span>
+    <span>Milanesas</span><span class="marquee__dot"></span>
+    <span>Lomo Saltado</span><span class="marquee__dot"></span>
+    <span>Churros</span><span class="marquee__dot"></span>
+    <span>Enchiladas</span><span class="marquee__dot"></span>
+    <span>Chorrillanas</span><span class="marquee__dot"></span>
+    <span>Burritos</span><span class="marquee__dot"></span>
+    <span>Hamburguesas</span><span class="marquee__dot"></span>
+    <span>Quesadillas</span><span class="marquee__dot"></span>
+    <span>Milanesas</span><span class="marquee__dot"></span>
+    <span>Lomo Saltado</span><span class="marquee__dot"></span>
+    <span>Churros</span><span class="marquee__dot"></span>
+    <span>Enchiladas</span><span class="marquee__dot"></span>
+  </div>
+</div>
+
+<!-- ═══ 1. LA FUSIÓN — Diferenciador ═══ -->
+<section class="section section--fusion" id="la-fusion">
+  <div class="shell">
+    <div class="fusion">
+      <div class="fusion__text reveal-up">
+        <span class="eyebrow">Nuestra Identidad</span>
+        <h2 class="section-title">La Fusión<br><span class="gold">Chile × México</span></h2>
+        <p class="fusion__desc">Donde la mechada se encuentra con el guacamole. Donde la chorrillana se sirve con tortillas. Un restaurante que nació para romper las reglas: tomar lo mejor de la cocina chilena y la mexicana, y juntarlo en una terraza donde cada plato cuenta una historia de dos países.</p>
+        <p class="fusion__desc">Papel picado, calaveras, colores vivos y el sabor de siempre. Eso es La Terraza de Lupita.</p>
+      </div>
+      <div class="fusion__img reveal-up">
+        <img src="assets/img/la-fusion.webp" alt="Interior de La Terraza de Lupita — decoración con papel picado y colores vivos de Día de los Muertos" width="800" height="800" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SEPARADOR CHILE × MÉXICO ═══ -->
+<div class="separator separator--flags" aria-hidden="true">
+  <div class="separator__line separator__line--chile"></div>
+  <div class="separator__icon">
+    <svg viewBox="0 0 40 40" width="40" height="40"><text x="50%" y="55%" text-anchor="middle" dominant-baseline="central" font-size="24">🌶️</text></svg>
+  </div>
+  <div class="separator__line separator__line--mexico"></div>
+</div>
+
+<!-- ═══ 2. PRODUCTOS DESTACADOS ═══ -->
+<section class="section section--featured" id="destacados">
+  <div class="shell">
+    <span class="eyebrow reveal-up">Imperdibles</span>
+    <h2 class="section-title reveal-up">Los favoritos de la casa</h2>
+    <p class="section-subtitle reveal-up">Los platos que piden una y otra vez. Si es tu primera vez, empieza por aquí.</p>
+  </div>
+  <div class="showcase" id="showcase">
+    <div class="showcase__track">
+      <article class="showcase__card">
+        <div class="showcase__img"><img src="assets/img/burrito-lupita.webp" alt="Burrito Lupita" width="800" height="800" loading="lazy"></div>
+        <div class="showcase__info">
+          <h3>Burrito Lupita</h3>
+          <p>Pollo, arroz Lupita verde, queso, frijoles, salsa verde y guacamole.</p>
+          <span class="showcase__price">$7.000</span>
+        </div>
+      </article>
+      <article class="showcase__card">
+        <div class="showcase__img"><img src="assets/img/la-chacarera-clean.webp" alt="La Chacarera con papas rústicas" width="800" height="999" loading="lazy"></div>
+        <div class="showcase__info">
+          <h3>La Chacarera</h3>
+          <p>Tomate, poroto verde crujiente y ají a pedido. Incluye papas rústicas.</p>
+          <span class="showcase__price">Desde $5.000</span>
+        </div>
+      </article>
+      <article class="showcase__card">
+        <div class="showcase__img"><img src="assets/img/taco-luchador.webp" alt="Taco Luchador" width="800" height="800" loading="lazy"></div>
+        <div class="showcase__info">
+          <h3>Taco Luchador</h3>
+          <p>El taco más contundente de la carta. Servido en plato de barro con limón y cilantro.</p>
+          <span class="showcase__price">$6.000</span>
+        </div>
+      </article>
+      <article class="showcase__card">
+        <div class="showcase__img"><img src="assets/img/doble-carne.webp" alt="Doble Carne" width="800" height="800" loading="lazy"></div>
+        <div class="showcase__info">
+          <h3>Doble Carne</h3>
+          <p>Doble carne, cheddar, cebolla morada, pepinillo y lechuga.</p>
+          <span class="showcase__price">$6.500</span>
+        </div>
+      </article>
+      <article class="showcase__card">
+        <div class="showcase__img"><img src="assets/img/de-luxe-clean.webp" alt="Sándwich De Luxe con papas rústicas" width="800" height="999" loading="lazy"></div>
+        <div class="showcase__info">
+          <h3>De Luxe</h3>
+          <p>Gouda, cheddar, champiñones y cebolla caramelizada. Un clásico de la casa.</p>
+          <span class="showcase__price">Desde $5.500</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3. ¿QUÉ SE TE ANTOJA HOY? ═══ -->
+<section class="section section--antojos" id="antojos">
+  <div class="shell">
+    <span class="eyebrow reveal-up">Explora por antojo</span>
+    <h2 class="section-title reveal-up">¿Qué se te antoja hoy?</h2>
+    <div class="antojos-grid">
+      <a href="#mexicana" class="antojo-card reveal-up">
+        <span class="antojo-card__emoji">🌮</span>
+        <span class="antojo-card__name">Cocina Mexicana</span>
+        <span class="antojo-card__count">12 opciones</span>
+      </a>
+      <a href="#hamburguesas" class="antojo-card reveal-up">
+        <span class="antojo-card__emoji">🍔</span>
+        <span class="antojo-card__name">Hamburguesas</span>
+        <span class="antojo-card__count">8 opciones</span>
+      </a>
+      <a href="#chorrillanas" class="antojo-card reveal-up">
+        <span class="antojo-card__emoji">🥘</span>
+        <span class="antojo-card__name">Chorrillanas</span>
+        <span class="antojo-card__count">20 opciones</span>
+      </a>
+      <a href="#sandwiches" class="antojo-card reveal-up">
+        <span class="antojo-card__emoji">🥪</span>
+        <span class="antojo-card__name">Sándwiches</span>
+        <span class="antojo-card__count">16 opciones</span>
+      </a>
+      <a href="#especiales" class="antojo-card reveal-up">
+        <span class="antojo-card__emoji">⭐</span>
+        <span class="antojo-card__name">Especiales</span>
+        <span class="antojo-card__count">6 opciones</span>
+      </a>
+      <a href="#compartir" class="antojo-card reveal-up">
+        <span class="antojo-card__emoji">🍟</span>
+        <span class="antojo-card__name">Para compartir</span>
+        <span class="antojo-card__count">14 opciones</span>
+      </a>
+      <a href="#veganos" class="antojo-card reveal-up">
+        <span class="antojo-card__emoji">🌱</span>
+        <span class="antojo-card__name">Veganos</span>
+        <span class="antojo-card__count">8 opciones</span>
+      </a>
+      <a href="#postres" class="antojo-card reveal-up">
+        <span class="antojo-card__emoji">🍮</span>
+        <span class="antojo-card__name">Postres</span>
+        <span class="antojo-card__count">6 opciones</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 4. PERSONALIZA TU PEDIDO ═══ -->
+<section class="section section--custom" id="personaliza">
+  <div class="shell">
+    <button class="custom-banner reveal-up" type="button" data-custom-add="35" aria-label="Comenzar a armar tu fajita">
+      <img src="assets/img/arma-tu-fajita.webp" alt="Arma tu fajita eligiendo proteína, ingredientes, salsas y bebida" width="1536" height="864" loading="lazy">
+    </button>
+    <div class="custom-intro reveal-up">
+      <span class="eyebrow">Hecho a tu pinta</span>
+      <h2 class="section-title">Tú eliges cada sabor</h2>
+      <p class="section-subtitle">Elige una proteína, tres ingredientes, dos salsas y una bebida. Nosotros preparamos el resto.</p>
+    </div>
+    <div class="custom-products">
+      <article class="custom-product reveal-up">
+        <div>
+          <span class="custom-product__kicker">Tortilla XL · Papas + bebida incluida</span>
+          <h3>Arma tu fajita</h3>
+          <p>Una fajita abundante preparada con la combinación que tú elijas.</p>
+        </div>
+        <div class="custom-product__action">
+          <strong>$7.000</strong>
+          <button class="btn btn--primary" type="button" data-custom-add="35">Armar mi fajita</button>
+        </div>
+      </article>
+      <article class="custom-product reveal-up">
+        <div>
+          <span class="custom-product__kicker">2 unidades · Incluye bebida</span>
+          <h3>Taco a tu pinta</h3>
+          <p>Dos tacos preparados con tu proteína, ingredientes y salsas favoritas.</p>
+        </div>
+        <div class="custom-product__action">
+          <strong>$7.000</strong>
+          <button class="btn btn--primary" type="button" data-custom-add="122">Armar mis tacos</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="separator separator--custom" aria-hidden="true">
+  <div class="separator__line"></div>
+  <div class="separator__icon">🌮</div>
+  <div class="separator__line"></div>
+</div>
+
+<!-- ═══ 5. CARTA DIGITAL COMPLETA ═══ -->
+<section class="section section--carta" id="carta">
+  <div class="shell">
+    <div class="carta-header">
+      <div class="carta-header__text">
+        <span class="eyebrow reveal-up">Carta completa</span>
+        <h2 class="section-title reveal-up">Explora la Carta</h2>
+        <p class="section-subtitle reveal-up">Los precios corresponden a la carta vigente. La disponibilidad se confirma al enviar el pedido por WhatsApp.</p>
+      </div>
+      <div class="carta-header__img reveal-up">
+        <img src="assets/img/explora-carta.webp" alt="Explora la carta — catrina y calavera" width="400" height="400" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Search -->
+    <div class="search-wrap reveal-up">
+      <div class="search-field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" id="menu-search" placeholder="Busca mechada, vegano, queso..." autocomplete="off">
+      </div>
+      <p class="result-count" id="result-count" aria-live="polite"></p>
+    </div>
+
+    <!-- Category Nav -->
+    <div class="cat-nav-wrap" id="cat-nav-wrap">
+      <nav class="cat-nav" id="cat-nav" aria-label="Categorías de la carta">
+        <a href="#mexicana" class="cat-link" data-cat="mexicana">🌮 Mexicana</a>
+        <a href="#hamburguesas" class="cat-link" data-cat="hamburguesas">🍔 Hamburguesas</a>
+        <a href="#chorrillanas" class="cat-link" data-cat="chorrillanas">🥘 Chorrillanas</a>
+        <a href="#sandwiches" class="cat-link" data-cat="sandwiches">🥪 Sándwiches</a>
+        <a href="#especiales" class="cat-link" data-cat="especiales">⭐ Especiales</a>
+        <a href="#compartir" class="cat-link" data-cat="compartir">🍟 Para compartir</a>
+        <a href="#veganos" class="cat-link" data-cat="veganos">🌱 Veganos</a>
+        <a href="#postres" class="cat-link" data-cat="postres">🍮 Postres</a>
+        <a href="#bebidas" class="cat-link" data-cat="bebidas">🥤 Bebidas</a>
+        <a href="#salsas" class="cat-link" data-cat="salsas">🫙 Salsas</a>
+        <a href="#agregados" class="cat-link" data-cat="agregados">➕ Agregados</a>
+      </nav>
+    </div>
+
+    <!-- Menu Sections — generated by JS from product data -->
+    <div id="menu-sections"></div>
+  </div>
+</section>
+
+<!-- ═══ 5. SOLO EN EL LOCAL ═══ -->
+<section class="section section--local" id="solo-local">
+  <div class="shell">
+    <div class="local-block">
+      <div class="local-block__text reveal-up">
+        <span class="eyebrow">Exclusivo presencial</span>
+        <h2 class="section-title">Solo en el local</h2>
+        <p>Hay preparaciones que solo se pueden disfrutar en la terraza. Chorriplanchas al disco, la Carnita al Disco, las Fajitas chisporroteando... son platos que se sirven calientes del fuego a tu mesa y no viajan en delivery.</p>
+        <a class="btn btn--outline magnetic" href="#chorrillanas">Ver platos presenciales</a>
+      </div>
+      <div class="local-block__img reveal-up">
+        <img src="assets/img/chorriplancha.webp" alt="Chorriplancha chisporroteando en el disco" width="800" height="800" loading="lazy">
+        <div class="local-block__stamp">Solo en el local</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6. GALERÍA ═══ -->
+<section class="section section--gallery" id="galeria">
+  <div class="shell">
+    <span class="eyebrow reveal-up">Una vuelta por la cocina</span>
+    <h2 class="section-title reveal-up">La carta en imágenes</h2>
+    <div class="gallery-grid">
+      <figure class="gallery-item reveal-up">
+        <img src="assets/img/la-chacarera-clean.webp" alt="La Chacarera — sándwich de la casa" width="800" height="999" loading="lazy">
+        <figcaption>La Chacarera</figcaption>
+      </figure>
+      <figure class="gallery-item reveal-up">
+        <img src="assets/img/burrito-lupita.webp" alt="Burrito Lupita" width="800" height="800" loading="lazy">
+        <figcaption>Burrito Lupita</figcaption>
+      </figure>
+      <figure class="gallery-item reveal-up">
+        <img src="assets/img/taco-luchador.webp" alt="Taco Luchador" width="800" height="800" loading="lazy">
+        <figcaption>Taco Luchador</figcaption>
+      </figure>
+      <figure class="gallery-item reveal-up">
+        <img src="assets/img/la-napolitana.webp" alt="La Napolitana" width="800" height="800" loading="lazy">
+        <figcaption>La Napolitana</figcaption>
+      </figure>
+      <figure class="gallery-item reveal-up">
+        <img src="assets/img/de-luxe-clean.webp" alt="De Luxe — mechada premium" width="800" height="999" loading="lazy">
+        <figcaption>De Luxe</figcaption>
+      </figure>
+      <figure class="gallery-item reveal-up">
+        <img src="assets/img/doble-carne.webp" alt="Doble Carne burger" width="800" height="800" loading="lazy">
+        <figcaption>Doble Carne</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7. FRANJA DE CONFIANZA ═══ -->
+<div class="trust-strip">
+  <div class="shell trust-strip__inner">
+    <div class="trust-item">
+      <span class="trust-item__num counter" data-target="5">0</span><span class="trust-item__plus">+</span>
+      <span class="trust-item__label">Años cocinando</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-item__num counter" data-target="120">0</span><span class="trust-item__plus">+</span>
+      <span class="trust-item__label">Platos en la carta</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-item__num counter" data-target="11">0</span>
+      <span class="trust-item__label">Categorías</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-item__num">4.8</span>
+      <span class="trust-item__stars">★★★★★</span>
+      <span class="trust-item__label">En Google</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 8. CÓMO PEDIR ═══ -->
+<section class="section section--steps">
+  <div class="shell">
+    <span class="eyebrow reveal-up">Simple y rápido</span>
+    <h2 class="section-title reveal-up">Tu pedido en tres pasos</h2>
+    <div class="steps-grid">
+      <div class="step-card reveal-up">
+        <span class="step-card__num">1</span>
+        <h3>Elige tus platos</h3>
+        <p>Navega la carta, selecciona tamaño y proteína. Agrega al pedido.</p>
+      </div>
+      <div class="step-card reveal-up">
+        <span class="step-card__num">2</span>
+        <h3>Retiro o delivery</h3>
+        <p>Selecciona si vienes a buscar o quieres que te lo llevemos.</p>
+      </div>
+      <div class="step-card reveal-up">
+        <span class="step-card__num">3</span>
+        <h3>Confirma por WhatsApp</h3>
+        <p>Revisamos disponibilidad, tiempo y forma de pago.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 9. UBICACIÓN ═══ -->
+<section class="section section--location" id="ubicacion">
+  <div class="shell">
+    <div class="location-grid">
+      <div class="location-info reveal-up">
+        <span class="eyebrow">Ven a visitarnos</span>
+        <h2 class="section-title">Nos encuentras en Batuco</h2>
+        <address class="location-address">
+          <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Chile 1040, Batuco, Lampa</p>
+          <p class="location-region">Región Metropolitana, Chile</p>
+        </address>
+        <a class="btn btn--outline magnetic" href="https://www.google.com/maps/search/?api=1&query=Chile%201040%2C%20Batuco%2C%20Lampa%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile" target="_blank" rel="noreferrer">Abrir en Google Maps</a>
+      </div>
+      <div class="location-delivery reveal-up">
+        <h3>Zonas de delivery</h3>
+        <p class="delivery-min">Pedido mínimo: $5.000</p>
+        <div class="delivery-zones">
+          <div class="dz-row"><span>Batuco, Villa Hermosa o Casas Chubis</span><strong>$1.500</strong></div>
+          <div class="dz-row"><span>Militares o Sol y Luna</span><strong>$2.000</strong></div>
+          <div class="dz-row"><span>Santa Sara o Carolina</span><strong>$3.000</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 10. HORARIOS ═══ -->
+<section class="section section--hours" id="horarios">
+  <div class="shell">
+    <div class="hours-card reveal-up">
+      <div class="hours-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="48" height="48"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <h2 class="section-title">Horarios</h2>
+      <div class="hours-card__grid">
+        <div class="hours-day">
+          <span class="hours-day__label">Domingo a Jueves</span>
+          <span class="hours-day__time">19:00 — 00:00</span>
+        </div>
+        <div class="hours-day">
+          <span class="hours-day__label">Viernes y Sábado</span>
+          <span class="hours-day__time">19:00 — 01:00</span>
+        </div>
+      </div>
+      <div class="hours-card__status" id="open-status">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 11. CTA FINAL ═══ -->
+<section class="section section--cta">
+  <div class="shell">
+    <div class="final-cta reveal-up">
+      <h2 class="section-title">¿Listo para probar<br><span class="gold">la fusión?</span></h2>
+      <p>Arma tu pedido desde la carta o escríbenos directo por WhatsApp.</p>
+      <div class="final-cta__actions">
+        <a class="btn btn--primary btn--lg magnetic" href="#carta">Ver la carta</a>
+        <a class="btn btn--whatsapp btn--lg magnetic" href="https://wa.me/56990998900" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Pedir por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-brand__name">La Terraza de Lupita</span>
+        <strong class="footer-brand__sub">by Mister Mechada</strong>
+        <p>Fuego, abundancia y hospitalidad en Batuco. Dos culturas, una experiencia llena de sabor.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Contacto</h3>
+        <a href="https://wa.me/56990998900" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          +56 9 9099 8900
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Chile%201040%2C%20Batuco%2C%20Lampa" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Chile 1040, Batuco, Lampa
+        </a>
+      </div>
+      <div class="footer-col">
+        <h3>Horarios</h3>
+        <p>Dom — Jue: 19:00 — 00:00</p>
+        <p>Vie — Sáb: 19:00 — 01:00</p>
+      </div>
+      <div class="footer-col">
+        <h3>Redes</h3>
+        <div class="social-row">
+          <a class="social-link social-link--instagram magnetic" href="https://www.instagram.com/mister_mechada_oficial/" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a class="social-link social-link--facebook magnetic" href="https://www.facebook.com/share/1C8872zJEe/?mibextid=wwXIfr" target="_blank" rel="noreferrer" aria-label="Facebook">
+            <img src="assets/brand/facebook.png" alt="" width="149" height="160">
+          </a>
+          <a class="social-link social-link--tiktok magnetic" href="https://www.tiktok.com/@lasterrazasdelupita" target="_blank" rel="noreferrer" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p>Precios y disponibilidad sujetos a confirmación. Las imágenes son referenciales. Informa alergias antes de confirmar.</p>
+      <p>&copy; 2026 La Terraza de Lupita by Mister Mechada.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ FLOATING WHATSAPP BUTTON ═══ -->
+<a class="wa-float" id="wa-float" href="https://wa.me/56990998900" target="_blank" rel="noreferrer" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ═══ FLOATING CART ═══ -->
+<button class="fab-cart" id="fab-cart" type="button" aria-label="Ver pedido">
+  <span class="fab-cart__count" id="fab-count">0</span>
+  <span>Ver pedido</span>
+  <span class="fab-cart__total" id="fab-total">$0</span>
+</button>
+
+<!-- ═══ OVERLAY ═══ -->
+<div class="overlay" id="overlay"></div>
+
+<!-- ═══ CART BOTTOM SHEET ═══ -->
+<div class="bottom-sheet" id="cart-sheet" role="dialog" aria-labelledby="cart-title" aria-modal="true">
+  <div class="bs-handle"></div>
+  <div class="bs-header">
+    <h2 id="cart-title">Tu pedido</h2>
+    <button class="bs-close" id="cart-close" type="button" aria-label="Cerrar pedido">&times;</button>
+  </div>
+  <div class="bs-body" id="cart-body"></div>
+  <div class="bs-footer" id="cart-footer" style="display:none">
+    <a class="btn btn--whatsapp" id="cart-wa-btn" href="#" target="_blank" rel="noreferrer" style="flex:1;justify-content:center">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Enviar por WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- ═══ VARIANT BOTTOM SHEET ═══ -->
+<div class="bottom-sheet" id="variant-sheet" role="dialog" aria-labelledby="variant-title" aria-modal="true">
+  <div class="bs-handle"></div>
+  <div class="bs-header">
+    <h2 id="variant-title">Elegir opción</h2>
+    <button class="bs-close" id="variant-close" type="button" aria-label="Cerrar">&times;</button>
+  </div>
+  <div class="bs-body" id="variant-body"></div>
+  <div class="bs-footer" id="variant-footer">
+    <button class="btn btn--primary" id="variant-confirm" type="button" style="flex:1;justify-content:center">Agregar al pedido</button>
+  </div>
+</div>
+
+<!-- ═══ TOAST ═══ -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script defer src="lib/gsap.min.js?v=20260819"></script>
+<script defer src="lib/ScrollTrigger.min.js?v=20260819"></script>
+<script defer src="js/main.js?v=20260822"></script>
+</body>
+</html>

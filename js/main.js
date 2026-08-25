@@ -475,39 +475,40 @@
 
   function updateWaLink() {
     var now = new Date();
-    if (!orderId) orderId = createOrderId();
     var lines = [
-      '¡Hola! 👋 Quiero hacer este pedido a través de la web:',
+      '¡Hola! Quiero hacer este pedido a través de la web:',
       '',
-      '🍽️ *La Terraza de Lupita* by Mister Mechada'
+      '*La Terraza de Lupita* by Mister Mechada'
     ];
-    lines.push('', '*🧾 Mi pedido*');
+    lines.push('', '*Mi pedido*');
     cart.forEach(function (item, i) {
       var line = (i + 1) + '. ' + item.qty + ' × ' + item.name + ' — ' + fmtPrice(item.price * item.qty);
       if (item.variant) line += '\n   _' + item.variant + '_';
       lines.push(line);
     });
     var subtotal = cartTotal();
-    var entregaLine = '*🛵 Entrega:* ';
+    var entregaLine = '*Entrega:* ';
     if (fulfillment === 'delivery') {
-      entregaLine = '*🛵 Entrega:* Delivery' + (selectedDeliveryZone ? ' — ' + selectedDeliveryZone : '');
+      entregaLine = '*Entrega:* Delivery' + (selectedDeliveryZone ? ' — ' + selectedDeliveryZone : '');
     } else if (fulfillment === 'mesa') {
-      entregaLine = '*🍽️ Entrega:* Atención en mesa' + (selectedTable ? ' — Mesa ' + selectedTable : '');
+      entregaLine = '*Entrega:* Atención en mesa' + (selectedTable ? ' — Mesa ' + selectedTable : '');
     } else {
-      entregaLine = '*🏠 Entrega:* Retiro en el local';
+      entregaLine = '*Entrega:* Retiro en el local';
     }
     lines.push('', entregaLine);
-    lines.push('', '*💰 Resumen*');
+    lines.push('', '*Resumen*');
     lines.push('Subtotal: ' + fmtPrice(subtotal));
     if (fulfillment === 'delivery' && deliveryPrice > 0) {
       lines.push('Delivery: ' + fmtPrice(deliveryPrice));
     }
     lines.push('*Total: ' + fmtPrice(subtotal + deliveryPrice) + '*');
     if (cartNotes.trim()) {
-      lines.push('', '*📝 Notas:* ' + cartNotes.trim());
+      lines.push('', '*Notas:* ' + cartNotes.trim());
     }
-    lines.push('', 'Quedo atento/a a la confirmación, ¡gracias! 🙏');
-    lines.push('_Pedido N° ' + orderId + ' — ' + now.toLocaleString('es-CL') + '_');
+    var fechaStr = now.toLocaleDateString('es-CL');
+    var horaStr = now.toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit', hour12: false });
+    lines.push('', 'Quedo atento/a a la confirmación, ¡gracias!');
+    lines.push('Pedido realizado el ' + fechaStr + ' a las *' + horaStr + '*');
     var text = encodeURIComponent(lines.join('\n'));
     var cartWaBtn = $('#cart-wa-btn');
     if (cartWaBtn) {

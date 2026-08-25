@@ -475,41 +475,39 @@
 
   function updateWaLink() {
     var now = new Date();
-    var lines = ['[PEDIDO_WEB]', '🧾 *NUEVO PEDIDO WEB*', '*La Terraza de Lupita by Mister Mechada*'];
     if (!orderId) orderId = createOrderId();
-    lines.push('ID: ' + orderId);
-    lines.push('ORIGEN: PAGINA_WEB');
-    lines.push('FECHA: ' + now.toLocaleString('es-CL'));
-    lines.push('\n*PRODUCTOS*');
+    var lines = [
+      '¡Hola! 👋 Quiero hacer este pedido a través de la web:',
+      '',
+      '🍽️ *La Terraza de Lupita* by Mister Mechada'
+    ];
+    lines.push('', '*🧾 Mi pedido*');
     cart.forEach(function (item, i) {
       var line = (i + 1) + '. ' + item.qty + ' × ' + item.name + ' — ' + fmtPrice(item.price * item.qty);
-      if (item.variant) line += '\n   • ' + item.variant;
+      if (item.variant) line += '\n   _' + item.variant + '_';
       lines.push(line);
     });
     var subtotal = cartTotal();
-    lines.push('\n*ENTREGA*');
+    var entregaLine = '*🛵 Entrega:* ';
     if (fulfillment === 'delivery') {
-      lines.push('MODALIDAD: DELIVERY');
-      if (selectedDeliveryZone) lines.push('ZONA: ' + selectedDeliveryZone);
+      entregaLine = '*🛵 Entrega:* Delivery' + (selectedDeliveryZone ? ' — ' + selectedDeliveryZone : '');
     } else if (fulfillment === 'mesa') {
-      lines.push('MODALIDAD: MESA');
-      if (selectedTable) lines.push('MESA: ' + selectedTable);
+      entregaLine = '*🍽️ Entrega:* Atención en mesa' + (selectedTable ? ' — Mesa ' + selectedTable : '');
     } else {
-      lines.push('MODALIDAD: RETIRO_LOCAL');
+      entregaLine = '*🏠 Entrega:* Retiro en el local';
     }
-    lines.push('\n*RESUMEN*');
+    lines.push('', entregaLine);
+    lines.push('', '*💰 Resumen*');
     lines.push('Subtotal: ' + fmtPrice(subtotal));
     if (fulfillment === 'delivery' && deliveryPrice > 0) {
-      lines.push('Costo de delivery: ' + fmtPrice(deliveryPrice));
+      lines.push('Delivery: ' + fmtPrice(deliveryPrice));
     }
-    lines.push('*TOTAL ESTIMADO: ' + fmtPrice(subtotal + deliveryPrice) + '*');
+    lines.push('*Total: ' + fmtPrice(subtotal + deliveryPrice) + '*');
     if (cartNotes.trim()) {
-      lines.push('\n*OBSERVACIONES*');
-      lines.push(cartNotes.trim());
+      lines.push('', '*📝 Notas:* ' + cartNotes.trim());
     }
-    lines.push('\nESTADO: PENDIENTE_CONFIRMACION');
-    lines.push('Quedo atento/a a la confirmación del restaurante.');
-    lines.push('[/PEDIDO_WEB]');
+    lines.push('', 'Quedo atento/a a la confirmación, ¡gracias! 🙏');
+    lines.push('_Pedido N° ' + orderId + ' — ' + now.toLocaleString('es-CL') + '_');
     var text = encodeURIComponent(lines.join('\n'));
     var cartWaBtn = $('#cart-wa-btn');
     if (cartWaBtn) {

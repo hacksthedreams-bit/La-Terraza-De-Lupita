@@ -1172,21 +1172,12 @@ body.cursor-visible .cursor{opacity:1}
   margin-top:20px;
 }
 .footer-agency p{
-  font-size:.7rem;color:var(--cream-muted);
-  text-transform:uppercase;letter-spacing:.1em;
-  margin-bottom:14px;
+  font-size:.72rem;color:var(--cream-muted);
+  letter-spacing:.04em;
 }
-.footer-agency__logo{
-  display:block;
-  width:min(220px,60vw);height:auto;
-  margin:0 auto;
-  filter:drop-shadow(0 0 0 rgba(124,58,237,0));
-  transition:filter .4s;
-  animation:agencyGlow 3s ease-in-out infinite alternate;
-}
-@keyframes agencyGlow{
-  0%{filter:drop-shadow(0 0 6px rgba(124,58,237,.15))}
-  100%{filter:drop-shadow(0 0 18px rgba(124,58,237,.45))}
+.footer-agency__name{
+  color:var(--gold);font-weight:600;
+  letter-spacing:.03em;
 }
 
 /* ═══ WHATSAPP FLOAT ═══ */
@@ -1409,13 +1400,14 @@ body.cursor-visible .cursor{opacity:1}
 .fulfillment-detail{margin-top:12px;display:none}
 .fulfillment-detail.show{display:block}
 .fulfillment-detail label,.notes-field label{display:block;font-size:.78rem;font-weight:600;margin-bottom:6px;color:var(--cream-soft)}
-.fulfillment-detail select{
+.fulfillment-detail label:not(:first-child){margin-top:12px}
+.fulfillment-detail select,.fulfillment-detail input[type="text"]{
   width:100%;padding:10px 12px;
   border:1px solid var(--border);border-radius:var(--radius-sm);
   background:var(--bg-elevated);font-size:.85rem;
   color:var(--cream);
 }
-.fulfillment-detail select:focus{outline:2px solid rgba(196,154,91,.35);outline-offset:1px}
+.fulfillment-detail select:focus,.fulfillment-detail input[type="text"]:focus{outline:2px solid rgba(196,154,91,.35);outline-offset:1px}
 .fulfillment-error{min-height:18px;margin-top:7px;color:#F87171;font-size:.76rem;font-weight:600}
 .notes-field{margin-top:12px}
 .notes-field textarea{

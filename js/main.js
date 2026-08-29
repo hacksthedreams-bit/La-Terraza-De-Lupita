@@ -103,22 +103,22 @@
     {id:46,catId:"mexicana",name:"Quesadilla Mixta",price:10000,desc:"Carne y pollo juntos. Con guacamole, pico de gallo y sour cream.",badges:[]},
 
     // ─── Sándwiches (47-62)
-    {id:47,catId:"sandwiches",name:"Luco",price:5000,desc:"Gouda y cheddar fundidos hasta hacer hilo.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5000},{label:"Pollo",price:5000},{label:"Lomo liso",price:6000}]}},
-    {id:48,catId:"sandwiches",name:"Italiana",price:5000,desc:"Tomate maduro, palta cremosa y mayonesa de la casa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5000},{label:"Pollo",price:5000},{label:"Lomo liso",price:6000}]}},
-    {id:49,catId:"sandwiches",name:"Completa",price:5000,desc:"Tomate, americana, chucrut y mayonesa de la casa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5000},{label:"Pollo",price:5000},{label:"Lomo liso",price:6000}]}},
-    {id:50,catId:"sandwiches",name:"Pobre",price:5000,desc:"Cebolla dorada lentamente y huevo frito con la yema entera.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5000},{label:"Pollo",price:5000},{label:"Lomo liso",price:6000}]}},
-    {id:51,catId:"sandwiches",name:"La Chilena",price:5000,desc:"Tomate, cebolla morada curtida, cilantro fresco y ají verde a pedido.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5000},{label:"Pollo",price:5000},{label:"Lomo liso",price:6000}]}},
-    {id:52,catId:"sandwiches",name:"Chacarera",price:5000,desc:"Tomate, poroto verde crujiente y ají a pedido.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5000},{label:"Pollo",price:5000},{label:"Lomo liso",price:6000}]}},
-    {id:53,catId:"sandwiches",name:"Doble Queso",price:5500,desc:"Doble gouda y doble cheddar. Cuatro capas de queso fundido.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo liso",price:6500}]}},
-    {id:54,catId:"sandwiches",name:"Queso Champi",price:5500,desc:"Gouda, cheddar y champiñones salteados en mantequilla.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo liso",price:6500}]}},
-    {id:55,catId:"sandwiches",name:"De Luxe",price:5500,desc:"Gouda, cheddar, champiñones y cebolla caramelizada.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo liso",price:6500}]}},
-    {id:56,catId:"sandwiches",name:"Gringa",price:5500,desc:"Gouda, cheddar, cebolla morada y tocino ahumado crujiente.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo liso",price:6500}]}},
-    {id:57,catId:"sandwiches",name:"La Mozza",price:5500,desc:"Mozzarella derretida y aceitunas negras.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo liso",price:6500}]}},
-    {id:58,catId:"sandwiches",name:"La Napolitana",price:5500,desc:"Gouda, tomate asado, aceitunas, orégano y salsa de tomate.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo liso",price:6500}]}},
-    {id:59,catId:"sandwiches",name:"La Mexicana",price:5500,desc:"Cheddar, cebolla caramelizada, papas hilo y guacamole.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo liso",price:6500}]}},
-    {id:60,catId:"sandwiches",name:"Brasileña",price:5500,desc:"Gouda, cheddar y palta cremosa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo liso",price:6500}]}},
-    {id:61,catId:"sandwiches",name:"Tradicional",price:5500,desc:"Lechuga, tomate, cebolla morada y pepinillo.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo liso",price:6500}]}},
-    {id:62,catId:"sandwiches",name:"La de la Casa",price:5500,desc:"Lechuga, tomate, cebolla morada, pepinillo y huevo frito.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo liso",price:6500}]}},
+    {id:47,catId:"sandwiches",name:"Luco",price:5000,desc:"Gouda y cheddar fundidos hasta hacer hilo.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5000},{label:"Pollo",price:5000},{label:"Lomo de cerdo",price:6000}]}},
+    {id:48,catId:"sandwiches",name:"Italiana",price:5000,desc:"Tomate maduro, palta cremosa y mayonesa de la casa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5000},{label:"Pollo",price:5000},{label:"Lomo de cerdo",price:6000}]}},
+    {id:49,catId:"sandwiches",name:"Completa",price:5000,desc:"Tomate, americana, chucrut y mayonesa de la casa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5000},{label:"Pollo",price:5000},{label:"Lomo de cerdo",price:6000}]}},
+    {id:50,catId:"sandwiches",name:"Pobre",price:5000,desc:"Cebolla dorada lentamente y huevo frito con la yema entera.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5000},{label:"Pollo",price:5000},{label:"Lomo de cerdo",price:6000}]}},
+    {id:51,catId:"sandwiches",name:"La Chilena",price:5000,desc:"Tomate, cebolla morada curtida, cilantro fresco y ají verde a pedido.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5000},{label:"Pollo",price:5000},{label:"Lomo de cerdo",price:6000}]}},
+    {id:52,catId:"sandwiches",name:"Chacarera",price:5000,desc:"Tomate, poroto verde crujiente y ají a pedido.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5000},{label:"Pollo",price:5000},{label:"Lomo de cerdo",price:6000}]}},
+    {id:53,catId:"sandwiches",name:"Doble Queso",price:5500,desc:"Doble gouda y doble cheddar. Cuatro capas de queso fundido.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo de cerdo",price:6500}]}},
+    {id:54,catId:"sandwiches",name:"Queso Champi",price:5500,desc:"Gouda, cheddar y champiñones salteados en mantequilla.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo de cerdo",price:6500}]}},
+    {id:55,catId:"sandwiches",name:"De Luxe",price:5500,desc:"Gouda, cheddar, champiñones y cebolla caramelizada.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo de cerdo",price:6500}]}},
+    {id:56,catId:"sandwiches",name:"Gringa",price:5500,desc:"Gouda, cheddar, cebolla morada y tocino ahumado crujiente.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo de cerdo",price:6500}]}},
+    {id:57,catId:"sandwiches",name:"La Mozza",price:5500,desc:"Mozzarella derretida y aceitunas negras.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo de cerdo",price:6500}]}},
+    {id:58,catId:"sandwiches",name:"La Napolitana",price:5500,desc:"Gouda, tomate asado, aceitunas, orégano y salsa de tomate.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo de cerdo",price:6500}]}},
+    {id:59,catId:"sandwiches",name:"La Mexicana",price:5500,desc:"Cheddar, cebolla caramelizada, papas hilo y guacamole.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo de cerdo",price:6500}]}},
+    {id:60,catId:"sandwiches",name:"Brasileña",price:5500,desc:"Gouda, cheddar y palta cremosa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo de cerdo",price:6500}]}},
+    {id:61,catId:"sandwiches",name:"Tradicional",price:5500,desc:"Lechuga, tomate, cebolla morada y pepinillo.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo de cerdo",price:6500}]}},
+    {id:62,catId:"sandwiches",name:"La de la Casa",price:5500,desc:"Lechuga, tomate, cebolla morada, pepinillo y huevo frito.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Mechada",price:5500},{label:"Pollo",price:5500},{label:"Lomo de cerdo",price:6500}]}},
 
     // ─── Hamburguesas (63-70)
     {id:63,catId:"hamburguesas",name:"Clásica Burger",price:5500,desc:"Mozzarella, lechuga, tomate, cebolla y kétchup.",badges:[]},
@@ -215,6 +215,7 @@
   var fulfillment = 'retiro';
   var deliveryPrice = 0;
   var selectedDeliveryZone = '';
+  var deliveryAddress = '';
   var selectedTable = '';
   var cartNotes = '';
   var customState = null;
@@ -432,7 +433,10 @@
     ZONES.forEach(function (z) {
       html += '<option value="' + escHtml(z.zone) + '"' + (selectedDeliveryZone === z.zone ? ' selected' : '') + '>' + escHtml(z.zone) + ' — ' + fmtPrice(z.price) + '</option>';
     });
-    html += '</select></div>';
+    html += '</select>';
+    html += '<label for="dz-address">Dirección exacta (calle, número, referencia)</label>';
+    html += '<input type="text" id="dz-address" maxlength="140" placeholder="Ej.: Los Aromos 123, casa azul" value="' + escHtml(deliveryAddress) + '">';
+    html += '</div>';
     html += '<div class="fulfillment-detail table-select' + (fulfillment === 'mesa' ? ' show' : '') + '" id="table-select">';
     html += '<label for="table-dropdown">Número de mesa</label><select id="table-dropdown"><option value="">Selecciona tu mesa</option>';
     for (var table = 1; table <= 9; table++) {
@@ -472,6 +476,8 @@
     });
     var dd = $('#dz-dropdown');
     if (dd) dd.addEventListener('change', function () { selectedDeliveryZone = dd.value; updateTotals(); });
+    var addressInput = $('#dz-address');
+    if (addressInput) addressInput.addEventListener('input', function () { deliveryAddress = addressInput.value; updateWaLink(); });
     var tableDropdown = $('#table-dropdown');
     if (tableDropdown) tableDropdown.addEventListener('change', function () { selectedTable = tableDropdown.value; updateWaLink(); });
     var notes = $('#cart-notes');
@@ -494,8 +500,11 @@
     if (type !== 'delivery') {
       deliveryPrice = 0;
       selectedDeliveryZone = '';
+      deliveryAddress = '';
       var dd = $('#dz-dropdown');
       if (dd) dd.value = '';
+      var addressInput = $('#dz-address');
+      if (addressInput) addressInput.value = '';
     }
     if (type !== 'mesa') {
       selectedTable = '';
@@ -525,8 +534,8 @@
     lines.push('FECHA_CHILE: ' + formatChileDateTime(new Date()));
     lines.push('\n*PRODUCTOS*');
     cart.forEach(function (item, i) {
-      var line = (i + 1) + '. ' + item.qty + ' × ' + item.name + ' — ' + fmtPrice(item.price * item.qty);
-      if (item.variant) line += '\n   • ' + item.variant;
+      var protein = item.variant ? item.variant + ' — ' : '';
+      var line = (i + 1) + '. ' + item.qty + ' × ' + protein + item.name + ' — ' + fmtPrice(item.price * item.qty);
       lines.push(line);
     });
     var subtotal = cartTotal();
@@ -534,6 +543,7 @@
     if (fulfillment === 'delivery') {
       lines.push('MODALIDAD: DELIVERY');
       if (selectedDeliveryZone) lines.push('ZONA: ' + selectedDeliveryZone);
+      if (deliveryAddress.trim()) lines.push('DIRECCION: ' + deliveryAddress.trim());
     } else if (fulfillment === 'mesa') {
       lines.push('MODALIDAD: MESA');
       if (selectedTable) lines.push('MESA: ' + selectedTable);
@@ -568,6 +578,8 @@
       message = 'El pedido mínimo para delivery es ' + fmtPrice(window.__BRAND__.deliveryMin) + '.';
     } else if (fulfillment === 'delivery' && !selectedDeliveryZone) {
       message = 'Selecciona una zona de delivery.';
+    } else if (fulfillment === 'delivery' && !deliveryAddress.trim()) {
+      message = 'Ingresa tu dirección exacta para el delivery.';
     } else if (fulfillment === 'mesa' && !selectedTable) {
       message = 'Selecciona tu número de mesa.';
     }
@@ -1188,23 +1200,12 @@
       });
     });
 
-    // Separator lines grow
+    // Separator lines: render at full width, no scroll-triggered animation
+    // (previous scaleX(0)->1 animation could get stuck at scaleX(0) on slower
+    // devices or when ScrollTrigger's cached positions went stale, leaving
+    // the divider looking cut off/incomplete)
     safe(function () {
-      gsap.utils.toArray('.separator__line').forEach(function (line) {
-        gsap.fromTo(line,
-          { scaleX: 0 },
-          {
-            scaleX: 1,
-            duration: 1,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: line,
-              start: 'top 85%',
-              once: true
-            }
-          }
-        );
-      });
+      gsap.set('.separator__line', { scaleX: 1 });
     });
   }
 

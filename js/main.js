@@ -8,6 +8,7 @@
 
   /* ── Brand config ── */
   window.__BRAND__ = {
+    name: 'La Terraza de Lupita by Mister Mechada',
     phone: '56990998900',
     deliveryMin: 5000,
     deliveryZones: [
@@ -218,6 +219,7 @@
   var cartNotes = '';
   var customState = null;
   var orderId = '';
+  var lastFocusedElement = null;
 
   /* ── DOM Helpers ── */
   var $ = function (s) { return document.querySelector(s); };
@@ -236,11 +238,49 @@
     return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
+  function cleanText(value, maxLength) {
+    return String(value || '')
+      .replace(/[\u0000-\u001F\u007F]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, maxLength || 500);
+  }
+
+  function chileParts(date) {
+    var parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Santiago',
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', hour12: false
+    }).formatToParts(date || new Date());
+    var result = {};
+    parts.forEach(function (part) { result[part.type] = part.value; });
+    if (result.hour === '24') result.hour = '00';
+    return result;
+  }
+
+  function formatChileDateTime(date) {
+    var p = chileParts(date);
+    return p.day + '/' + p.month + '/' + p.year + ' ' + p.hour + ':' + p.minute;
+  }
+
+  function chileDateISO() {
+    var p = chileParts(new Date());
+    return p.year + '-' + p.month + '-' + p.day;
+  }
+
+  function formatDateForMessage(value) {
+    var parts = String(value || '').split('-');
+    return parts.length === 3 ? parts[2] + '/' + parts[1] + '/' + parts[0] : cleanText(value, 20);
+  }
+
   function createOrderId() {
-    var now = new Date();
-    var pad = function (n) { return String(n).padStart(2, '0'); };
-    return 'WEB-' + now.getFullYear() + pad(now.getMonth() + 1) + pad(now.getDate()) + '-' +
-      pad(now.getHours()) + pad(now.getMinutes()) + '-' + String(Math.floor(Math.random() * 900) + 100);
+    var p = chileParts(new Date());
+    return 'WEB-' + p.year + p.month + p.day + '-' + p.hour + p.minute + '-' + String(Math.floor(Math.random() * 900) + 100);
+  }
+
+  function createReservationId() {
+    var p = chileParts(new Date());
+    return 'RES-' + p.year + p.month + p.day + '-' + p.hour + p.minute + '-' + String(Math.floor(Math.random() * 900) + 100);
   }
 
   /* ═══ RENDER MENU SECTIONS ═══ */
@@ -309,7 +349,7 @@
 
   function addToCart(product, variantLabel, variantPrice) {
     var price = variantPrice || product.price;
-    var key = product.name + '|' + (variantLabel || '');
+    var key = String(product.id) + '|' + (variantLabel || '');
     if (!orderId) orderId = createOrderId();
     var existing = cart.find(function (c) { return c.key === key; });
     if (existing) {
@@ -356,7 +396,7 @@
     if (cart.length === 0) {
       orderId = '';
       cartBody.innerHTML = '<div class="cart-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg><p>Tu pedido está vacío</p></div>';
-      if (cartFooter) cartFooter.style.display = 'none';
+      if (cartFooter) cartFooter.classList.add('is-hidden');
       return;
     }
 
@@ -369,11 +409,11 @@
       html += '</div><div class="cart-item__price">' + fmtPrice(item.price * item.qty) + '</div></div>';
       html += '<div class="cart-item__controls">';
       html += '<div class="qty-control">';
-      html += '<button class="qty-btn" data-qty-key="' + escHtml(item.key) + '" data-qty-delta="-1" aria-label="Restar">−</button>';
+      html += '<button type="button" class="qty-btn" data-qty-key="' + escHtml(item.key) + '" data-qty-delta="-1" aria-label="Restar una unidad de ' + escHtml(item.name) + '">−</button>';
       html += '<span class="qty-val">' + item.qty + '</span>';
-      html += '<button class="qty-btn" data-qty-key="' + escHtml(item.key) + '" data-qty-delta="1" aria-label="Sumar">+</button>';
+      html += '<button type="button" class="qty-btn" data-qty-key="' + escHtml(item.key) + '" data-qty-delta="1" aria-label="Sumar una unidad de ' + escHtml(item.name) + '">+</button>';
       html += '</div>';
-      html += '<button class="cart-remove" data-remove-key="' + escHtml(item.key) + '">Eliminar</button>';
+      html += '<button type="button" class="cart-remove" data-remove-key="' + escHtml(item.key) + '" aria-label="Eliminar ' + escHtml(item.name) + '">Eliminar</button>';
       html += '</div></li>';
     });
     html += '</ul>';
@@ -382,9 +422,9 @@
     var ZONES = window.__BRAND__.deliveryZones;
     html += '<div class="fulfillment"><h3>¿Cómo quieres recibirlo?</h3>';
     html += '<div class="segmented">';
-    html += '<button class="seg-btn' + (fulfillment === 'retiro' ? ' active' : '') + '" data-fulfill="retiro">Retiro</button>';
-    html += '<button class="seg-btn' + (fulfillment === 'delivery' ? ' active' : '') + '" data-fulfill="delivery">Delivery</button>';
-    html += '<button class="seg-btn' + (fulfillment === 'mesa' ? ' active' : '') + '" data-fulfill="mesa">A la mesa</button>';
+    html += '<button type="button" class="seg-btn' + (fulfillment === 'retiro' ? ' active' : '') + '" data-fulfill="retiro" aria-pressed="' + (fulfillment === 'retiro' ? 'true' : 'false') + '">Retiro</button>';
+    html += '<button type="button" class="seg-btn' + (fulfillment === 'delivery' ? ' active' : '') + '" data-fulfill="delivery" aria-pressed="' + (fulfillment === 'delivery' ? 'true' : 'false') + '">Delivery</button>';
+    html += '<button type="button" class="seg-btn' + (fulfillment === 'mesa' ? ' active' : '') + '" data-fulfill="mesa" aria-pressed="' + (fulfillment === 'mesa' ? 'true' : 'false') + '">A la mesa</button>';
     html += '</div>';
     html += '<div class="fulfillment-detail delivery-zone-select' + (fulfillment === 'delivery' ? ' show' : '') + '" id="dz-select">';
     html += '<label for="dz-dropdown">Zona de delivery</label>';
@@ -412,7 +452,7 @@
     html += '</div>';
 
     cartBody.innerHTML = html;
-    if (cartFooter) cartFooter.style.display = 'flex';
+    if (cartFooter) cartFooter.classList.remove('is-hidden');
 
     // Wire cart events
     $$('[data-qty-key]').forEach(function (btn) {
@@ -442,7 +482,11 @@
 
   function setFulfillment(type) {
     fulfillment = type;
-    $$('.seg-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.fulfill === type); });
+    $$('.seg-btn').forEach(function (b) {
+      var active = b.dataset.fulfill === type;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
     var dzs = $('#dz-select');
     var tableSelect = $('#table-select');
     if (dzs) dzs.classList.toggle('show', type === 'delivery');
@@ -474,41 +518,41 @@
   }
 
   function updateWaLink() {
-    var now = new Date();
-    var lines = [
-      '¡Hola! Quiero hacer este pedido a través de la web:',
-      '',
-      '*La Terraza de Lupita* by Mister Mechada'
-    ];
-    lines.push('', '*Mi pedido*');
+    var lines = ['[PEDIDO_WEB]', '🧾 *NUEVO PEDIDO WEB*', '*' + window.__BRAND__.name + '*'];
+    if (!orderId) orderId = createOrderId();
+    lines.push('ID: ' + orderId);
+    lines.push('ORIGEN: PAGINA_WEB');
+    lines.push('FECHA_CHILE: ' + formatChileDateTime(new Date()));
+    lines.push('\n*PRODUCTOS*');
     cart.forEach(function (item, i) {
       var line = (i + 1) + '. ' + item.qty + ' × ' + item.name + ' — ' + fmtPrice(item.price * item.qty);
-      if (item.variant) line += '\n   _' + item.variant + '_';
+      if (item.variant) line += '\n   • ' + item.variant;
       lines.push(line);
     });
     var subtotal = cartTotal();
-    var entregaLine = '*Entrega:* ';
+    lines.push('\n*ENTREGA*');
     if (fulfillment === 'delivery') {
-      entregaLine = '*Entrega:* Delivery' + (selectedDeliveryZone ? ' — ' + selectedDeliveryZone : '');
+      lines.push('MODALIDAD: DELIVERY');
+      if (selectedDeliveryZone) lines.push('ZONA: ' + selectedDeliveryZone);
     } else if (fulfillment === 'mesa') {
-      entregaLine = '*Entrega:* Atención en mesa' + (selectedTable ? ' — Mesa ' + selectedTable : '');
+      lines.push('MODALIDAD: MESA');
+      if (selectedTable) lines.push('MESA: ' + selectedTable);
     } else {
-      entregaLine = '*Entrega:* Retiro en el local';
+      lines.push('MODALIDAD: RETIRO_LOCAL');
     }
-    lines.push('', entregaLine);
-    lines.push('', '*Resumen*');
+    lines.push('\n*RESUMEN*');
     lines.push('Subtotal: ' + fmtPrice(subtotal));
     if (fulfillment === 'delivery' && deliveryPrice > 0) {
-      lines.push('Delivery: ' + fmtPrice(deliveryPrice));
+      lines.push('Costo de delivery: ' + fmtPrice(deliveryPrice));
     }
-    lines.push('*Total: ' + fmtPrice(subtotal + deliveryPrice) + '*');
+    lines.push('*TOTAL ESTIMADO: ' + fmtPrice(subtotal + deliveryPrice) + '*');
     if (cartNotes.trim()) {
-      lines.push('', '*Notas:* ' + cartNotes.trim());
+      lines.push('\n*OBSERVACIONES*');
+      lines.push(cartNotes.trim());
     }
-    var fechaStr = now.toLocaleDateString('es-CL');
-    var horaStr = now.toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit', hour12: false });
-    lines.push('', 'Quedo atento/a a la confirmación, ¡gracias!');
-    lines.push('Pedido realizado el ' + fechaStr + ' a las *' + horaStr + '*');
+    lines.push('\nESTADO: PENDIENTE_CONFIRMACION');
+    lines.push('Quedo atento/a a la confirmación del restaurante.');
+    lines.push('[/PEDIDO_WEB]');
     var text = encodeURIComponent(lines.join('\n'));
     var cartWaBtn = $('#cart-wa-btn');
     if (cartWaBtn) {
@@ -522,9 +566,11 @@
     var message = '';
     if (fulfillment === 'delivery' && cartTotal() < window.__BRAND__.deliveryMin) {
       message = 'El pedido mínimo para delivery es ' + fmtPrice(window.__BRAND__.deliveryMin) + '.';
+    } else if (fulfillment === 'delivery' && !selectedDeliveryZone) {
+      message = 'Selecciona una zona de delivery.';
+    } else if (fulfillment === 'mesa' && !selectedTable) {
+      message = 'Selecciona tu número de mesa.';
     }
-    if (fulfillment === 'delivery' && !selectedDeliveryZone) message = 'Selecciona una zona de delivery.';
-    if (fulfillment === 'mesa' && !selectedTable) message = 'Selecciona tu número de mesa.';
     var error = $('#fulfillment-error');
     if (error) error.textContent = showMessage ? message : '';
     if (message && showMessage) showToast(message);
@@ -545,12 +591,12 @@
 
     var html = '';
     if (product.variants.required) {
-      html += '<p class="variant-required" style="margin-bottom:12px">* Selección obligatoria</p>';
+      html += '<p class="variant-required">* Selección obligatoria</p>';
     }
     html += '<div class="variant-options">';
     product.variants.options.forEach(function (opt, i) {
       var priceLabel = opt.price ? ' — ' + fmtPrice(opt.price) : '';
-      html += '<button class="variant-opt" data-idx="' + i + '">';
+      html += '<button type="button" class="variant-opt" data-idx="' + i + '" aria-pressed="false">';
       html += '<span class="variant-opt__radio"></span>';
       html += '<span class="variant-opt__label">' + escHtml(opt.label) + '</span>';
       if (priceLabel) html += '<span class="variant-opt__price">' + priceLabel + '</span>';
@@ -565,6 +611,7 @@
       btn.addEventListener('click', function () {
         $$('#variant-body .variant-opt').forEach(function (o) { o.classList.remove('selected'); });
         btn.classList.add('selected');
+        $$('#variant-body .variant-opt').forEach(function (o) { o.setAttribute('aria-pressed', o === btn ? 'true' : 'false'); });
         var err = $('#variant-error');
         if (err) err.classList.remove('show');
       });
@@ -600,7 +647,7 @@
       : 'Selecciona una opción.';
     var html = '<div class="custom-progress" aria-label="Paso ' + (customState.step + 1) + ' de ' + steps.length + '">';
     html += '<div class="custom-progress__meta"><span>Paso ' + (customState.step + 1) + ' de ' + steps.length + '</span><strong>' + escHtml(step.title) + '</strong></div>';
-    html += '<div class="custom-progress__track"><span style="width:' + (((customState.step + 1) / steps.length) * 100) + '%"></span></div></div>';
+    html += '<div class="custom-progress__track custom-progress__track--step-' + (customState.step + 1) + '"><span></span></div></div>';
     html += '<p class="custom-step__help">' + helper + '</p>';
     html += '<div class="custom-options custom-options--' + step.type + '">';
     step.options.forEach(function (option, index) {
@@ -697,19 +744,137 @@
     currentProduct = null;
   }
 
+  /* ═══ RESERVATIONS & EVENTS ═══ */
+  function buildReservationUrl(data) {
+    var lines = [
+      '[RESERVA_WEB]',
+      '📅 *NUEVA SOLICITUD DE RESERVA*',
+      '*' + window.__BRAND__.name + '*',
+      'ID: ' + createReservationId(),
+      'ORIGEN: PAGINA_WEB',
+      'ENVIADA_CHILE: ' + formatChileDateTime(new Date()),
+      '',
+      '*DATOS DE LA RESERVA*',
+      'NOMBRE: ' + data.name,
+      'WHATSAPP: ' + data.phone,
+      'PERSONAS: ' + data.guests,
+      'FECHA_SOLICITADA: ' + formatDateForMessage(data.date),
+      'HORA_SOLICITADA: ' + data.time,
+      'OCASION: ' + data.eventType
+    ];
+    if (data.notes) {
+      lines.push('OBSERVACIONES: ' + data.notes);
+    }
+    lines.push('', 'ESTADO: PENDIENTE_CONFIRMACION');
+    lines.push('Nota: la solicitud queda sujeta a disponibilidad y confirmación del restaurante.');
+    lines.push('[/RESERVA_WEB]');
+    return 'https://wa.me/' + window.__BRAND__.phone + '?text=' + encodeURIComponent(lines.join('\n'));
+  }
+
+  function initReservations() {
+    var form = $('#reservation-form');
+    if (!form) return;
+    var dateInput = $('#reservation-date');
+    var phoneInput = $('#reservation-phone');
+    var feedback = $('#reservation-feedback');
+    if (dateInput) dateInput.min = chileDateISO();
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (phoneInput) {
+        phoneInput.setCustomValidity('');
+        var phoneDigits = phoneInput.value.replace(/\D/g, '');
+        if (phoneDigits.length < 8 || phoneDigits.length > 15) {
+          phoneInput.setCustomValidity('Ingresa un número de WhatsApp válido.');
+        }
+      }
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        if (feedback) feedback.textContent = 'Revisa los campos marcados para continuar.';
+        return;
+      }
+
+      var data = {
+        name: cleanText($('#reservation-name').value, 80),
+        phone: cleanText($('#reservation-phone').value, 20),
+        guests: cleanText($('#reservation-guests').value, 3),
+        date: cleanText($('#reservation-date').value, 10),
+        time: cleanText($('#reservation-time').value, 5),
+        eventType: cleanText($('#reservation-type').value, 80),
+        notes: cleanText($('#reservation-notes').value, 500)
+      };
+      var url = buildReservationUrl(data);
+      if (feedback) feedback.textContent = 'Solicitud preparada. WhatsApp se abrirá para enviarla al restaurante.';
+      var opened = window.open(url, '_blank', 'noopener,noreferrer');
+      if (!opened) window.location.assign(url);
+    });
+
+    form.addEventListener('input', function (event) {
+      if (event.target === phoneInput && phoneInput) phoneInput.setCustomValidity('');
+      if (feedback) feedback.textContent = '';
+    });
+  }
+
+  function buildEventQuoteUrl(service) {
+    var selectedService = cleanText(service || 'Por definir', 100);
+    var lines = [
+      '✨ *CONSULTA DE EVENTO*',
+      '*' + window.__BRAND__.name + '*',
+      'ORIGEN: PAGINA_WEB',
+      'SERVICIO: ' + selectedService,
+      '',
+      'Quisiera conocer disponibilidad, condiciones y una propuesta para mi evento.'
+    ];
+    return 'https://wa.me/' + window.__BRAND__.phone + '?text=' + encodeURIComponent(lines.join('\n'));
+  }
+
+  function initEventServices() {
+    $$('[data-event-service]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var service = link.dataset.eventService || 'Por definir';
+        window.open(buildEventQuoteUrl(service), '_blank');
+      });
+    });
+  }
+
   /* ═══ SHEET OPEN/CLOSE ═══ */
+  function hasOpenSheet() {
+    return !!document.querySelector('.bottom-sheet.open');
+  }
+
   function openSheet(sheet) {
     var overlay = $('#overlay');
+    if (!sheet) return;
+    lastFocusedElement = document.activeElement;
     if (overlay) overlay.classList.add('open');
-    if (sheet) sheet.classList.add('open');
+    if (overlay) overlay.setAttribute('aria-hidden', 'false');
+    sheet.classList.add('open');
+    sheet.setAttribute('aria-hidden', 'false');
+    sheet.removeAttribute('inert');
     document.body.style.overflow = 'hidden';
+    var closeButton = sheet.querySelector('.bs-close');
+    if (closeButton) setTimeout(function () { closeButton.focus(); }, 0);
   }
 
   function closeSheet(sheet) {
     var overlay = $('#overlay');
-    if (overlay) overlay.classList.remove('open');
-    if (sheet) sheet.classList.remove('open');
-    document.body.style.overflow = '';
+    if (sheet) {
+      sheet.classList.remove('open');
+      sheet.setAttribute('aria-hidden', 'true');
+      sheet.setAttribute('inert', '');
+    }
+    if (!hasOpenSheet()) {
+      if (overlay) {
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden', 'true');
+      }
+      document.body.style.overflow = '';
+      if (lastFocusedElement && document.contains(lastFocusedElement) && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
+      }
+      lastFocusedElement = null;
+    }
   }
 
   function handleAdd(productId) {
@@ -819,6 +984,7 @@
       mobileNav.classList.toggle('open', open);
       hamburger.setAttribute('aria-expanded', open);
       hamburger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      mobileNav.setAttribute('aria-hidden', open ? 'false' : 'true');
       document.body.style.overflow = open ? 'hidden' : '';
     });
 
@@ -828,6 +994,7 @@
         mobileNav.classList.remove('open');
         hamburger.setAttribute('aria-expanded', 'false');
         hamburger.setAttribute('aria-label', 'Abrir menú');
+        mobileNav.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
       });
     });
@@ -936,9 +1103,15 @@
     if (!statusEl) return;
 
     var now = new Date();
-    var day = now.getDay(); // 0=Sun
-    var hour = now.getHours();
-    var min = now.getMinutes();
+    var chile = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Santiago', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false
+    }).formatToParts(now);
+    var part = {};
+    chile.forEach(function (item) { part[item.type] = item.value; });
+    var dayMap = {Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6};
+    var day = dayMap[part.weekday];
+    var hour = part.hour === '24' ? 0 : parseInt(part.hour, 10);
+    var min = parseInt(part.minute, 10);
     var timeNum = hour * 60 + min;
 
     // Open hours: Sun-Thu 19:00-00:00, Fri-Sat 19:00-01:00
@@ -963,6 +1136,16 @@
     // Check reduced motion
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) return;
+
+    // Hero fade-in
+    safe(function () {
+      gsap.from('.hero__visual img', {
+        opacity: 0,
+        y: 20,
+        duration: 1,
+        ease: 'power2.out'
+      });
+    });
 
     // Showcase horizontal scroll hint
     safe(function () {
@@ -1036,6 +1219,8 @@
     safe(initReveal);
     safe(initCounters);
     safe(initOpenStatus);
+    safe(initReservations);
+    safe(initEventServices);
 
     // Cart events
     safe(function () {
@@ -1047,6 +1232,29 @@
       if (variantClose) variantClose.addEventListener('click', function () { closeSheet($('#variant-sheet')); });
       var overlay = $('#overlay');
       if (overlay) overlay.addEventListener('click', function () { closeSheet($('#cart-sheet')); closeSheet($('#variant-sheet')); });
+      document.addEventListener('keydown', function (event) {
+        var activeSheet = document.querySelector('.bottom-sheet.open');
+        if (activeSheet && event.key === 'Tab') {
+          var focusables = Array.from(activeSheet.querySelectorAll('button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled])'));
+          if (focusables.length) {
+            var first = focusables[0];
+            var last = focusables[focusables.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+              event.preventDefault();
+              last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+              event.preventDefault();
+              first.focus();
+            }
+          }
+        }
+        if (event.key === 'Escape') {
+          closeSheet($('#cart-sheet'));
+          closeSheet($('#variant-sheet'));
+          var hamburger = $('#hamburger');
+          if (hamburger && hamburger.classList.contains('open')) hamburger.click();
+        }
+      });
       var variantConfirm = $('#variant-confirm');
       if (variantConfirm) variantConfirm.addEventListener('click', confirmVariant);
       $$('[data-custom-add]').forEach(function (btn) {

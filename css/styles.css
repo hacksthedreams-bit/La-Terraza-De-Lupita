@@ -1174,27 +1174,19 @@ body.cursor-visible .cursor{opacity:1}
 .footer-agency p{
   font-size:.7rem;color:var(--cream-muted);
   text-transform:uppercase;letter-spacing:.1em;
-  margin-bottom:6px;
+  margin-bottom:14px;
 }
-.footer-agency__name{
+.footer-agency__logo{
   display:block;
-  font-family:var(--font-display);
-  font-size:1.1rem;font-weight:700;
-  color:var(--gold);
-  letter-spacing:.06em;
+  width:min(220px,60vw);height:auto;
+  margin:0 auto;
+  filter:drop-shadow(0 0 0 rgba(124,58,237,0));
+  transition:filter .4s;
   animation:agencyGlow 3s ease-in-out infinite alternate;
 }
-.footer-agency__tagline{
-  display:block;
-  font-size:.68rem;
-  color:var(--cream-soft);
-  letter-spacing:.15em;
-  text-transform:uppercase;
-  margin-top:4px;
-}
 @keyframes agencyGlow{
-  0%{text-shadow:0 0 8px rgba(196,154,91,.2)}
-  100%{text-shadow:0 0 20px rgba(196,154,91,.5),0 0 40px rgba(196,154,91,.15)}
+  0%{filter:drop-shadow(0 0 6px rgba(124,58,237,.15))}
+  100%{filter:drop-shadow(0 0 18px rgba(124,58,237,.45))}
 }
 
 /* ═══ WHATSAPP FLOAT ═══ */

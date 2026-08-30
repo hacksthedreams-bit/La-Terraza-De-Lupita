@@ -534,7 +534,8 @@ body.cursor-visible .cursor{opacity:1}
 .custom-product__action{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .custom-product__action strong{font-family:var(--font-display);font-size:1.5rem;color:var(--gold)}
 .separator--custom{padding-top:28px;padding-bottom:28px;background:var(--bg-section)}
-.separator--custom .separator__line{background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.separator--custom .separator__line:first-child{background:linear-gradient(90deg,transparent,var(--gold))}
+.separator--custom .separator__line:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
 
 /* ═══ RESERVAS, EVENTOS Y CALYZZO ═══ */
 .section--reservations{

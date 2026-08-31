@@ -388,6 +388,15 @@ body.cursor-visible .cursor{opacity:1}
   display:flex;align-items:center;justify-content:center;
   font-size:22px;line-height:1;
 }
+.separator__icon.reveal-up{
+  opacity:0;
+  transform:scale(.4) rotate(-25deg);
+  transition:opacity .6s cubic-bezier(.34,1.56,.64,1),transform .6s cubic-bezier(.34,1.56,.64,1);
+}
+.separator__icon.reveal-up.visible{
+  opacity:1;
+  transform:scale(1) rotate(0deg);
+}
 
 /* ═══ SHOWCASE (horizontal scroll) ═══ */
 .section--featured{overflow:hidden}
@@ -1421,6 +1430,7 @@ body.cursor-visible .cursor{opacity:1}
   .marquee__track{animation:none}
   .splash__fill{animation:none;width:100%}
   .reveal-up{opacity:1;transform:none;transition:none}
+  .separator__icon.reveal-up{opacity:1;transform:none;transition:none}
 }
 
 /* ═══ RESPONSIVE ═══ */

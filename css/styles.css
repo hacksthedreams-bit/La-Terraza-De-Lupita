@@ -387,6 +387,15 @@ body.cursor-visible .cursor{opacity:1}
   border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   font-size:22px;line-height:1;
+  animation:separatorWiggle 2.6s ease-in-out infinite;
+}
+.separator--flags{
+  padding-top:28px;padding-bottom:28px;
+  background:var(--bg-section);
+}
+@keyframes separatorWiggle{
+  0%,100%{transform:rotate(-8deg) scale(1)}
+  50%{transform:rotate(8deg) scale(1.08)}
 }
 
 /* ═══ SHOWCASE (horizontal scroll) ═══ */
@@ -1421,6 +1430,7 @@ body.cursor-visible .cursor{opacity:1}
   .marquee__track{animation:none}
   .splash__fill{animation:none;width:100%}
   .reveal-up{opacity:1;transform:none;transition:none}
+  .separator__icon{animation:none}
 }
 
 /* ═══ RESPONSIVE ═══ */

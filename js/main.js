@@ -44,6 +44,14 @@
     ];
   }
 
+  function fajitaSteps() {
+    return [
+      {key:'protein',title:'Elige tu proteína',type:'single',count:1,options:CUSTOM_PROTEINS},
+      {key:'ingredients',title:'Elige tres ingredientes',type:'multiple',count:3,options:CUSTOM_INGREDIENTS},
+      {key:'sauces',title:'Elige tus salsas',type:'multiple',count:2,required:false,helperText:'Puedes elegir hasta 2 salsas (opcional)',options:CUSTOM_SAUCES}
+    ];
+  }
+
   /* ── Product Catalog ── */
   var PRODUCTS = [
     // ─── Para compartir (0-13)
@@ -63,21 +71,21 @@
     {id:13,catId:"compartir",name:"Tablita Lupita Tex-Mex",price:20000,desc:"Quesadilla de carne, flautitas, alitas, nachos con guacamole, aros de cebolla y papas. Con tres salsas.",badges:[]},
 
     // ─── Chorrillanas (14-28)
-    {id:14,catId:"chorrillanas",name:"Tradicional",price:7500,desc:"Carne mechada, cebolla caramelizada, chorizo y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Para 1–2",price:7500},{label:"Para 3–4",price:12000}]}},
-    {id:15,catId:"chorrillanas",name:"Suprema",price:12000,desc:"Pollo, salsa blanca, champiñones y cebollín.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Para 1–2",price:12000},{label:"Para 3–4",price:19000}]}},
-    {id:16,catId:"chorrillanas",name:"Pollo Mongoliano",price:12000,desc:"Pollo salteado, cebollín, salsa de ostras y soya.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Para 1–2",price:12000},{label:"Para 3–4",price:19000}]}},
-    {id:17,catId:"chorrillanas",name:"Papas Champi",price:12000,desc:"Champiñones salteados, cebollín y salsa de ostras.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Para 1–2",price:12000},{label:"Para 3–4",price:19000}]}},
-    {id:18,catId:"chorrillanas",name:"La Vegetariana",price:12000,desc:"Cebolla, champiñón, pimentón, cebollín y salsa de queso.",badges:["vegetariano"],variants:{title:"Elige tamaño",required:true,options:[{label:"Para 1–2",price:12000},{label:"Para 3–4",price:19000}]}},
-    {id:19,catId:"chorrillanas",name:"Chicken Teriyaki",price:12000,desc:"Pollo, champiñón, cebollín, sésamo tostado y salsa teriyaki.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Para 1–2",price:12000},{label:"Para 3–4",price:19000}]}},
-    {id:20,catId:"chorrillanas",name:"Lomo Saltado",price:16000,desc:"Vacuno, cebolla morada, tomate, soya y salsa de ostras.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Para 1–2",price:16000},{label:"Para 3–4",price:23000}]}},
-    {id:21,catId:"chorrillanas",name:"Carne Mongoliana",price:16000,desc:"Lomo liso, cebollín, cheddar, salsa de ostras y soya.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Para 1–2",price:16000},{label:"Para 3–4",price:23000}]}},
-    {id:22,catId:"chorrillanas",name:"El Fabi",price:16000,desc:"Chorizo, carne mechada, pollo, tocino y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Para 1–2",price:16000},{label:"Para 3–4",price:23000}]}},
-    {id:23,catId:"chorrillanas",name:"Tradicional Extra",price:19000,desc:"Cebolla caramelizada, extra cerdo, extra mechada y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Para 1–2",price:19000},{label:"Para 3–4",price:23000}]}},
-    {id:24,catId:"chorrillanas",name:"Suprema Camarón",price:19000,desc:"Salsa blanca, cebollín, champiñón, pollo y camarones.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Para 1–2",price:19000},{label:"Para 3–4",price:23000}]}},
-    {id:25,catId:"chorrillanas",name:"La Reina de la Casa",price:19000,desc:"Salsa blanca, champiñón, pollo apanado, ciboulette y queso rallado.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Para 1–2",price:19000},{label:"Para 3–4",price:23000}]}},
-    {id:26,catId:"chorrillanas",name:"Don Simón",price:23000,desc:"Salsa blanca, pollo, carne mechada, cebollín y champiñón.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Para 1–2",price:23000},{label:"Para 3–4",price:28000}]}},
-    {id:27,catId:"chorrillanas",name:"La Carnívora",price:23000,desc:"Chorizo, pollo, mechada, lomo de cerdo, cebolla caramelizada y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Para 1–2",price:23000},{label:"Para 3–4",price:28000}]}},
-    {id:28,catId:"chorrillanas",name:"Mar y Tierra",price:23000,desc:"Chorizo, vacuno, pollo, camarones, algas, cebolla caramelizada y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Para 1–2",price:23000},{label:"Para 3–4",price:28000}]}},
+    {id:14,catId:"chorrillanas",name:"Tradicional",price:7500,desc:"Carne mechada, cebolla caramelizada, chorizo y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Individual",price:7500},{label:"2 personas",price:12000},{label:"3 personas",price:16000},{label:"4 personas",price:20000}]}},
+    {id:15,catId:"chorrillanas",name:"Suprema",price:12000,desc:"Pollo, salsa blanca, champiñones y cebollín.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:12000},{label:"3 personas",price:16000},{label:"4 personas",price:20000}]}},
+    {id:16,catId:"chorrillanas",name:"Pollo Mongoliano",price:12000,desc:"Pollo salteado, cebollín, salsa de ostras y soya.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:12000},{label:"3 personas",price:16000},{label:"4 personas",price:20000}]}},
+    {id:17,catId:"chorrillanas",name:"Papas Champi",price:12000,desc:"Champiñones salteados, cebollín y salsa de ostras.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:12000},{label:"3 personas",price:16000},{label:"4 personas",price:20000}]}},
+    {id:18,catId:"chorrillanas",name:"La Vegetariana",price:12000,desc:"Cebolla, champiñón, pimentón, cebollín y salsa de queso.",badges:["vegetariano"],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:12000},{label:"3 personas",price:16000},{label:"4 personas",price:20000}]}},
+    {id:19,catId:"chorrillanas",name:"Chicken Teriyaki",price:12000,desc:"Pollo, champiñón, cebollín, sésamo tostado y salsa teriyaki.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:12000},{label:"3 personas",price:16000},{label:"4 personas",price:20000}]}},
+    {id:20,catId:"chorrillanas",name:"Lomo Saltado",price:16000,desc:"Vacuno, cebolla morada, tomate, soya y salsa de ostras.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:16000},{label:"4 personas",price:20000}]}},
+    {id:21,catId:"chorrillanas",name:"Carne Mongoliana",price:16000,desc:"Lomo liso, cebollín, cheddar, salsa de ostras y soya.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:16000},{label:"4 personas",price:20000}]}},
+    {id:22,catId:"chorrillanas",name:"El Fabi",price:16000,desc:"Chorizo, carne mechada, pollo, tocino y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:16000},{label:"4 personas",price:20000}]}},
+    {id:23,catId:"chorrillanas",name:"Tradicional Extra",price:19000,desc:"Cebolla caramelizada, extra cerdo, extra mechada y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:19000},{label:"4 personas",price:23000}]}},
+    {id:24,catId:"chorrillanas",name:"Suprema Camarón",price:19000,desc:"Salsa blanca, cebollín, champiñón, pollo y camarones.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:19000},{label:"4 personas",price:23000}]}},
+    {id:25,catId:"chorrillanas",name:"La Reina de la Casa",price:19000,desc:"Salsa blanca, champiñón, pollo apanado, ciboulette y queso rallado.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:19000},{label:"4 personas",price:23000}]}},
+    {id:26,catId:"chorrillanas",name:"Don Simón",price:23000,desc:"Salsa blanca, pollo, carne mechada, cebollín y champiñón.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:23000},{label:"4 personas",price:26000}]}},
+    {id:27,catId:"chorrillanas",name:"La Carnívora",price:23000,desc:"Chorizo, pollo, mechada, lomo de cerdo, cebolla caramelizada y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:23000},{label:"4 personas",price:26000}]}},
+    {id:28,catId:"chorrillanas",name:"Mar y Tierra",price:23000,desc:"Chorizo, vacuno, pollo, camarones, algas, cebolla caramelizada y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:23000},{label:"4 personas",price:26000}]}},
 
     // ─── Chorrillanas solo en el local (29-33)
     {id:29,catId:"chorrillanas",name:"Suprema (local)",price:12000,desc:"Pollo, salsa blanca, champiñones y cebollín.",badges:["local"]},
@@ -88,7 +96,7 @@
 
     // ─── Cocina mexicana (34-45)
     {id:34,catId:"mexicana",name:"Salchitacos",price:6000,desc:"Vienesas en tortilla de maíz con papas, salsa marinada y kétchup.",badges:[]},
-    {id:35,catId:"mexicana",name:"Arma tu fajita",price:7000,desc:"Tortilla de trigo XL con una proteína, tres ingredientes, dos salsas y una bebida a elección. Incluye papas fritas.",badges:["personalizable"],customizer:{steps:customSteps()}},
+    {id:35,catId:"mexicana",name:"Arma tu fajita",price:7000,desc:"Tortilla de trigo XL con una proteína, tres ingredientes y hasta dos salsas a elección. Incluye papas fritas.",badges:["personalizable"],customizer:{steps:fajitaSteps()}},
     {id:122,catId:"mexicana",name:"Taco a tu pinta",price:7000,desc:"Dos tacos con una proteína, tres ingredientes, dos salsas y una bebida a elección.",badges:["personalizable"],customizer:{steps:customSteps()}},
     {id:36,catId:"mexicana",name:"Súper Burrito de Carne",price:6500,desc:"Carne, arroz Lupita, frijoles, lechuga, salsa verde y guacamole.",badges:[],variants:{title:"Acompañamiento",required:true,options:[{label:"Papas"},{label:"Nachos"}]}},
     {id:37,catId:"mexicana",name:"Burrito Lupita",price:7000,desc:"Pollo, arroz Lupita verde, queso, frijoles, salsa verde y guacamole.",badges:[],variants:{title:"Acompañamiento",required:true,options:[{label:"Papas"},{label:"Nachos"}]}},
@@ -644,6 +652,13 @@
     openSheet($('#variant-sheet'));
   }
 
+  function customCountLabel(n, step) {
+    if (step.required === false) {
+      return n + ' de hasta ' + step.count + ' seleccionada' + (n === 1 ? '' : 's');
+    }
+    return n + ' de ' + step.count + ' seleccionada' + (step.count === 1 ? '' : 's');
+  }
+
   function renderCustomStep() {
     if (!currentProduct || !currentProduct.customizer || !customState) return;
     var steps = currentProduct.customizer.steps;
@@ -654,12 +669,15 @@
     var variantConfirm = $('#variant-confirm');
     if (variantTitle) variantTitle.textContent = currentProduct.name;
 
-    var helper = step.type === 'multiple'
-      ? 'Selecciona exactamente ' + step.count + ' opciones.'
-      : 'Selecciona una opción.';
+    var helper = step.helperText
+      ? step.helperText
+      : (step.type === 'multiple'
+        ? 'Selecciona exactamente ' + step.count + ' opciones.'
+        : 'Selecciona una opción.');
+    var progressPct = Math.round(((customState.step + 1) / steps.length) * 100);
     var html = '<div class="custom-progress" aria-label="Paso ' + (customState.step + 1) + ' de ' + steps.length + '">';
     html += '<div class="custom-progress__meta"><span>Paso ' + (customState.step + 1) + ' de ' + steps.length + '</span><strong>' + escHtml(step.title) + '</strong></div>';
-    html += '<div class="custom-progress__track custom-progress__track--step-' + (customState.step + 1) + '"><span></span></div></div>';
+    html += '<div class="custom-progress__track"><span style="width:' + progressPct + '%"></span></div></div>';
     html += '<p class="custom-step__help">' + helper + '</p>';
     html += '<div class="custom-options custom-options--' + step.type + '">';
     step.options.forEach(function (option, index) {
@@ -668,7 +686,7 @@
       html += '<span class="custom-opt__marker" aria-hidden="true"></span><span>' + escHtml(option) + '</span></button>';
     });
     html += '</div>';
-    html += '<div class="custom-step__status"><span id="custom-count">' + selected.length + ' de ' + step.count + ' seleccionada' + (step.count === 1 ? '' : 's') + '</span>';
+    html += '<div class="custom-step__status"><span id="custom-count">' + customCountLabel(selected.length, step) + '</span>';
     if (customState.step > 0) html += '<button type="button" class="custom-back" id="custom-back">← Volver al paso anterior</button>';
     html += '</div>';
     html += '<p class="variant-error" id="variant-error" role="alert">Completa la selección indicada para continuar.</p>';
@@ -698,7 +716,7 @@
           choice.setAttribute('aria-pressed', active ? 'true' : 'false');
         });
         var count = $('#custom-count');
-        if (count) count.textContent = updated.length + ' de ' + step.count + ' seleccionada' + (step.count === 1 ? '' : 's');
+        if (count) count.textContent = customCountLabel(updated.length, step);
         var error = $('#variant-error');
         if (error) error.classList.remove('show');
       });
@@ -716,7 +734,7 @@
       var steps = currentProduct.customizer.steps;
       var step = steps[customState.step];
       var selectedCustom = customState.selections[step.key] || [];
-      if (selectedCustom.length !== step.count) {
+      if (step.required !== false && selectedCustom.length !== step.count) {
         var customError = $('#variant-error');
         if (customError) customError.classList.add('show');
         return;
@@ -726,12 +744,13 @@
         renderCustomStep();
         return;
       }
-      var choiceLabel = [
-        'Proteína: ' + customState.selections.protein[0],
-        'Ingredientes: ' + customState.selections.ingredients.join(', '),
-        'Salsas: ' + customState.selections.sauces.join(', '),
-        'Bebida: ' + customState.selections.drink[0]
-      ].join(' · ');
+      var sel = customState.selections;
+      var choiceParts = [];
+      if (sel.protein && sel.protein.length) choiceParts.push('Proteína: ' + sel.protein[0]);
+      if (sel.ingredients && sel.ingredients.length) choiceParts.push('Ingredientes: ' + sel.ingredients.join(', '));
+      if (sel.sauces && sel.sauces.length) choiceParts.push('Salsas: ' + sel.sauces.join(', '));
+      if (sel.drink && sel.drink.length) choiceParts.push('Bebida: ' + sel.drink[0]);
+      var choiceLabel = choiceParts.join(' · ');
       addToCart(currentProduct, choiceLabel, currentProduct.price);
       closeSheet($('#variant-sheet'));
       currentProduct = null;

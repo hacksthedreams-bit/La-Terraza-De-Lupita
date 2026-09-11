@@ -645,7 +645,7 @@ body.cursor-visible .cursor{opacity:1}
 .carta-header__text{flex:1}
 .carta-header__img{
   flex:0 0 auto;
-  width:clamp(120px,18vw,200px);
+  width:clamp(180px,26vw,300px);
 }
 .carta-header__img img{
   width:100%;height:auto;
@@ -1449,13 +1449,14 @@ body.cursor-visible .cursor{opacity:1}
   .footer-grid{grid-template-columns:1fr 1fr}
   .hours-card__grid{grid-template-columns:1fr}
   .carta-header{flex-direction:column;text-align:center}
-  .carta-header__img{order:-1}
+  .carta-header__img{order:-1;width:clamp(220px,58vw,300px)}
   .section-subtitle{margin-left:auto;margin-right:auto}
   .reservation-heading{grid-template-columns:1fr;align-items:start}
   .reservation-heading .section-subtitle{margin-left:0}
   .reservation-layout{grid-template-columns:1fr}
   .hero__content{padding:16px clamp(16px,4vw,32px) 28px}
   .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .section--custom::after{display:none}
 }
 @media (max-width:720px){
   .gallery-grid{grid-template-columns:1fr 1fr}

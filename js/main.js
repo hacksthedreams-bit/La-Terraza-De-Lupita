@@ -147,16 +147,6 @@
     {id:75,catId:"especiales",name:"Crispy Sandwich",price:7000,desc:"Pollo crispy, lechuga, tomate, queso Gauda, tocino, mayonesa de tocino ahumado y salsa BBQ.",badges:[]},
     {id:76,catId:"especiales",name:"Milanesa de Vacuno",price:7500,desc:"Milanesa de vacuno con tomate, lechuga, huevo frito y mayonesa de la casa.",badges:[]},
 
-    // ─── Veganos (77-84)
-    {id:77,catId:"veganos",name:"La Verde",price:5500,desc:"Palta, tomate, lechuga, cilantro y mayonesa vegana de la casa.",badges:["vegano"]},
-    {id:78,catId:"veganos",name:"La Chilena Vegana",price:5500,desc:"Tomate, cebolla morada curtida, cilantro fresco y ají verde a pedido.",badges:["vegano"]},
-    {id:79,catId:"veganos",name:"Chacarera Vegana",price:5500,desc:"Tomate, poroto verde crujiente y ají a pedido.",badges:["vegano"]},
-    {id:80,catId:"veganos",name:"La Mexicana Vegana",price:6000,desc:"Guacamole, pico de gallo, cebolla caramelizada y papas hilo.",badges:["vegano"]},
-    {id:81,catId:"veganos",name:"Champi Deluxe",price:6000,desc:"Champiñones salteados, cebolla caramelizada y mayonesa vegana de ajo.",badges:["vegano"]},
-    {id:82,catId:"veganos",name:"La Ahumada",price:6000,desc:"Pimentón asado, cebolla morada, hummus de porotos negros y BBQ ahumada.",badges:["vegano"]},
-    {id:83,catId:"veganos",name:"Burrito Verde",price:7000,desc:"Arroz Lupita, frijoles negros, choclo, pimentón, guacamole y salsa verde.",badges:["vegano"]},
-    {id:84,catId:"veganos",name:"Chorrillana Vegana",price:12000,desc:"Papas rústicas, champiñón, pimentón, cebolla caramelizada y choclo.",badges:["vegano"]},
-
     // ─── Bebidas (91-97)
     {id:91,catId:"bebidas",name:"Bebida Express",price:1200,desc:"Vaso de bebida.",badges:[],variants:{title:"Elige tu bebida",required:true,options:[{label:"Coca-Cola"},{label:"Coca-Cola Zero"},{label:"Fanta"},{label:"Sprite"}]}},
     {id:92,catId:"bebidas",name:"Agua",price:1500,desc:"Botella individual.",badges:[],variants:{title:"Elige tipo",required:true,options:[{label:"Sin gas"},{label:"Con gas"}]}},
@@ -202,7 +192,6 @@
     {id:"sandwiches",name:"Sándwiches",eyebrow:"Elige y arma",desc:"Selecciona primero la proteína y luego la receta. Incluyen papas rústicas."},
     {id:"especiales",name:"Especiales de la casa",eyebrow:"Del chef",desc:"Preparaciones propias que solo encuentras aquí."},
     {id:"compartir",name:"Para compartir",eyebrow:"Para partir",desc:"Platos abundantes para comenzar al centro de la mesa."},
-    {id:"veganos",name:"Opciones veganas",eyebrow:"Base vegetal",desc:"Preparaciones con ingredientes vegetales según las recetas indicadas. Consulta directamente al restaurante si tienes alergias o restricciones alimentarias específicas."},
     {id:"bebidas",name:"Bebidas",eyebrow:"Para acompañar",desc:"Frescas y listas para tu mesa."},
     {id:"salsas",name:"Salsas",eyebrow:"El toque final",desc:"Salsas propias y clásicas para acompañar tu plato."},
     {id:"agregados",name:"Agregados",eyebrow:"Hazlo a tu gusto",desc:"Complementos adicionales para personalizar el pedido."}

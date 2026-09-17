@@ -37,10 +37,29 @@
 
   function customizerSteps() {
     return [
-      {key:'protein',title:'Elige tu proteína',type:'single',count:1,options:CUSTOM_PROTEINS},
-      {key:'ingredients',title:'Elige tres ingredientes',type:'multiple',count:3,options:CUSTOM_INGREDIENTS},
-      {key:'sauces',title:'Elige tus salsas',type:'multiple',count:2,required:false,helperText:'Puedes elegir hasta 2 salsas (opcional)',options:CUSTOM_SAUCES}
+      {key:'protein',title:'Elige tu proteína',label:'Proteína',type:'single',count:1,options:CUSTOM_PROTEINS},
+      {key:'ingredients',title:'Elige tres ingredientes',label:'Ingredientes',type:'multiple',count:3,options:CUSTOM_INGREDIENTS},
+      {key:'sauces',title:'Elige tus salsas',label:'Salsas',type:'multiple',count:2,required:false,helperText:'Puedes elegir hasta 2 salsas (opcional)',options:CUSTOM_SAUCES}
     ];
+  }
+
+  var VEGAN_PROTEINS = ['Lentejas', 'Porotos', 'Quínoa', 'Champiñón'];
+
+  function veganProteinStep() {
+    return {key:'protein',title:'Elige tu proteína vegetal',label:'Proteína',type:'single',count:1,options:VEGAN_PROTEINS};
+  }
+
+  function veganExtrasStep(options) {
+    return {
+      key:'extras',
+      title:'Agrega ingredientes opcionales',
+      label:'Agregados',
+      type:'multiple',
+      count:options.length,
+      required:false,
+      helperText:'Opcional — no selecciones nada y tu pedido queda 100% vegano.',
+      options:options
+    };
   }
 
   /* ── Product Catalog ── */
@@ -95,8 +114,8 @@
 
     // ─── Cocina mexicana (34-46 + 122-124)
     {id:34,catId:"mexicana",name:"Salchitacos",price:6000,desc:"Vienesas en tortilla de maíz con papas, salsa marinada y kétchup.",badges:[]},
-    {id:35,catId:"mexicana",name:"Arma tu fajita",price:6500,desc:"Tortilla de trigo XL con una proteína, tres ingredientes y hasta dos salsas opcionales. Incluye papas fritas.",badges:["personalizable"],customizer:{steps:customizerSteps()}},
-    {id:122,catId:"mexicana",name:"Taco a tu pinta",price:6500,desc:"Dos tacos preparados con una proteína, tres ingredientes y hasta dos salsas opcionales. Incluye papas fritas.",badges:["personalizable"],customizer:{steps:customizerSteps()}},
+    {id:35,catId:"mexicana",name:"Arma tu fajita",price:6500,desc:"Tortilla de trigo XL con una proteína, tres ingredientes y hasta dos salsas opcionales. Incluye papas fritas.",badges:["personalizable"],hideFromGrid:true,customizer:{steps:customizerSteps()}},
+    {id:122,catId:"mexicana",name:"Taco a tu pinta",price:6500,desc:"Dos tacos preparados con una proteína, tres ingredientes y hasta dos salsas opcionales. Incluye papas fritas.",badges:["personalizable"],hideFromGrid:true,customizer:{steps:customizerSteps()}},
     {id:123,catId:"mexicana",name:"Taco Individual",price:6000,desc:"Dos unidades de pollo o cochinito con lechuga, frijoles refritos, cebolla y salsa verde.",badges:[]},
     {id:124,catId:"mexicana",name:"Tacos al Pastor",price:6500,desc:"Dos unidades de cochinito marinado con piña y ají, lechuga, guacamole, cebolla morada y cilantro.",badges:[]},
     {id:36,catId:"mexicana",name:"Súper Burrito de Carne",price:6300,desc:"Carne, arroz Lupita, frijoles, lechuga, salsa verde y guacamole.",badges:[],variants:{title:"Acompañamiento",required:true,options:[{label:"Papas"},{label:"Nachos"}]}},
@@ -151,15 +170,15 @@
     // Se sirven 100% veganos por defecto (proteína vegetal + vegetales). El queso, la mayonesa
     // casera y el huevo frito son agregados opcionales que el cliente suma desde "Agregados" o
     // indicándolo en observaciones — nunca vienen incluidos automáticamente.
-    {id:200,catId:"veganos",name:"Completa",price:5000,desc:"Tomate, salsa americana y chucrut. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
-    {id:201,catId:"veganos",name:"Chacarera",price:5000,desc:"Tomate, poroto verde crujiente y ají a pedido. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
-    {id:202,catId:"veganos",name:"Luco",price:5000,desc:"Tu proteína vegetal a la plancha, sola y sabrosa. 100% vegano; suma queso Gauda o cheddar de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
-    {id:203,catId:"veganos",name:"Pobre",price:5000,desc:"Cebolla caramelizada. 100% vegana; suma huevo frito de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
-    {id:204,catId:"veganos",name:"Italiana",price:5000,desc:"Tomate y palta. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
-    {id:205,catId:"veganos",name:"Doble Quesos",price:5500,desc:"Tu proteína vegetal a la plancha, sola y sabrosa. 100% vegano; suma doble queso Gauda y doble cheddar de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
-    {id:206,catId:"veganos",name:"Brasileña",price:5500,desc:"Palta cremosa. 100% vegana; suma queso Gauda o cheddar de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
-    {id:207,catId:"veganos",name:"Tradicional",price:5500,desc:"Lechuga, tomate, cebolla morada y pepinillo. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
-    {id:208,catId:"veganos",name:"De Luxe",price:5500,desc:"Champiñón salteado y cebolla caramelizada. 100% vegana; suma queso Gauda, cheddar o mayonesa casera de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
+    {id:200,catId:"veganos",name:"Completa",price:5000,desc:"Tomate, salsa americana y chucrut. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Mayonesa casera"])]}},
+    {id:201,catId:"veganos",name:"Chacarera",price:5000,desc:"Tomate, poroto verde crujiente y ají a pedido. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Mayonesa casera"])]}},
+    {id:202,catId:"veganos",name:"Luco",price:5000,desc:"Tu proteína vegetal a la plancha, sola y sabrosa. 100% vegano; suma queso Gauda o cheddar de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Queso Gauda", "Queso Cheddar"])]}},
+    {id:203,catId:"veganos",name:"Pobre",price:5000,desc:"Cebolla caramelizada. 100% vegana; suma huevo frito de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Huevo frito"])]}},
+    {id:204,catId:"veganos",name:"Italiana",price:5000,desc:"Tomate y palta. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Mayonesa casera"])]}},
+    {id:205,catId:"veganos",name:"Doble Quesos",price:5500,desc:"Tu proteína vegetal a la plancha, sola y sabrosa. 100% vegano; suma doble queso Gauda y doble cheddar de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Doble Queso Gauda", "Doble Queso Cheddar"])]}},
+    {id:206,catId:"veganos",name:"Brasileña",price:5500,desc:"Palta cremosa. 100% vegana; suma queso Gauda o cheddar de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Queso Gauda", "Queso Cheddar"])]}},
+    {id:207,catId:"veganos",name:"Tradicional",price:5500,desc:"Lechuga, tomate, cebolla morada y pepinillo. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Mayonesa casera"])]}},
+    {id:208,catId:"veganos",name:"De Luxe",price:5500,desc:"Champiñón salteado y cebolla caramelizada. 100% vegana; suma queso Gauda, cheddar o mayonesa casera de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Queso Gauda", "Queso Cheddar", "Mayonesa casera"])]}},
 
     // ─── Bebidas (91-97)
     {id:91,catId:"bebidas",name:"Bebida Express",price:1200,desc:"Vaso de bebida.",badges:[],variants:{title:"Elige tu bebida",required:true,options:[{label:"Coca-Cola"},{label:"Coca-Cola Zero"},{label:"Fanta"},{label:"Sprite"}]}},
@@ -295,7 +314,7 @@
     var html = '';
 
     CATEGORIES.forEach(function (cat, catIndex) {
-      var prods = PRODUCTS.filter(function (p) { return p.catId === cat.id && !p.customizer; });
+      var prods = PRODUCTS.filter(function (p) { return p.catId === cat.id && !p.hideFromGrid; });
       html += '<section class="menu-section menu-section--decor-' + (catIndex % 2 === 0 ? 'a' : 'b') + '" id="' + cat.id + '" aria-labelledby="heading-' + cat.id + '">';
       html += '<div class="section-head">';
       html += '<span class="eyebrow">' + cat.eyebrow + '</span>';
@@ -306,6 +325,7 @@
 
       prods.forEach(function (p, productIndex) {
         var hasVariants = !!p.variants;
+        var hasChooser = hasVariants || !!p.customizer;
         html += '<article class="product-card product-card--tone-' + (productIndex % 4) + '">';
 
         html += '<div class="product-card__body">';
@@ -329,8 +349,8 @@
         });
 
         html += '</div>';
-        var btnText = hasVariants ? 'Elegir' : 'Agregar';
-        var btnClass = hasVariants ? 'add-btn choose' : 'add-btn';
+        var btnText = hasChooser ? 'Elegir' : 'Agregar';
+        var btnClass = hasChooser ? 'add-btn choose' : 'add-btn';
         html += '<button class="' + btnClass + '" type="button" data-add="' + p.id + '" aria-label="' + btnText + ' ' + escHtml(p.name) + '">' + btnText + '</button>';
         html += '</div></div></article>';
       });
@@ -742,10 +762,12 @@
       }
       var sel = customState.selections;
       var choiceParts = [];
-      if (sel.protein && sel.protein.length) choiceParts.push('Proteína: ' + sel.protein[0]);
-      if (sel.ingredients && sel.ingredients.length) choiceParts.push('Ingredientes: ' + sel.ingredients.join(', '));
-      if (sel.sauces && sel.sauces.length) choiceParts.push('Salsas: ' + sel.sauces.join(', '));
-      if (sel.drink && sel.drink.length) choiceParts.push('Bebida: ' + sel.drink[0]);
+      steps.forEach(function (s) {
+        var values = sel[s.key];
+        if (values && values.length) {
+          choiceParts.push((s.label || s.title) + ': ' + values.join(', '));
+        }
+      });
       var choiceLabel = choiceParts.join(' · ');
       addToCart(currentProduct, choiceLabel, currentProduct.price);
       closeSheet($('#variant-sheet'));

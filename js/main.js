@@ -147,6 +147,20 @@
     {id:75,catId:"especiales",name:"Crispy Sandwich",price:7000,desc:"Pollo crispy, lechuga, tomate, queso Gauda, tocino, mayonesa de tocino ahumado y salsa BBQ.",badges:[]},
     {id:76,catId:"especiales",name:"Milanesa de Vacuno",price:7500,desc:"Milanesa de vacuno con tomate, lechuga, huevo frito y mayonesa de la casa.",badges:[]},
 
+    // ─── Veganos y Vegetarianos (200-208)
+    // Se sirven 100% veganos por defecto (proteína vegetal + vegetales). El queso, la mayonesa
+    // casera y el huevo frito son agregados opcionales que el cliente suma desde "Agregados" o
+    // indicándolo en observaciones — nunca vienen incluidos automáticamente.
+    {id:200,catId:"veganos",name:"Completa",price:5000,desc:"Tomate, salsa americana y chucrut. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
+    {id:201,catId:"veganos",name:"Chacarera",price:5000,desc:"Tomate, poroto verde crujiente y ají a pedido. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
+    {id:202,catId:"veganos",name:"Luco",price:5000,desc:"Tu proteína vegetal a la plancha, sola y sabrosa. 100% vegano; suma queso Gauda o cheddar de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
+    {id:203,catId:"veganos",name:"Pobre",price:5000,desc:"Cebolla caramelizada. 100% vegana; suma huevo frito de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
+    {id:204,catId:"veganos",name:"Italiana",price:5000,desc:"Tomate y palta. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
+    {id:205,catId:"veganos",name:"Doble Quesos",price:5500,desc:"Tu proteína vegetal a la plancha, sola y sabrosa. 100% vegano; suma doble queso Gauda y doble cheddar de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
+    {id:206,catId:"veganos",name:"Brasileña",price:5500,desc:"Palta cremosa. 100% vegana; suma queso Gauda o cheddar de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
+    {id:207,catId:"veganos",name:"Tradicional",price:5500,desc:"Lechuga, tomate, cebolla morada y pepinillo. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
+    {id:208,catId:"veganos",name:"De Luxe",price:5500,desc:"Champiñón salteado y cebolla caramelizada. 100% vegana; suma queso Gauda, cheddar o mayonesa casera de forma opcional.",badges:["vegano","personalizable"],variants:{title:"Elige tu proteína vegetal",required:true,options:[{label:"Lentejas"},{label:"Porotos"},{label:"Quínoa"},{label:"Champiñón"}]}},
+
     // ─── Bebidas (91-97)
     {id:91,catId:"bebidas",name:"Bebida Express",price:1200,desc:"Vaso de bebida.",badges:[],variants:{title:"Elige tu bebida",required:true,options:[{label:"Coca-Cola"},{label:"Coca-Cola Zero"},{label:"Fanta"},{label:"Sprite"}]}},
     {id:92,catId:"bebidas",name:"Agua",price:1500,desc:"Botella individual.",badges:[],variants:{title:"Elige tipo",required:true,options:[{label:"Sin gas"},{label:"Con gas"}]}},
@@ -173,6 +187,7 @@
     {id:135,catId:"agregados",name:"Poroto verde",price:800,desc:"",badges:[]},
     {id:110,catId:"agregados",name:"Queso",price:800,desc:"",badges:[]},
     {id:111,catId:"agregados",name:"Tomate",price:800,desc:"",badges:[]},
+    {id:136,catId:"agregados",name:"Mayonesa casera",price:800,desc:"",badges:[]},
     {id:113,catId:"agregados",name:"Arroz",price:1000,desc:"",badges:[]},
     {id:116,catId:"agregados",name:"Champiñón",price:1200,desc:"",badges:[]},
     {id:117,catId:"agregados",name:"Frijoles negros",price:1200,desc:"",badges:[]},
@@ -192,6 +207,7 @@
     {id:"sandwiches",name:"Sándwiches",eyebrow:"Elige y arma",desc:"Selecciona primero la proteína y luego la receta. Incluyen papas rústicas."},
     {id:"especiales",name:"Especiales de la casa",eyebrow:"Del chef",desc:"Preparaciones propias que solo encuentras aquí."},
     {id:"compartir",name:"Para compartir",eyebrow:"Para partir",desc:"Platos abundantes para comenzar al centro de la mesa."},
+    {id:"veganos",name:"Veganos y Vegetarianos",eyebrow:"100% base vegetal",desc:"Sándwiches preparados con proteína vegetal a elección: lentejas, porotos, quínoa o champiñón. Se sirven 100% veganos; si prefieres sumar queso, mayonesa casera o huevo frito, agrégalo desde Agregados o indícalo en tus observaciones. Consulta directamente al restaurante si tienes alergias o restricciones alimentarias específicas."},
     {id:"bebidas",name:"Bebidas",eyebrow:"Para acompañar",desc:"Frescas y listas para tu mesa."},
     {id:"salsas",name:"Salsas",eyebrow:"El toque final",desc:"Salsas propias y clásicas para acompañar tu plato."},
     {id:"agregados",name:"Agregados",eyebrow:"Hazlo a tu gusto",desc:"Complementos adicionales para personalizar el pedido."}

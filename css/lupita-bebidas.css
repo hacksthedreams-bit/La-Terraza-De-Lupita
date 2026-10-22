@@ -1,0 +1,236 @@
+/* BEBIDAS · noche azul petróleo · sólo section#bebidas. Cargar tras la hoja base y los temas anteriores.
+   La foto del encabezado es un recorte sin texto de la referencia aprobada; las tarjetas no llevan fotos. */
+#bebidas.menu-section {
+  --bd-navy: #071d34;
+  --bd-ink: #0b1b3e;
+  --bd-teal: #00798e;
+  --bd-ocre: #b97516;
+  --bd-serif: var(--font-display, Fraunces, Georgia, 'Times New Roman', serif);
+  isolation: isolate;
+  overflow: hidden;
+  padding: 0 0 clamp(26px, 3.4vw, 44px);
+  border: 0;
+  border-radius: 16px;
+  background: url('../assets/bebidas/fondo.svg'), linear-gradient(180deg, #071a2e, #06182b 60%, #071d34);
+  color: #f6ecd8;
+  box-shadow: 0 16px 40px rgba(2, 8, 20, .4);
+}
+#bebidas.menu-section::before,
+#bebidas.menu-section::after { content: none; }
+
+/* ── Encabezado nocturno con bebidas fotográficas ───────── */
+#bebidas .section-head {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: clamp(300px, 28.5vw, 420px);
+  margin: 0 0 clamp(14px, 1.6vw, 22px);
+  padding: clamp(26px, 3.6vw, 52px) 52% clamp(26px, 3.6vw, 52px) clamp(24px, 4.2vw, 62px);
+  background:
+    radial-gradient(circle at 34% 6%, rgba(255, 170, 60, .22), transparent 13%),
+    radial-gradient(ellipse at 20% 100%, rgba(0, 121, 142, .18), transparent 60%),
+    linear-gradient(180deg, #061426, #07203a);
+}
+/* Recorte fotográfico (vaso de cola, botella, té y jugo). */
+#bebidas .section-head::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  inset: 0 0 0 auto;
+  width: 57%;
+  background: url('../assets/bebidas/hero-bebidas.webp') right center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 14%), linear-gradient(180deg, #000 82%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 0, #000 14%), linear-gradient(180deg, #000 82%, transparent 100%);
+  mask-composite: intersect;
+  pointer-events: none;
+}
+#bebidas .section-head::after { content: none; }
+#bebidas .section-head > * { position: relative; z-index: 1; }
+#bebidas .section-head .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 6px;
+  color: #20b9cf;
+  font: 600 clamp(.75rem, 1.1vw, 1rem)/1.2 var(--bd-serif);
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+#bebidas .section-head .eyebrow::before,
+#bebidas .section-head .eyebrow::after {
+  content: '';
+  flex: 0 1 clamp(60px, 7vw, 100px);
+  height: 18px;
+  background:
+    url('../assets/bebidas/rizo-izq.svg') no-repeat right center / 20px auto,
+    linear-gradient(#d9a436, #d9a436) no-repeat left center / calc(100% - 22px) 1px;
+}
+#bebidas .section-head .eyebrow::after {
+  background:
+    url('../assets/bebidas/rizo-der.svg') no-repeat left center / 20px auto,
+    linear-gradient(#d9a436, #d9a436) no-repeat right center / calc(100% - 22px) 1px;
+}
+#bebidas .section-head h3 {
+  margin: 0 0 8px;
+  color: #fff1d6;
+  font: 800 clamp(3.4rem, 9.6vw, 9.2rem)/.95 var(--bd-serif);
+  letter-spacing: -.045em;
+  text-transform: none;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, .5);
+}
+#bebidas .section-head > p {
+  max-width: 30ch;
+  margin: 0;
+  color: #f6ecd8;
+  font: 400 clamp(1.1rem, 2vw, 1.8rem)/1.3 var(--bd-serif);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .5);
+}
+#bebidas .section-head > p::after {
+  content: '';
+  display: block;
+  width: min(100%, 360px);
+  height: 26px;
+  margin-top: 14px;
+  background:
+    url('../assets/bebidas/fleuron.svg') no-repeat center / 40px auto,
+    linear-gradient(#d9a436, #d9a436) no-repeat left center / calc(50% - 32px) 1px,
+    linear-gradient(#d9a436, #d9a436) no-repeat right center / calc(50% - 32px) 1px;
+}
+
+/* ── Tarjetas claras con relieve ────────────────────────── */
+#bebidas .product-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(12px, 1.5vw, 22px);
+  padding: 0 clamp(14px, 2vw, 28px);
+}
+#bebidas .product-card { grid-column: span 4; }
+#bebidas .product-card:nth-child(-n+4) { grid-column: span 3; }
+#bebidas .product-card {
+  position: relative;
+  min-width: 0;
+  min-height: 236px;
+  display: flex;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .9);
+  border-radius: 10px;
+  background:
+    url('../assets/bebidas/relieve-tl.svg') left top / clamp(70px, 8vw, 110px) no-repeat,
+    url('../assets/bebidas/relieve-br.svg') right bottom / clamp(70px, 8vw, 110px) no-repeat,
+    linear-gradient(150deg, #f7fbfd, #e6f0f5);
+  color: var(--bd-ink);
+  box-shadow: 0 10px 24px rgba(0, 6, 18, .4), inset 0 0 0 1px rgba(255, 255, 255, .7);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+#bebidas .product-card:hover { transform: translateY(-3px); box-shadow: 0 16px 30px rgba(0, 6, 18, .5), inset 0 0 0 1px rgba(255, 255, 255, .8); }
+#bebidas .product-card__img { display: none; }
+#bebidas .product-card__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: clamp(20px, 2vw, 28px) clamp(16px, 1.8vw, 26px) clamp(18px, 1.8vw, 24px);
+}
+#bebidas .product-card__top { display: flex; flex-direction: column; align-items: center; margin: 0 0 6px; }
+#bebidas .product-card__top h4 {
+  margin: 0;
+  color: var(--bd-ink);
+  font: 700 clamp(1.3rem, 1.9vw, 1.75rem)/1.1 var(--bd-serif);
+  letter-spacing: -.03em;
+  overflow-wrap: normal;
+}
+/* Filete dorado con flor turquesa bajo el nombre. */
+#bebidas .product-card__top h4::after {
+  content: '';
+  display: block;
+  width: min(230px, 84%);
+  height: 20px;
+  margin: 8px auto 2px;
+  background:
+    url('../assets/bebidas/fleuron.svg') no-repeat center / 26px auto,
+    linear-gradient(#d9a436, #d9a436) no-repeat left center / calc(50% - 22px) 1px,
+    linear-gradient(#d9a436, #d9a436) no-repeat right center / calc(50% - 22px) 1px;
+}
+#bebidas .product-card__price {
+  background: linear-gradient(180deg, #d79a35, #a96a10);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font: 800 clamp(1.7rem, 2.4vw, 2.3rem)/1.1 var(--bd-serif);
+  letter-spacing: -.02em;
+  white-space: nowrap;
+}
+#bebidas .product-card__desc {
+  margin: 4px 0 14px;
+  color: #1d3350;
+  font: 400 clamp(.93rem, 1.15vw, 1.06rem)/1.35 var(--bd-serif);
+}
+#bebidas .product-card__foot { margin-top: auto; padding: 0; border: 0; justify-content: center; }
+#bebidas .product-card__foot > div:empty { display: none; }
+#bebidas .add-btn {
+  min-height: 46px;
+  min-width: 136px;
+  padding: 9px 22px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #0b8aa0, #05687d);
+  color: #effbff;
+  font: 600 clamp(.95rem, 1.2vw, 1.1rem)/1.2 var(--bd-serif);
+  box-shadow: 0 4px 10px rgba(0, 70, 90, .35), inset 0 1px 0 rgba(255, 255, 255, .25);
+  cursor: pointer;
+}
+#bebidas .add-btn::after { content: ' +'; font: inherit; margin-left: 10px; }
+#bebidas .add-btn:hover { filter: brightness(1.1); transform: none; }
+#bebidas .add-btn:focus-visible { outline: 3px solid #f3b13f; outline-offset: 3px; }
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  #bebidas .product-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  #bebidas .product-card,
+  #bebidas .product-card:nth-child(-n+4) { grid-column: span 3; }
+  #bebidas .product-card:last-child { grid-column: 2 / span 4; }
+  #bebidas .section-head { padding-right: 48%; }
+  #bebidas .section-head::before { width: 54%; }
+  #bebidas .section-head h3 { font-size: clamp(3rem, 9vw, 6.4rem); }
+}
+@media (max-width: 700px) {
+  #bebidas .section-head {
+    min-height: 0;
+    padding: 28px 20px 250px;
+    background:
+      radial-gradient(circle at 80% 8%, rgba(255, 170, 60, .2), transparent 20%),
+      linear-gradient(180deg, #061426, #07203a);
+  }
+  #bebidas .section-head::before {
+    inset: auto 0 0 0;
+    width: auto;
+    height: 236px;
+    background-position: 62% center;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 26%);
+    mask-image: linear-gradient(180deg, transparent 0, #000 26%);
+    -webkit-mask-composite: source-over;
+    mask-composite: add;
+  }
+  #bebidas .section-head h3 { font-size: clamp(3.2rem, 15vw, 5rem); }
+  #bebidas .section-head .eyebrow { letter-spacing: .24em; }
+  #bebidas .product-grid { grid-template-columns: minmax(0, 1fr); padding: 0 12px; gap: 14px; }
+  #bebidas .product-card,
+  #bebidas .product-card:nth-child(-n+4),
+  #bebidas .product-card:last-child { grid-column: auto; }
+  #bebidas .product-card { min-height: 210px; }
+}
+@media (max-width: 385px) {
+  #bebidas .section-head .eyebrow::before,
+  #bebidas .section-head .eyebrow::after { flex-basis: 34px; }
+  #bebidas .section-head .eyebrow { letter-spacing: .16em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #bebidas .product-card, #bebidas .add-btn { transition: none; }
+  #bebidas .product-card:hover { transform: none; }
+}

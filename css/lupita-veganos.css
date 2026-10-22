@@ -1,0 +1,286 @@
+/* LA LOTERÍA VERDE · sólo section#veganos. Cargar tras la hoja base y los temas anteriores.
+   Marco de estrellas: marco-estrellas.svg como border-image. Las cuatro cartas son un recorte
+   decorativo de la referencia aprobada (Lentejas, Porotos, Quínoa, Champiñón): no son productos. */
+#veganos.menu-section {
+  --vg-navy: #061c39;
+  --vg-ivory: #f7ecd4;
+  --vg-coral: #f37457;
+  --vg-green: #0d5049;
+  --vg-gold: #d9a436;
+  --vg-serif: var(--font-display, Fraunces, Georgia, 'Times New Roman', serif);
+  --vg-frame: clamp(20px, 2.3vw, 30px);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(10px, 1.6vw, 22px);
+  border: var(--vg-frame) solid transparent;
+  border-image: url('../assets/veganos/marco-estrellas.svg') 30 / var(--vg-frame) round;
+  border-radius: 0;
+  background: url('../assets/veganos/noche.svg'), var(--vg-navy);
+  color: var(--vg-ivory);
+  box-shadow: 0 16px 40px rgba(2, 8, 20, .4);
+}
+#veganos.menu-section::before,
+#veganos.menu-section::after { content: none; }
+
+/* ── Encabezado ─────────────────────────────────────────── */
+#veganos .section-head {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: clamp(330px, 30vw, 450px);
+  margin: 0 0 clamp(14px, 1.6vw, 22px);
+  padding: clamp(16px, 2vw, 30px) 52% clamp(86px, 8.6vw, 124px) clamp(8px, 1.6vw, 26px);
+  background: none;
+}
+/* Cuatro cartas de lotería (arte decorativo recortado de la referencia). */
+#veganos .section-head::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: 0;
+  width: 55%;
+  aspect-ratio: 828 / 396;
+  transform: translateY(-58%);
+  background: url('../assets/veganos/cartas-loteria.webp') center / 100% 100% no-repeat;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 14%, #000 92%, transparent 100%), linear-gradient(180deg, transparent 0, #000 10%, #000 90%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 0, #000 14%, #000 92%, transparent 100%), linear-gradient(180deg, transparent 0, #000 10%, #000 90%, transparent 100%);
+  mask-composite: intersect;
+  pointer-events: none;
+}
+/* Ramas, flores y destello bajo el título. */
+#veganos .section-head::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  bottom: 0;
+  width: min(48%, 560px);
+  aspect-ratio: 602 / 112;
+  background: url('../assets/veganos/adorno-cabecera.webp') center / 100% 100% no-repeat;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 52%, transparent 100%);
+  mask-image: radial-gradient(ellipse at center, #000 52%, transparent 100%);
+  pointer-events: none;
+}
+#veganos .section-head > * { position: relative; z-index: 1; }
+#veganos .section-head .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 clamp(6px, 1vw, 12px);
+  color: var(--vg-ivory);
+  font: 500 clamp(.75rem, 1.05vw, .95rem)/1.2 var(--vg-serif);
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+#veganos .section-head .eyebrow::before {
+  content: '';
+  flex: 0 0 clamp(70px, 8vw, 130px);
+  height: 22px;
+  background:
+    url('../assets/veganos/estrella-oro.svg') no-repeat right center / 22px 22px,
+    linear-gradient(var(--vg-gold), var(--vg-gold)) no-repeat left center / calc(100% - 34px) 1px;
+}
+#veganos .section-head .eyebrow::after {
+  content: '';
+  flex: 0 0 22px;
+  height: 22px;
+  background: url('../assets/veganos/estrella-oro.svg') no-repeat center / 22px 22px;
+}
+/* Título a dos tintas: crema arriba, coral abajo. */
+#veganos .section-head h3 {
+  max-width: 5.8em;
+  margin: 0 0 clamp(10px, 1.2vw, 18px);
+  font: 800 clamp(3rem, 6.2vw, 6rem)/.92 var(--vg-serif);
+  letter-spacing: -.04em;
+  text-transform: none;
+  color: transparent;
+  background: linear-gradient(180deg, var(--vg-ivory) 0 50%, var(--vg-coral) 50% 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+#veganos .section-head > p {
+  max-width: 44ch;
+  margin: 0;
+  color: #e9dfc8;
+  font: 400 clamp(.92rem, 1.15vw, 1.08rem)/1.5 var(--vg-serif);
+}
+
+/* ── Tarjetas de receta ─────────────────────────────────── */
+#veganos .product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 1.4vw, 20px);
+  counter-reset: vg-item;
+}
+#veganos .product-card {
+  position: relative;
+  min-width: 0;
+  min-height: 232px;
+  display: flex;
+  overflow: hidden;
+  border: 1px solid #d6b160;
+  border-radius: 16px;
+  background:
+    url('../assets/veganos/papel.svg'),
+    radial-gradient(circle at 60% 30%, #fbf3df, #f7ecd4 80%, #efe0bd);
+  color: #0c1f44;
+  box-shadow: inset 0 0 0 4px #f7ecd4, inset 0 0 0 5px #e5cf93, 0 8px 18px rgba(2, 8, 20, .35);
+  counter-increment: vg-item;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+#veganos .product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: inset 0 0 0 4px #f7ecd4, inset 0 0 0 5px #d6b160, 0 14px 26px rgba(2, 8, 20, .45);
+}
+/* Numeral ornamental tenue. */
+#veganos .product-card::before {
+  content: counter(vg-item, decimal-leading-zero);
+  position: absolute;
+  left: 4%;
+  top: 6px;
+  color: #ddd0b4;
+  font: 800 clamp(3.4rem, 5.8vw, 5.4rem)/1 var(--vg-serif);
+  letter-spacing: -.06em;
+  pointer-events: none;
+}
+/* Rama al pie izquierdo, alternando verde / coral. */
+#veganos .product-card::after {
+  content: '';
+  position: absolute;
+  left: 4%;
+  bottom: 14px;
+  width: clamp(48px, 5.4vw, 74px);
+  aspect-ratio: 80 / 84;
+  background: url('../assets/veganos/hojas-verde.svg') center / contain no-repeat;
+  pointer-events: none;
+}
+#veganos .product-card:nth-child(even)::after { background-image: url('../assets/veganos/hojas-coral.svg'); }
+#veganos .product-card__img { display: none; }
+#veganos .product-card__body {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto auto 1fr;
+  column-gap: 12px;
+  padding: clamp(20px, 2vw, 28px) clamp(16px, 1.6vw, 24px) clamp(16px, 1.6vw, 22px) 25%;
+}
+/* Estrella de la esquina superior derecha (decorativa). */
+#veganos .product-card__body::before {
+  content: '';
+  position: absolute;
+  top: clamp(16px, 1.6vw, 22px);
+  right: clamp(14px, 1.5vw, 22px);
+  width: 28px;
+  height: 28px;
+  background: url('../assets/veganos/estrella-oro.svg') center / contain no-repeat;
+  pointer-events: none;
+}
+#veganos .product-card:nth-child(4n+2) .product-card__body::before,
+#veganos .product-card:nth-child(4n) .product-card__body::before { background-image: url('../assets/veganos/estrella-coral.svg'); }
+#veganos .product-card:nth-child(4n+3) .product-card__body::before { background-image: url('../assets/veganos/estrella-verde.svg'); }
+/* Título, precio y etiquetas se reubican en la rejilla interna sin tocar el DOM. */
+#veganos .product-card__top,
+#veganos .product-card__foot { display: contents; }
+#veganos .product-card__top h4 {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  min-width: 0;
+  margin: 0 34px 0 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0cd9a;
+  color: #0a1f45;
+  font: 800 clamp(1.45rem, 2vw, 1.9rem)/1.05 var(--vg-serif);
+  letter-spacing: -.035em;
+  overflow-wrap: anywhere;
+}
+#veganos .product-card__desc {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin: 8px 0 8px;
+  color: #1c2c4c;
+  font: 400 clamp(.92rem, 1.1vw, 1.04rem)/1.4 var(--vg-serif);
+}
+#veganos .product-card__foot > div {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 8px;
+}
+#veganos .product-card__foot > div:empty { display: none; }
+#veganos .product-card__price {
+  grid-column: 1;
+  grid-row: 4;
+  align-self: end;
+  color: #0a1f45;
+  font: 800 clamp(1.5rem, 1.95vw, 2rem)/1 var(--vg-serif);
+  letter-spacing: -.035em;
+  white-space: nowrap;
+}
+#veganos .product-card__price--from::before { content: 'Desde '; font: 400 .72rem/1 var(--vg-serif); letter-spacing: 0; }
+#veganos .add-btn {
+  grid-column: 2;
+  grid-row: 4;
+  align-self: end;
+  min-height: 46px;
+  min-width: clamp(96px, 7.6vw, 112px);
+  margin: 0;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: #0a1f45;
+  color: #fbf1da;
+  font: 600 clamp(.95rem, 1.2vw, 1.1rem)/1.2 var(--vg-serif);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15);
+  cursor: pointer;
+}
+#veganos .badge { font-size: .68rem; }
+#veganos .badge--vegano { background: #d3ecdf; color: #0a6046; }
+#veganos .badge--personalizable { background: #e5dbf5; color: #55349e; }
+#veganos .add-btn.choose::after { content: ' ›'; font: inherit; }
+#veganos .add-btn:hover { background: #12306b; transform: translateY(-1px); }
+#veganos .add-btn:focus-visible { outline: 3px solid var(--vg-coral); outline-offset: 3px; }
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  #veganos .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #veganos .section-head { padding-right: 46%; }
+  #veganos .section-head::before { width: 52%; }
+  #veganos .section-head h3 { font-size: clamp(2.8rem, 6.4vw, 5rem); }
+}
+@media (max-width: 700px) {
+  #veganos.menu-section { --vg-frame: 18px; padding: 8px; }
+  #veganos .section-head { min-height: 0; padding: 14px 8px 18px; }
+  #veganos .section-head::before {
+    position: relative;
+    order: 5;
+    top: auto;
+    right: auto;
+    width: 100%;
+    margin-top: 16px;
+    transform: none;
+  }
+  #veganos .section-head::after { display: none; }
+  #veganos .section-head h3 { font-size: clamp(2.4rem, 10.4vw, 4.4rem); max-width: 100%; }
+  #veganos .product-grid { grid-template-columns: minmax(0, 1fr); }
+  #veganos .product-card__body { padding-left: 26%; }
+}
+@media (max-width: 385px) {
+  #veganos .section-head .eyebrow { letter-spacing: .2em; }
+  #veganos .section-head .eyebrow::before { flex-basis: 46px; }
+  #veganos .product-card__body { padding-left: 24%; padding-right: 14px; }
+  #veganos .add-btn { min-width: 96px; padding: 10px 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #veganos .product-card, #veganos .add-btn { transition: none; }
+  #veganos .product-card:hover, #veganos .add-btn:hover { transform: none; }
+}

@@ -1,0 +1,266 @@
+/* TALAVERA NOCTURNA · categoría Chorrillanas solamente.
+   Cargar después de styles.css y de los temas anteriores.
+   Marco exterior: ch-talavera-marco.webp (esquinas y cenefas recortadas del concepto aprobado)
+   usado como border-image; marco de tarjeta: ch-card-frame.svg sobre ::before. */
+#chorrillanas.menu-section {
+  --ch-navy: #041b24;
+  --ch-gold: #e8ba59;
+  --ch-cream: #fff1d2;
+  --ch-serif: var(--font-display, Fraunces, Georgia, serif);
+  --ch-gap: clamp(14px, 1.9vw, 22px);
+  --ch-frame: clamp(30px, 4.6vw, 62px);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(14px, 2vw, 26px);
+  border: var(--ch-frame) solid transparent;
+  border-image: url('../assets/decor/ch-talavera-marco.webp') 98 / var(--ch-frame) round;
+  border-radius: 0;
+  background: url('../assets/decor/ch-grain.svg') var(--ch-navy);
+  color: var(--ch-cream);
+  box-shadow: 0 16px 40px #0004;
+}
+/* Retirar el adorno difuso de la versión compartida sólo en esta categoría. */
+#chorrillanas.menu-section::before,
+#chorrillanas.menu-section::after { content: none; }
+#chorrillanas .section-head {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: clamp(210px, 21vw, 280px);
+  margin: 0 0 calc(var(--ch-gap) + 4px);
+  padding: 26px 46% 58px clamp(18px, 2.4vw, 34px);
+  border-bottom: 3px double #c79d43;
+  background: transparent;
+}
+/* Ilustración de la sartén (adaptación del concepto), con fundido hacia el texto. */
+#chorrillanas .section-head::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 70%;
+  background: url('../assets/decor/ch-encabezado-talavera.webp') no-repeat right center / auto 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 30%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 30%);
+  pointer-events: none;
+  z-index: 0;
+}
+/* Ramo + filete bajo el subtítulo. */
+#chorrillanas .section-head::after {
+  content: '';
+  position: absolute;
+  left: clamp(18px, 2.4vw, 34px);
+  bottom: 14px;
+  width: min(46%, 430px);
+  height: 36px;
+  background:
+    url('../assets/decor/ch-talavera-rama.svg') no-repeat left center / 78px 42px,
+    linear-gradient(#c79d43, #c79d43) no-repeat 96px center / calc(100% - 96px) 1px;
+  pointer-events: none;
+  z-index: 1;
+}
+#chorrillanas .section-head > * { position: relative; z-index: 1; }
+#chorrillanas .section-head .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--ch-gold);
+  font: 700 .78rem/1.5 var(--font-body, Inter, sans-serif);
+  letter-spacing: .3em;
+  white-space: nowrap;
+  margin: 0 0 8px;
+}
+#chorrillanas .section-head .eyebrow::after {
+  content: '';
+  flex: 0 1 230px;
+  min-width: 48px;
+  height: 28px;
+  background:
+    url('../assets/decor/ch-brote.svg') no-repeat right center / 40px 27px,
+    linear-gradient(var(--ch-gold), var(--ch-gold)) no-repeat left center / calc(100% - 52px) 1px;
+}
+#chorrillanas .section-head h3 {
+  color: #fff2d7;
+  font: 750 clamp(2.3rem, 5.2vw, 5rem)/1.02 var(--ch-serif);
+  letter-spacing: -.035em;
+  text-shadow: 0 2px 12px rgba(0,0,0,.45);
+  margin: 0 0 12px;
+  overflow-wrap: anywhere;
+}
+#chorrillanas .section-head > p {
+  color: #f4e8cd;
+  font: 400 clamp(1rem, 1.5vw, 1.3rem)/1.45 var(--ch-serif);
+  margin: 0;
+}
+#chorrillanas .product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--ch-gap);
+}
+#chorrillanas .product-card {
+  position: relative;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  background:
+    url('../assets/decor/ch-marca-agua.svg') no-repeat right 24px bottom 78px / 120px 64px,
+    url('../assets/decor/ch-grain.svg'),
+    #06232e;
+  color: #fff2d8;
+  box-shadow: none;
+  transition: transform .18s ease;
+}
+/* Doble marco dorado con esquinas achaflanadas. */
+#chorrillanas .product-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 18px solid transparent;
+  border-image: url('../assets/decor/ch-card-frame.svg') 24 / 18px stretch;
+  pointer-events: none;
+  transition: filter .18s ease;
+}
+/* Estrellas de 4 puntas en las esquinas (decorativas, fuera del área de lectura). */
+#chorrillanas .product-card::after {
+  content: '';
+  position: absolute;
+  inset: calc(var(--ch-gap) / -2 - 8px);
+  background:
+    url('../assets/decor/ch-star.svg') no-repeat left top / 16px 16px,
+    url('../assets/decor/ch-star.svg') no-repeat right top / 16px 16px,
+    url('../assets/decor/ch-star.svg') no-repeat left bottom / 16px 16px,
+    url('../assets/decor/ch-star.svg') no-repeat right bottom / 16px 16px;
+  pointer-events: none;
+}
+#chorrillanas .product-card:hover { transform: translateY(-2px); box-shadow: none; }
+#chorrillanas .product-card:hover::before { filter: brightness(1.3); }
+#chorrillanas .product-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: clamp(24px, 2.3vw, 32px) clamp(22px, 2.3vw, 30px) clamp(20px, 2vw, 26px);
+}
+#chorrillanas .product-card__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin: 0 0 12px; }
+#chorrillanas .product-card__top h4 {
+  min-width: 0;
+  margin: 0;
+  color: #fff2d8;
+  font: 700 clamp(1.28rem, 2vw, 1.75rem)/1.12 var(--ch-serif);
+  overflow-wrap: normal;
+}
+#chorrillanas .product-card__price {
+  flex-shrink: 0;
+  text-align: right;
+  color: #f2c35f;
+  font: 700 clamp(1.15rem, 1.7vw, 1.5rem)/1.2 var(--ch-serif);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+#chorrillanas .product-card__price--from::before {
+  content: 'Desde';
+  display: block;
+  font-size: .72em;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #f6d88a;
+}
+#chorrillanas .product-card__desc {
+  color: #f3e8d0;
+  font: 400 clamp(.97rem, 1.2vw, 1.1rem)/1.45 var(--ch-serif);
+  margin: 0 0 auto;
+  padding-bottom: 24px;
+}
+#chorrillanas .product-card__foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding: 0;
+  border: 0;
+}
+/* Ramillete + filete dorado (decorativo). */
+#chorrillanas .product-card__foot > div {
+  flex: 1 1 90px;
+  min-width: 0;
+  max-width: 210px;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  background:
+    url('../assets/decor/ch-flor-pie.svg') no-repeat left center / 84px 34px,
+    linear-gradient(90deg, #c79d43, rgba(199,157,67,.25)) no-repeat 94px center / calc(100% - 94px) 1px;
+}
+/* Con etiqueta real (Vegetariano / Solo en el local) el ramillete se reduce y la etiqueta queda legible. */
+#chorrillanas .product-card__foot > div:has(.badge) {
+  flex-basis: auto;
+  max-width: 100%;
+  padding-left: 52px;
+  background: url('../assets/decor/ch-flor-pie.svg') no-repeat left center / 46px 18px;
+}
+#chorrillanas .product-card__foot .badge { font-size: .68rem; white-space: normal; padding: 4px 9px; }
+#chorrillanas .badge--local { color: #ffe2a2; background: #614b21; }
+#chorrillanas .badge--vegetariano { color: #c9ffe2; background: #174b41; }
+#chorrillanas .add-btn {
+  position: relative;
+  min-height: 46px;
+  min-width: 128px;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 10px 34px;
+  border: 2px solid #e3b451;
+  border-radius: 999px;
+  background:
+    url('../assets/decor/ch-star.svg') no-repeat left 13px center / 11px 11px,
+    url('../assets/decor/ch-star.svg') no-repeat right 13px center / 11px 11px,
+    linear-gradient(180deg, #14808f 0%, #0a5463 100%);
+  color: #fff5dc;
+  font: 700 1.05rem/1.2 var(--ch-serif);
+  box-shadow: inset 0 0 0 2px #06323c, 0 0 0 2px #06232e, 0 0 0 3px rgba(227,180,81,.7), 0 4px 10px rgba(0,0,0,.4);
+  cursor: pointer;
+  transition: filter .18s ease;
+}
+#chorrillanas .add-btn:hover { filter: brightness(1.15); transform: none; }
+#chorrillanas .add-btn:focus-visible { outline: 3px solid #fff0c8; outline-offset: 5px; }
+@media (max-width: 1099px) {
+  #chorrillanas .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #chorrillanas .section-head { padding-right: 45%; }
+  #chorrillanas .section-head::before { width: 57%; }
+  #chorrillanas .section-head h3 { font-size: clamp(2rem, 4.8vw, 3.6rem); }
+}
+@media (max-width: 860px) {
+  #chorrillanas .product-card__top { flex-direction: column; gap: 6px; }
+  #chorrillanas .product-card__price { text-align: left; }
+}
+@media (max-width: 649px) {
+  #chorrillanas.menu-section { --ch-frame: 26px; padding: 12px; }
+  #chorrillanas .section-head { min-height: 0; padding: 22px 8px 150px; margin-bottom: 16px; }
+  #chorrillanas .section-head::before {
+    inset: auto 0 0;
+    width: auto;
+    height: 136px;
+    background-size: auto 136px;
+    background-position: right bottom;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 30%), linear-gradient(90deg, transparent 0, #000 22%, #000 94%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(180deg, transparent 0, #000 30%), linear-gradient(90deg, transparent 0, #000 22%, #000 94%, transparent 100%);
+    mask-composite: intersect;
+  }
+  #chorrillanas .section-head::after { display: none; }
+  #chorrillanas .section-head .eyebrow { letter-spacing: .24em; }
+  #chorrillanas .section-head h3 { font-size: clamp(1.8rem, 9vw, 2.8rem); }
+  #chorrillanas .product-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  #chorrillanas .product-card__body { padding: 28px 22px 22px; }
+  #chorrillanas .product-card__top { flex-direction: row; gap: 10px; }
+  #chorrillanas .product-card__price { text-align: right; }
+  #chorrillanas .product-card__top h4 { font-size: 1.3rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #chorrillanas .product-card, #chorrillanas .add-btn, #chorrillanas .product-card::before { transition: none; }
+  #chorrillanas .product-card:hover { transform: none; }
+}

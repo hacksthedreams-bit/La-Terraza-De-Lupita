@@ -1,295 +1,287 @@
-/* PAN DE BARRIO · solo section#sandwiches.
-   Cargar después de styles.css y de los temas anteriores.
-   Tipografía condensada: Anton (Google Fonts, se carga en index.html); respaldo Impact. */
+/* Mesón borgoña: SOLO la categoría Sándwiches. Cargar después de la base y de los demás temas.
+   Marco de tarjeta: marco-tarjeta.svg como border-image (esquinas con rosetas sin deformarse). */
 #sandwiches.menu-section {
-  --sb-blue: #0a3ba5;
-  --sb-deep: #072c79;
-  --sb-red: #e62230;
-  --sb-paper: #f8f3e8;
-  --sb-ink: #102c57;
-  --sb-display: Anton, Impact, 'Arial Narrow', sans-serif;
+  --sm-wine: #690018;
+  --sm-deep: #4f0014;
+  --sm-gold: #c28b34;
+  --sm-paper: #fff0d8;
+  --sm-ink: #24140e;
+  --sm-serif: var(--font-display, Fraunces, Georgia, 'Times New Roman', serif);
   isolation: isolate;
   overflow: hidden;
-  padding: clamp(15px, 2.4vw, 30px);
+  padding: 0 0 clamp(28px, 4vw, 54px);
   border: 0;
-  border-radius: 14px;
-  color: var(--sb-ink);
-  background: url('../assets/decor/sb-grain.svg'), var(--sb-paper);
-  box-shadow: 0 18px 42px #07152d30;
+  border-radius: 16px;
+  background: var(--sm-wine) url('../assets/sandwiches-meson/tapiz-borgona.svg') repeat;
+  color: var(--sm-paper);
+  box-shadow: 0 18px 46px rgba(30, 0, 5, .28);
 }
 #sandwiches.menu-section::before,
 #sandwiches.menu-section::after { content: none; }
 
-/* ── Encabezado ─────────────────────────────────────────── */
+/* ── Encabezado fotográfico ─────────────────────────────── */
 #sandwiches .section-head {
-  container-type: inline-size;
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  min-height: clamp(300px, 29vw, 420px);
-  margin: 0 0 22px;
-  padding: 34px 50% 44px clamp(20px, 3vw, 44px);
-  background: url('../assets/decor/sb-hero-graphic.svg') no-repeat right center / 53% 100%;
+  min-height: clamp(340px, 30.5vw, 440px);
+  margin: 0 0 clamp(16px, 1.8vw, 24px);
+  padding: clamp(28px, 3.4vw, 52px) 52% clamp(28px, 3.4vw, 52px) clamp(16px, 2.4vw, 40px);
+  background:
+    linear-gradient(90deg, rgba(15, 4, 2, .74), rgba(18, 5, 3, .4) 44%, transparent 66%),
+    url('../assets/sandwiches-meson/hero-marraqueta-restaurante.webp') 75% center / cover no-repeat;
+  border-bottom: 3px solid #9e3b22;
+  text-align: center;
 }
-/* Marraqueta protagonista (recorte con borde de sticker). */
-#sandwiches .section-head::after {
-  content: '';
-  position: absolute;
-  right: 2.5%;
-  bottom: 2%;
-  height: 94%;
-  aspect-ratio: 1100 / 889;
-  background: url('../assets/decor/sb-marraqueta.webp') no-repeat center / contain;
-  filter: drop-shadow(0 12px 14px rgba(5, 25, 70, .35));
-  pointer-events: none;
-  z-index: 0;
-}
-#sandwiches .section-head::before { content: none; }
-#sandwiches .section-head > * { position: relative; z-index: 1; }
+#sandwiches .section-head::before,
+#sandwiches .section-head::after { content: none; }
+/* «ELIGE Y ARMA» entre filetes dorados. */
 #sandwiches .section-head .eyebrow {
-  display: inline-block;
-  margin: 0 0 10px;
-  padding: .3em .75em .22em;
-  background: url('../assets/decor/sb-sello.svg') no-repeat center / 100% 100%;
-  color: #fff;
-  font: 400 clamp(1.25rem, 7.6cqw, 2.8rem)/1.1 var(--sb-display);
-  font-style: italic;
-  letter-spacing: .03em;
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.4vw, 18px);
+  width: 100%;
+  max-width: 540px;
+  margin: 0 0 clamp(4px, .8vw, 12px);
+  color: #e6ae54;
+  background: none;
+  font: 600 clamp(.78rem, 1.5vw, 1.3rem)/1.2 var(--sm-serif);
+  letter-spacing: .26em;
   text-transform: uppercase;
-  transform: rotate(-3deg);
+  white-space: nowrap;
+  text-shadow: 0 2px 6px #150605;
 }
-/* Cilantro junto a la etiqueta. */
+#sandwiches .section-head .eyebrow::before,
 #sandwiches .section-head .eyebrow::after {
   content: '';
-  position: absolute;
-  left: calc(100% + .9em);
-  top: -1.1em;
-  width: 3.2em;
-  height: 2.4em;
-  background: url('../assets/decor/sb-cilantro.svg') no-repeat center / contain;
-  transform: rotate(8deg);
+  flex: 1 1 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c8923a);
 }
+#sandwiches .section-head .eyebrow::after { background: linear-gradient(90deg, #c8923a, transparent); }
 #sandwiches .section-head h3 {
-  margin: 0 0 14px;
-  color: var(--sb-blue);
-  font: 400 clamp(3.2rem, 10vw, 9rem)/.98 var(--sb-display);
-  font-size: 22cqw;
-  letter-spacing: .005em;
+  position: relative;
+  z-index: 1;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto clamp(6px, 1vw, 14px);
+  color: #fff1da;
+  font: 800 clamp(3.1rem, 6.3vw, 6.4rem)/.95 var(--sm-serif);
+  letter-spacing: -.035em;
   text-transform: none;
-  white-space: nowrap;
+  text-shadow: 0 5px 18px rgba(12, 1, 1, .55);
 }
-/* Trazo rojo bajo el titular. */
 #sandwiches .section-head h3::after {
   content: '';
   display: block;
-  width: min(62%, 560px);
-  height: 9px;
-  margin-top: 8px;
-  background: var(--sb-red);
-  border-radius: 40% 12% 50% 16%;
-  transform: rotate(-1deg);
+  width: 82%;
+  height: clamp(20px, 3.2vw, 38px);
+  margin: 4px auto 0;
+  background: url('../assets/sandwiches-meson/floritura.svg') center / contain no-repeat;
 }
 #sandwiches .section-head > p {
-  max-width: 44ch;
-  color: var(--sb-ink);
-  font: 600 clamp(.95rem, 3.1cqw, 1.25rem)/1.45 var(--font-body, Inter, sans-serif);
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 540px;
   margin: 0;
+  color: #fff2df;
+  font: 400 clamp(1rem, 1.65vw, 1.5rem)/1.3 var(--sm-serif);
+  text-shadow: 0 2px 7px #160705;
+}
+#sandwiches .section-head > p::after {
+  content: '';
+  display: block;
+  width: 62%;
+  height: 30px;
+  margin: 10px auto 0;
+  background: url('../assets/sandwiches-meson/floritura.svg') center / contain no-repeat;
 }
 
-/* ── Rejilla y tarjetas ─────────────────────────────────── */
+/* ── Rejilla y tarjetas de mesón ────────────────────────── */
 #sandwiches .product-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(14px, 1.6vw, 20px);
-  counter-reset: sb-product;
+  gap: clamp(14px, 1.5vw, 22px);
+  padding: 0 clamp(14px, 2.4vw, 34px);
 }
 #sandwiches .product-card {
   position: relative;
-  min-width: 0;
   display: flex;
-  min-height: 238px;
-  flex-direction: column;
-  overflow: visible;
-  border: 2px dashed #86a6df;
-  border-radius: 8px;
-  background: url('../assets/decor/sb-grain.svg'), #fffdf8;
-  color: var(--sb-ink);
-  box-shadow: inset 0 0 0 4px #fffdf8, inset 0 0 0 5px #d3e0f5, 0 10px 18px #092f6e14;
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-  counter-increment: sb-product;
-}
-/* Número de receta. */
-#sandwiches .product-card::before {
-  content: counter(sb-product, decimal-leading-zero);
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  display: grid;
-  place-items: center;
-  width: 46px;
-  height: 40px;
-  background: var(--sb-blue);
-  clip-path: polygon(5% 6%, 100% 0, 95% 94%, 0 100%);
-  color: #fff;
-  font: 400 1.4rem/1 var(--sb-display);
-  transform: rotate(-3deg);
-  pointer-events: none;
-}
-/* Estampado lineal de marraqueta. */
-#sandwiches .product-card::after {
-  content: '';
-  position: absolute;
-  right: 18px;
-  top: 14px;
-  width: 88px;
-  height: 61px;
-  background: url('../assets/decor/sb-marraqueta-stamp.svg') center / contain no-repeat;
-  pointer-events: none;
+  min-width: 0;
+  min-height: clamp(220px, 16.5vw, 262px);
+  overflow: hidden;
+  border: 0;
+  border-radius: 16px;
+  background:
+    url('../assets/sandwiches-meson/papel.svg'),
+    radial-gradient(circle at 55% 30%, #fff9ed, #fff0d7 78%, #f2d6a9);
+  color: var(--sm-ink);
+  box-shadow: 0 9px 20px rgba(26, 0, 6, .4);
+  transition: transform .22s ease, box-shadow .22s ease;
 }
 #sandwiches .product-card:hover {
   transform: translateY(-3px);
-  border-color: var(--sb-blue);
-  box-shadow: inset 0 0 0 4px #fffdf8, inset 0 0 0 5px #a9c3ee, 0 16px 26px #092f6e29;
+  box-shadow: 0 15px 28px rgba(26, 0, 6, .48);
+}
+/* Doble filete borgoña/dorado con rosetas en las cuatro esquinas. */
+#sandwiches .product-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: 40px solid transparent;
+  border-image: url('../assets/sandwiches-meson/marco-tarjeta.svg') 40 / 40px stretch;
+  pointer-events: none;
+}
+/* Espiga dorada a la derecha (decorativa). */
+#sandwiches .product-card::after {
+  content: '';
+  position: absolute;
+  right: clamp(10px, 1.1vw, 16px);
+  top: 40%;
+  width: clamp(44px, 4.4vw, 62px);
+  height: 44%;
+  pointer-events: none;
+  background: url('../assets/sandwiches-meson/espiga.svg') right center / contain no-repeat;
+  opacity: .8;
 }
 #sandwiches .product-card__body {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 18px 20px 18px;
+  min-width: 0;
+  padding: clamp(26px, 2.5vw, 36px) clamp(26px, 2.6vw, 42px) clamp(22px, 2.2vw, 28px);
 }
 #sandwiches .product-card__top {
-  display: block;
-  margin: 0 0 12px;
-  padding: 0 88px 0 62px;
-  min-height: 42px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 10px;
+  min-width: 0;
+  margin: 0 0 8px;
 }
 #sandwiches .product-card__top h4 {
   min-width: 0;
   margin: 0;
-  padding-top: 2px;
-  color: var(--sb-blue);
-  font: 400 clamp(1.6rem, 2.5vw, 2.15rem)/1.05 var(--sb-display);
-  letter-spacing: .01em;
-  overflow-wrap: normal;
+  color: var(--sm-deep);
+  font: 800 clamp(1.4rem, 1.95vw, 1.8rem)/1.04 var(--sm-serif);
+  letter-spacing: -.04em;
+  overflow-wrap: anywhere;
 }
-#sandwiches .product-card__top h4::after {
-  content: '';
-  display: block;
-  width: 34px;
-  height: 4px;
-  margin-top: 4px;
-  background: var(--sb-red);
-  border-radius: 40% 12% 50% 16%;
-}
-/* Sello rojo de precio. */
 #sandwiches .product-card__price {
-  position: absolute;
-  right: 16px;
-  top: 90px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 112px;
-  padding: 9px 14px 8px;
-  background: url('../assets/decor/sb-sello.svg') no-repeat center / 100% 100%;
-  color: #fff;
-  font: 400 1.6rem/1.08 var(--sb-display);
-  letter-spacing: .02em;
-  font-variant-numeric: tabular-nums;
+  flex: none;
+  color: var(--sm-deep);
+  font: 800 clamp(1.3rem, 1.75vw, 1.7rem)/1 var(--sm-serif);
+  letter-spacing: -.02em;
   white-space: nowrap;
-  transform: rotate(-2deg);
+  font-variant-numeric: tabular-nums;
 }
 #sandwiches .product-card__price--from::before {
   content: 'Desde';
   display: block;
-  margin-bottom: 1px;
-  color: #fff;
-  font: 700 .72rem/1.2 var(--font-body, Inter, sans-serif);
-  letter-spacing: .02em;
+  margin: 0 0 3px;
+  color: var(--sm-deep);
+  font: 400 clamp(.8rem, 1.05vw, .98rem)/1.1 var(--sm-serif);
+  letter-spacing: 0;
 }
 #sandwiches .product-card__desc {
-  padding: 0 128px 16px 0;
-  margin: 0 auto auto 0;
-  color: #203d68;
-  font: 500 .93rem/1.45 var(--font-body, Inter, sans-serif);
+  position: relative;
+  z-index: 1;
+  max-width: 31ch;
+  margin: 0 0 12px;
+  padding: 0 clamp(24px, 3.4vw, 52px) 0 0;
+  color: #2a1b14;
+  font: 400 clamp(.95rem, 1.3vw, 1.2rem)/1.25 var(--sm-serif);
 }
 #sandwiches .product-card__foot {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 8px 12px;
+  gap: 8px;
   margin-top: auto;
-  padding: 8px 0 0;
+  padding: 2px 0 0;
   border: 0;
 }
-/* Guía visual (no interactiva): la proteína se elige en el selector que abre «Elegir». */
+/* Guía no interactiva: la proteína se elige en el selector que abre «Elegir». */
 #sandwiches .product-card__foot > div:empty {
-  min-height: 34px;
   display: flex;
   align-items: center;
-  padding-left: 40px;
-  background: url('../assets/decor/sb-vaca.svg') no-repeat left center / 32px 22px;
+  min-height: 34px;
+  padding-left: 38px;
+  background: url('../assets/sandwiches-meson/vaca.svg') left center / 32px 28px no-repeat;
 }
 #sandwiches .product-card__foot > div:empty::before {
-  content: 'Elige proteína';
-  color: #2a52a0;
-  font: 600 .82rem/1.3 var(--font-body, Inter, sans-serif);
+  content: 'Elige proteína ›';
+  color: var(--sm-deep);
+  font: 500 clamp(.78rem, 1.08vw, 1rem)/1.15 var(--sm-serif);
+  white-space: nowrap;
 }
 #sandwiches .product-card .badge { white-space: normal; }
 #sandwiches .add-btn {
-  flex: 0 0 auto;
+  flex: none;
+  min-width: clamp(112px, 11vw, 170px);
   min-height: 46px;
-  min-width: 122px;
   margin-left: auto;
-  padding: 10px 20px;
-  border: 0;
-  border-radius: 12px;
-  background: linear-gradient(180deg, #1a58d6 0%, #0a3ba5 100%);
-  color: #fff;
-  font: 800 1rem/1.25 var(--font-body, Inter, sans-serif);
-  box-shadow: 0 3px 0 var(--sb-deep), inset 0 1px 0 rgba(255, 255, 255, .3);
+  padding: 7px 16px;
+  border: 3px double #d6a94e;
+  border-radius: 100px;
+  background: linear-gradient(#76051f, #4f0014);
+  color: #fff2dd;
+  font: 700 clamp(.95rem, 1.3vw, 1.25rem)/1.15 var(--sm-serif);
+  box-shadow: 0 0 0 1px #4f0014, inset 0 1px 1px rgba(255,255,255,.3);
   cursor: pointer;
 }
-#sandwiches .add-btn:hover { background: var(--sb-deep); transform: none; }
-#sandwiches .add-btn:focus-visible { outline: 3px solid var(--sb-red); outline-offset: 3px; }
+#sandwiches .add-btn:hover { background: #8a1630; transform: translateY(-1px); }
+#sandwiches .add-btn:focus-visible { outline: 3px solid #1b5970; outline-offset: 3px; }
+#sandwiches .add-btn.choose::after { content: ' +'; font: inherit; }
 
 /* ── Responsive ─────────────────────────────────────────── */
 @media (max-width: 1100px) {
   #sandwiches .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  #sandwiches .section-head { padding-right: 47%; }
-  #sandwiches .section-head h3 { font-size: 20cqw; }
+  #sandwiches .product-card__top h4 { font-size: clamp(1.45rem, 2.7vw, 2rem); }
+  #sandwiches .section-head h3 { font-size: clamp(3rem, 7.4vw, 5rem); }
 }
 @media (max-width: 700px) {
-  #sandwiches.menu-section { padding: 12px; }
   #sandwiches .section-head {
     min-height: 0;
-    padding: 24px 14px calc((100vw - 56px) * .72 + 18px);
-    background-size: 100% calc((100vw - 56px) * .72 + 14px);
-    background-position: center bottom;
-    margin-bottom: 14px;
+    padding: 30px 18px 276px;
+    background:
+      linear-gradient(180deg, #160604 0%, rgba(22, 6, 4, .94) 46%, rgba(22, 6, 4, 0) 68%),
+      url('../assets/sandwiches-meson/hero-marraqueta-restaurante.webp') 69% bottom / auto 290px no-repeat,
+      #160604;
   }
-  #sandwiches .section-head::after { right: 4%; bottom: 3%; height: calc((100vw - 56px) * .72); }
-  #sandwiches .section-head h3 { font-size: clamp(3rem, 19.5cqw, 5.4rem); }
-  #sandwiches .section-head > p { max-width: 32ch; }
-  #sandwiches .product-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
-  #sandwiches .product-card { min-height: 220px; }
-  #sandwiches .product-card__price { top: 82px; }
-  #sandwiches .product-card__desc { padding-right: 122px; }
-  #sandwiches .add-btn { min-width: 108px; padding: 10px 14px; }
-  #sandwiches .product-card__foot > div:empty { padding-left: 36px; background-size: 30px 20px; }
-  #sandwiches .product-card__foot > div:empty::before { font-size: .76rem; }
+  #sandwiches .section-head h3 { font-size: clamp(3rem, 14vw, 5.2rem); }
+  #sandwiches .section-head .eyebrow { font-size: .85rem; max-width: 100%; }
+  #sandwiches .section-head > p { font-size: 1.05rem; }
+  #sandwiches .product-grid { grid-template-columns: minmax(0, 1fr); padding: 0 12px; gap: 14px; }
+  #sandwiches .product-card { min-height: 215px; }
+  #sandwiches .product-card__body { padding: 26px 28px 22px; }
+  #sandwiches .product-card__top h4 { font-size: clamp(1.55rem, 7vw, 2.1rem); }
+  #sandwiches .product-card__price { font-size: 1.5rem; }
+  #sandwiches .product-card__desc { font-size: 1rem; padding-right: 38px; }
 }
-@media (max-width: 385px) {
-  #sandwiches .product-card__top { padding-right: 70px; }
-  #sandwiches .product-card__top h4 { font-size: 1.3rem; }
-  #sandwiches .product-card::after { width: 54px; height: 38px; right: 12px; }
-  #sandwiches .product-card__price { min-width: 100px; right: 12px; font-size: 1.45rem; }
-  #sandwiches .product-card__desc { padding-right: 108px; }
+@media (max-width: 390px) {
+  #sandwiches .section-head {
+    padding-bottom: 236px;
+    background-size: auto, auto 246px, auto;
+  }
+  #sandwiches .product-card__body { padding: 25px 24px 20px; }
+  #sandwiches .product-card__top h4 { font-size: 1.45rem; }
+  #sandwiches .product-card__price { font-size: 1.3rem; }
+  #sandwiches .product-card__desc { padding-right: 20px; }
+  #sandwiches .product-card::after { opacity: .5; width: 40px; }
+  #sandwiches .product-card__foot > div:empty { padding-left: 26px; background-size: 24px 22px; }
+  #sandwiches .product-card__foot > div:empty::before { font-size: .76rem; }
+  #sandwiches .add-btn { min-width: 102px; padding: 6px 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
   #sandwiches .product-card, #sandwiches .add-btn { transition: none; }
-  #sandwiches .product-card:hover { transform: none; }
+  #sandwiches .product-card:hover, #sandwiches .add-btn:hover { transform: none; }
 }

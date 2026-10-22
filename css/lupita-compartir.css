@@ -1,0 +1,232 @@
+/* MANTEL DE FIESTA · sólo section#compartir. El espacio derecho de cada tarjeta queda vacío. */
+#compartir.menu-section {
+  --pc-jade: #005846;
+  --pc-magenta: #eb386b;
+  --pc-marigold: #f7a800;
+  --pc-serif: var(--font-display, Fraunces, Georgia, 'Times New Roman', serif);
+  isolation: isolate;
+  overflow: hidden;
+  padding: 0 0 clamp(30px, 4vw, 52px);
+  border: 0;
+  border-radius: 16px;
+  background: #fff1c9;
+  color: var(--pc-jade);
+}
+#compartir.menu-section::before,
+#compartir.menu-section::after { content: none; }
+
+/* ── Encabezado: mesa de fiesta con placa de papel picado ── */
+#compartir .section-head {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(340px, 28.5vw, 430px);
+  margin: 0 0 clamp(14px, 1.7vw, 23px);
+  padding: 36px 20px;
+  text-align: center;
+  background: url('../assets/compartir/hero-mesa.webp') center / cover no-repeat;
+}
+/* Placa crema festoneada con gotas de papel picado. */
+#compartir .section-head::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: min(660px, 78%);
+  height: clamp(236px, 21.5vw, 316px);
+  transform: translate(-50%, -50%);
+  background:
+    url('../assets/compartir/gotas.svg') repeat-x center 12px / 46px auto,
+    url('../assets/compartir/gotas.svg') repeat-x center calc(100% - 12px) / 46px auto,
+    #fff6e0;
+  border: 7px dotted #fff9ed;
+  border-radius: 44% 46% 41% 45% / 33% 35% 37% 40%;
+  box-shadow: 0 6px 22px #0a2c2166, inset 0 0 0 2px #edce94;
+}
+/* Alas de pétalos a los lados de la placa. */
+#compartir .section-head::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: min(810px, 94%);
+  height: clamp(236px, 21.5vw, 316px);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  background:
+    url('../assets/compartir/ala-izq.svg') left center / auto 62% no-repeat,
+    url('../assets/compartir/ala-der.svg') right center / auto 62% no-repeat;
+}
+#compartir .section-head > * { position: relative; z-index: 1; }
+#compartir .section-head .eyebrow {
+  margin: 0 0 6px;
+  color: var(--pc-jade);
+  font: 700 clamp(.72rem, 1.2vw, 1rem)/1.2 var(--pc-serif);
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+#compartir .section-head .eyebrow::before { content: '› '; color: var(--pc-marigold); letter-spacing: 0; }
+#compartir .section-head .eyebrow::after { content: ' ‹'; color: var(--pc-marigold); letter-spacing: 0; }
+#compartir .section-head h3 {
+  margin: 0 0 6px;
+  color: #004d3f;
+  font: 800 clamp(2.7rem, 5.8vw, 5.6rem)/.97 var(--pc-serif);
+  letter-spacing: -.045em;
+  text-transform: none;
+}
+#compartir .section-head h3::after {
+  content: '';
+  display: block;
+  width: 56%;
+  height: 22px;
+  margin: 8px auto 0;
+  background: url('../assets/compartir/hojas.svg') center / contain no-repeat;
+}
+#compartir .section-head > p {
+  max-width: 33ch;
+  margin: 0;
+  color: #104a3b;
+  font: 600 clamp(.95rem, 1.45vw, 1.3rem)/1.27 var(--pc-serif);
+}
+
+/* ── Tarjetas marfil con borde festoneado ───────────────── */
+#compartir .product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.3vw, 20px);
+  padding: 0 clamp(14px, 1.7vw, 26px);
+  counter-reset: pc-item;
+}
+#compartir .product-card {
+  position: relative;
+  min-width: 0;
+  min-height: 250px;
+  display: flex;
+  overflow: visible;
+  border: 6px dotted #fff9ec;
+  border-radius: 14px;
+  background:
+    url('../assets/compartir/papel.svg'),
+    radial-gradient(circle at 45% 45%, #fff9e9, #fff1d2 97%);
+  background-clip: padding-box;
+  color: var(--pc-jade);
+  filter: drop-shadow(0 4px 7px rgba(184, 134, 49, .28));
+  counter-increment: pc-item;
+  transition: transform .2s ease, filter .2s ease;
+}
+#compartir .product-card:hover { transform: translateY(-2px); filter: drop-shadow(0 8px 12px rgba(184, 134, 49, .4)); }
+/* Cinta numerada, alternando magenta / amarillo. */
+#compartir .product-card::before {
+  content: counter(pc-item, decimal-leading-zero);
+  position: absolute;
+  top: -6px;
+  left: 12px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 51px;
+  height: 60px;
+  color: #fff8e9;
+  background: var(--pc-magenta);
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 82% 100%, 64% 88%, 48% 100%, 30% 88%, 14% 100%, 0 88%);
+  font: 700 1.4rem/1 var(--pc-serif);
+}
+#compartir .product-card:nth-child(even)::before { background: var(--pc-marigold); }
+/* Pequeña flor original junto a la esquina superior derecha. */
+#compartir .product-card::after {
+  content: '';
+  position: absolute;
+  right: 6px;
+  top: 4px;
+  width: 58px;
+  height: 54px;
+  pointer-events: none;
+  background: url('../assets/compartir/flor-esquina.svg') center / contain no-repeat;
+}
+#compartir .product-card__img { display: none !important; }
+#compartir .product-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  padding: 18px 18px 16px;
+}
+#compartir .product-card__top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  min-width: 0;
+  margin: 0 0 9px;
+  padding: 0 50px 0 58px;
+}
+#compartir .product-card__top h4 {
+  min-width: 0;
+  margin: 0;
+  color: #064d3d;
+  font: 700 clamp(1.35rem, 2.1vw, 2.05rem)/1.06 var(--pc-serif);
+  letter-spacing: -.04em;
+  overflow-wrap: anywhere;
+}
+#compartir .product-card__price {
+  color: #074d3c;
+  font: 700 clamp(1.4rem, 2.1vw, 2rem)/1.08 var(--pc-serif);
+  letter-spacing: -.02em;
+  white-space: nowrap;
+}
+#compartir .product-card__price--from::before { content: 'Desde'; display: block; font: 400 .75rem/1.1 var(--pc-serif); letter-spacing: 0; }
+#compartir .product-card__desc {
+  max-width: 31ch;
+  margin: 0 0 14px;
+  padding: 0 22% 0 4px;
+  color: #174237;
+  font: 400 clamp(.93rem, 1.15vw, 1.1rem)/1.28 var(--pc-serif);
+}
+#compartir .product-card__foot { margin-top: auto; padding: 0 0 0 4px; border: 0; justify-content: flex-start; flex-wrap: wrap; gap: 8px; }
+#compartir .add-btn {
+  min-height: 47px;
+  min-width: 150px;
+  padding: 8px 18px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--pc-jade);
+  color: #fff9e8;
+  font: 700 clamp(.93rem, 1.2vw, 1.1rem)/1.2 var(--pc-serif);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22);
+}
+#compartir .add-btn::after { content: ' +'; font: inherit; margin-left: auto; padding-left: 28px; }
+#compartir .add-btn:hover { background: #007b60; transform: translateY(-1px); }
+#compartir .add-btn:focus-visible { outline: 3px solid #cc2761; outline-offset: 3px; }
+#compartir .badge { position: relative; z-index: 1; }
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  #compartir .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  #compartir .section-head { min-height: 360px; background-position: 47% center; }
+  #compartir .section-head::before { width: 82%; height: 250px; }
+  #compartir .section-head::after { width: 96%; height: 250px; background-size: auto 40%, auto 40%; }
+  #compartir .section-head h3 { font-size: clamp(2.2rem, 9vw, 4rem); }
+  #compartir .section-head > p { max-width: 26ch; }
+  #compartir .product-grid { grid-template-columns: minmax(0, 1fr); padding: 0 11px; gap: 14px; }
+  #compartir .product-card { min-height: 225px; }
+  #compartir .product-card__top h4 { font-size: clamp(1.45rem, 6.6vw, 2rem); }
+  #compartir .product-card__desc { font-size: 1rem; }
+}
+@media (max-width: 390px) {
+  #compartir .section-head::before { width: 88%; }
+  #compartir .section-head h3 { font-size: 2.15rem; }
+  #compartir .product-card__body { padding: 16px 14px 14px; }
+  #compartir .product-card__top { padding-left: 54px; padding-right: 36px; }
+  #compartir .product-card::after { width: 44px; right: 4px; }
+  #compartir .add-btn { min-width: 136px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #compartir .product-card, #compartir .add-btn { transition: none; }
+  #compartir .product-card:hover, #compartir .add-btn:hover { transform: none; }
+}

@@ -2,7 +2,7 @@
    Marco de estrellas: marco-estrellas.svg como border-image. Las cuatro cartas son un recorte
    decorativo de la referencia aprobada (Lentejas, Porotos, Quínoa, Champiñón): no son productos. */
 #veganos.menu-section {
-  --vg-navy: #061c39;
+  --vg-navy: #07213f;
   --vg-ivory: #f7ecd4;
   --vg-coral: #f37457;
   --vg-green: #0d5049;
@@ -61,7 +61,7 @@
   left: 0;
   bottom: 0;
   width: min(48%, 560px);
-  aspect-ratio: 602 / 112;
+  aspect-ratio: 602 / 88;
   background: url('../assets/veganos/adorno-cabecera.webp') center / 100% 100% no-repeat;
   -webkit-mask-image: radial-gradient(ellipse at center, #000 52%, transparent 100%);
   mask-image: radial-gradient(ellipse at center, #000 52%, transparent 100%);
@@ -93,18 +93,18 @@
   height: 22px;
   background: url('../assets/veganos/estrella-oro.svg') no-repeat center / 22px 22px;
 }
-/* Título a dos tintas: crema arriba, coral abajo. */
+/* Título a dos tintas: primera línea crema, segunda coral (color plano: la «g» no se recorta). */
 #veganos .section-head h3 {
   max-width: 5.8em;
   margin: 0 0 clamp(10px, 1.2vw, 18px);
-  font: 800 clamp(3rem, 6.2vw, 6rem)/.92 var(--vg-serif);
+  padding-bottom: .08em;
+  color: var(--vg-coral);
+  font: 800 clamp(3rem, 6.2vw, 6rem)/.98 var(--vg-serif);
   letter-spacing: -.04em;
   text-transform: none;
-  color: transparent;
-  background: linear-gradient(180deg, var(--vg-ivory) 0 50%, var(--vg-coral) 50% 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
+  overflow: visible;
 }
+#veganos .section-head h3::first-line { color: var(--vg-ivory); }
 #veganos .section-head > p {
   max-width: 44ch;
   margin: 0;
@@ -150,18 +150,6 @@
   letter-spacing: -.06em;
   pointer-events: none;
 }
-/* Rama al pie izquierdo, alternando verde / coral. */
-#veganos .product-card::after {
-  content: '';
-  position: absolute;
-  left: 4%;
-  bottom: 14px;
-  width: clamp(48px, 5.4vw, 74px);
-  aspect-ratio: 80 / 84;
-  background: url('../assets/veganos/hojas-verde.svg') center / contain no-repeat;
-  pointer-events: none;
-}
-#veganos .product-card:nth-child(even)::after { background-image: url('../assets/veganos/hojas-coral.svg'); }
 #veganos .product-card__img { display: none; }
 #veganos .product-card__body {
   position: relative;

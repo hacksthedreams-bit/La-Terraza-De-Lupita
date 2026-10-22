@@ -1,0 +1,258 @@
+/* Fuego de parrilla. Cargar DESPUÉS del tema general y del mexicano.
+   Sólo #hamburguesas. Catálogo y eventos siguen en el JS original.
+   Marcos con esquinas ornamentales: hb-frame.svg como border-image sobre pseudo-elementos. */
+#hamburguesas.menu-section {
+  --hb-bg: #11100f;
+  --hb-card: #191714;
+  --hb-copper: #b86539;
+  --hb-gold: #e8b65e;
+  --hb-line: #c0612f;
+  --hb-serif: var(--font-display, Fraunces, Georgia, serif);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(22px, 3vw, 40px) clamp(22px, 3vw, 40px) clamp(84px, 7.5vw, 104px);
+  border: 0;
+  border-radius: 0;
+  background: url('../assets/decor/hb-grain.svg') var(--hb-bg);
+  color: #f9f2e8;
+  box-shadow: 0 14px 40px rgba(0,0,0,.26);
+}
+/* Marco exterior con esquinas (sustituye el adorno difuso compartido). */
+#hamburguesas.menu-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 1;
+  mix-blend-mode: normal;
+  background: none;
+  border: 26px solid transparent;
+  border-image: url('../assets/decor/hb-frame.svg') 24 / 26px stretch;
+  pointer-events: none;
+}
+/* Divisor inferior con llama. */
+#hamburguesas.menu-section::after {
+  content: '';
+  position: absolute;
+  inset: auto auto clamp(30px, 3.4vw, 44px) 50%;
+  z-index: -1;
+  width: min(72%, 840px);
+  height: 28px;
+  transform: translateX(-50%);
+  background:
+    url('../assets/decor/hb-flame.svg') no-repeat center / 20px 27px,
+    linear-gradient(var(--hb-line), var(--hb-line)) no-repeat left center / calc(50% - 26px) 1px,
+    linear-gradient(var(--hb-line), var(--hb-line)) no-repeat right center / calc(50% - 26px) 1px;
+  pointer-events: none;
+}
+#hamburguesas .section-head {
+  position: relative;
+  min-height: clamp(190px, 17.5vw, 252px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0 0 clamp(16px, 1.8vw, 24px);
+  padding: 24px 53% 26px clamp(24px, 3.2vw, 44px);
+  border: 0;
+  border-radius: 0;
+  background: url('../assets/decor/hb-grain.svg') #100e0c;
+}
+/* Recorte del arte aprobado: hamburguesa grabada + parrilla con brasas. */
+#hamburguesas .section-head::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  background: url('../assets/decor/hb-header-art.webp') no-repeat left center / cover;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 9%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 9%);
+  pointer-events: none;
+}
+#hamburguesas .section-head::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: 20px solid transparent;
+  border-image: url('../assets/decor/hb-frame.svg') 24 / 20px stretch;
+  pointer-events: none;
+}
+#hamburguesas .section-head > * { position: relative; z-index: 1; }
+#hamburguesas .section-head .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #e58b4f;
+  font: 700 .78rem/1.35 var(--font-body, Inter, sans-serif);
+  letter-spacing: .22em;
+  margin: 0 0 8px;
+}
+#hamburguesas .section-head .eyebrow::after {
+  content: '';
+  flex: 1 1 auto;
+  height: 26px;
+  background:
+    url('../assets/decor/hb-flame.svg') no-repeat center / 19px 26px,
+    linear-gradient(var(--hb-line), var(--hb-line)) no-repeat left center / calc(50% - 22px) 1px,
+    linear-gradient(var(--hb-line), var(--hb-line)) no-repeat right center / calc(50% - 22px) 1px;
+}
+#hamburguesas .section-head h3 {
+  color: #fff8ed;
+  font: 750 clamp(2.5rem, 4.9vw, 4.6rem)/1 var(--hb-serif);
+  letter-spacing: -.04em;
+  text-shadow: 0 2px 14px rgba(0,0,0,.55);
+  margin: 0 0 12px;
+}
+#hamburguesas .section-head > p {
+  color: #f2e9da;
+  font: 400 clamp(1rem, 1.5vw, 1.3rem)/1.45 var(--hb-serif);
+  margin: 0;
+}
+#hamburguesas .product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.8vw, 22px);
+}
+#hamburguesas .product-card,
+#hamburguesas .product-card--tone-1,
+#hamburguesas .product-card--tone-2,
+#hamburguesas .product-card--tone-3 {
+  position: relative;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: url('../assets/decor/hb-grain.svg') var(--hb-card);
+  color: #fff7e9;
+  box-shadow: none;
+  transition: transform .18s ease;
+}
+/* Marco de la tarjeta con esquinas con muesca. */
+#hamburguesas .product-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 18px solid transparent;
+  border-image: url('../assets/decor/hb-frame.svg') 24 / 18px stretch;
+  pointer-events: none;
+  transition: filter .18s ease;
+}
+#hamburguesas .product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+#hamburguesas .product-card:hover::after { filter: brightness(1.35); }
+#hamburguesas .product-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: clamp(22px, 2.2vw, 30px) clamp(22px, 2.2vw, 30px) clamp(20px, 2vw, 26px);
+}
+#hamburguesas .product-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 10px;
+}
+#hamburguesas .product-card__top h4 {
+  min-width: 0;
+  margin: 0;
+  color: #fff7eb;
+  font: 700 clamp(1.2rem, 1.9vw, 1.65rem)/1.18 var(--hb-serif);
+  overflow-wrap: normal;
+}
+#hamburguesas .product-card__price {
+  flex: none;
+  color: var(--hb-gold);
+  font: 700 clamp(1rem, 1.5vw, 1.35rem)/1.25 var(--hb-serif);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+#hamburguesas .product-card__desc {
+  color: #ece3d4;
+  font: 400 clamp(.97rem, 1.18vw, 1.08rem)/1.5 var(--hb-serif);
+  margin: 0 0 auto;
+  padding: 0 0 22px;
+}
+#hamburguesas .product-card__foot {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: auto;
+  padding: 0;
+  border: 0;
+}
+/* Espátulas cruzadas + filete cobre (decorativo). */
+#hamburguesas .product-card__foot > div {
+  flex: 1 1 60px;
+  max-width: 170px;
+  min-height: 40px;
+  background:
+    url('../assets/decor/hb-spatulas.svg') no-repeat left center / 38px 38px,
+    linear-gradient(90deg, rgba(192,97,47,.8), rgba(192,97,47,0)) no-repeat 52px center / calc(100% - 52px) 1px;
+}
+#hamburguesas .add-btn {
+  flex: none;
+  min-width: 118px;
+  min-height: 48px;
+  margin-left: auto;
+  padding: 10px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #d4592f 0%, #a93e1d 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.28), 0 3px 8px rgba(0,0,0,.45);
+  color: #fff9ef;
+  font: 600 1.05rem/1.2 var(--hb-serif);
+  transition: filter .18s ease, transform .18s ease;
+}
+#hamburguesas .add-btn:hover { background: linear-gradient(180deg, #e0643a 0%, #b94622 100%); }
+#hamburguesas .add-btn:focus-visible { outline: 3px solid #fff6df; outline-offset: 3px; }
+@media (max-width: 1080px) {
+  #hamburguesas .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #hamburguesas .section-head { padding-right: 50%; }
+  #hamburguesas .section-head::before { width: 48%; }
+  #hamburguesas .section-head h3 { font-size: clamp(2.2rem, 4.5vw, 3.6rem); }
+}
+@media (max-width: 660px) {
+  #hamburguesas.menu-section { padding: 18px 16px 74px; }
+  #hamburguesas.menu-section::before { border-width: 18px; border-image-width: 18px; }
+  #hamburguesas .section-head {
+    min-height: 0;
+    padding: 26px 22px 150px;
+    margin-bottom: 14px;
+  }
+  #hamburguesas .section-head::before {
+    top: auto;
+    right: 0;
+    left: 0;
+    width: auto;
+    height: 140px;
+    background-position: left center;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 28%);
+    mask-image: linear-gradient(180deg, transparent 0, #000 28%);
+  }
+  #hamburguesas .section-head h3 { font-size: clamp(1.8rem, 8.7vw, 2.9rem); }
+  #hamburguesas .section-head > p { max-width: 28ch; }
+  #hamburguesas .product-grid { grid-template-columns: minmax(0, 1fr); }
+  #hamburguesas .product-card__top { gap: 9px; }
+  #hamburguesas .product-card__top h4 { font-size: 1.3rem; }
+  #hamburguesas .product-card__price { font-size: 1.1rem; }
+}
+@media (max-width: 350px) {
+  #hamburguesas .product-card__top { flex-direction: column; gap: 4px; }
+  #hamburguesas .product-card__foot > div { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #hamburguesas .product-card, #hamburguesas .add-btn, #hamburguesas .product-card::after { transition: none; }
+  #hamburguesas .product-card:hover { transform: none; }
+}

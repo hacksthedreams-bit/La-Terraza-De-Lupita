@@ -1,0 +1,312 @@
+/* HORARIOS · reloj en vivo · México contemporáneo · sólo #horarios.
+   Paleta: obsidiana, cempasúchil, rosa mexicano, turquesa de talavera, terracota.
+   Marcado y script propios (js/horarios-reloj.js). */
+#horarios.section--hours {
+  --hx-marigold: #f5a524;
+  --hx-pink: #e4457b;
+  --hx-turq: #2bb5a6;
+  --hx-terra: #d2562e;
+  --hx-cream: #f6ecd7;
+  --hx-ink: #120d0c;
+  --hx-serif: var(--font-display, Fraunces, Georgia, 'Times New Roman', serif);
+  --hx-sans: var(--font-body, Inter, system-ui, sans-serif);
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 55% 50% at 18% 40%, rgba(245, 165, 36, .10), transparent 70%),
+    radial-gradient(ellipse 50% 45% at 90% 85%, rgba(228, 69, 123, .08), transparent 70%),
+    var(--bg, #0e0b09);
+}
+
+/* ── Tarjeta ─────────────────────────────────────────────── */
+#horarios .hx {
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(70px, 7.4vw, 88px) clamp(20px, 4vw, 52px) clamp(26px, 4vw, 48px);
+  border: 1px solid rgba(246, 236, 215, .1);
+  border-radius: 32px;
+  background:
+    radial-gradient(760px 420px at 12% 36%, rgba(245, 165, 36, .10), transparent 65%),
+    radial-gradient(620px 360px at 96% 92%, rgba(228, 69, 123, .09), transparent 65%),
+    url('../assets/horarios/talavera.svg') center / 64px 64px,
+    linear-gradient(160deg, #1c1514 0%, #130e0e 55%, #0f0a0a 100%);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, .55), 0 0 0 1px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .05);
+  overflow: hidden;
+  isolation: isolate;
+}
+/* Franja de sarape */
+#horarios .hx__serape {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 9px;
+  z-index: 2;
+  background: linear-gradient(90deg,
+    #f5a524 0 20%, #12100f 20% 21%,
+    #e4457b 21% 40%, #12100f 40% 41%,
+    #2bb5a6 41% 60%, #12100f 60% 61%,
+    #d2562e 61% 80%, #12100f 80% 81%,
+    #f6ecd7 81% 100%);
+  opacity: .92;
+}
+/* Papel picado */
+#horarios .hx__garland {
+  position: absolute;
+  inset: 9px 0 auto 0;
+  width: 100%;
+  height: 56px;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+}
+#horarios .hx-flag {
+  transform-box: fill-box;
+  transform-origin: 50% 0;
+  opacity: .92;
+  animation: hx-sway 5.2s ease-in-out infinite alternate;
+  animation-delay: calc(var(--i) * -.41s);
+}
+
+#horarios .hx__head { position: relative; z-index: 2; text-align: center; margin-bottom: clamp(20px, 3vw, 32px); }
+#horarios .hx__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: var(--hx-marigold);
+  font: 700 .7rem/1 var(--hx-sans);
+  letter-spacing: .34em;
+  text-transform: uppercase;
+}
+#horarios .hx__live {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--hx-pink);
+  animation: hx-live 2s ease-out infinite;
+}
+#horarios .hx .section-title { margin: 0; letter-spacing: -.02em; }
+
+#horarios .hx__body {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+  gap: clamp(26px, 4.6vw, 60px);
+  align-items: center;
+}
+
+/* ── Reloj ───────────────────────────────────────────────── */
+#horarios .hx__clock { position: relative; width: 100%; aspect-ratio: 1; margin: 0 auto; }
+#horarios .hx__aura {
+  position: absolute;
+  inset: -12%;
+  z-index: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 165, 36, .26) 0, rgba(228, 69, 123, .10) 44%, transparent 68%);
+  opacity: .5;
+  transition: opacity .6s ease;
+  animation: hx-breathe 6s ease-in-out infinite;
+}
+#horarios .hx--open .hx__aura { opacity: 1; }
+#horarios .hx__svg {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 24px 30px rgba(0, 0, 0, .6));
+}
+#horarios .hx-rays {
+  transform-box: view-box;
+  transform-origin: 0 0;   /* el centro del dial es el origen (0,0) del viewBox */
+  animation: hx-spin 180s linear infinite;
+}
+
+/* ── Bloques ─────────────────────────────────────────────── */
+#horarios .hx__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; min-width: 0; }
+#horarios .hx-tile {
+  position: relative;
+  min-width: 0;
+  padding: 20px 22px;
+  border: 1px solid rgba(246, 236, 215, .09);
+  border-radius: 22px;
+  background: linear-gradient(160deg, rgba(246, 236, 215, .065), rgba(246, 236, 215, .02));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05);
+}
+#horarios .hx-tile--time,
+#horarios .hx-tile--status { grid-column: 1 / -1; }
+
+/* Hora digital */
+#horarios .hx-tile--time { padding: 22px 26px 20px; overflow: hidden; }
+#horarios .hx-tile--time::after {
+  content: '';
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 165, 36, .22), transparent 68%);
+  pointer-events: none;
+}
+#horarios .hx__time {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-family: var(--hx-sans);
+  font-feature-settings: 'tnum' 1, 'lnum' 1;
+  font-variant-numeric: tabular-nums lining-nums;
+  line-height: 1;
+}
+#horarios .hx__hm {
+  font-size: clamp(3.6rem, 7.6vw, 5.8rem);
+  font-weight: 600;
+  letter-spacing: -.055em;
+  color: var(--hx-cream);
+}
+#horarios .hx__colon { display: inline-block; margin: 0 .02em; color: var(--hx-marigold); animation: hx-blink 1s steps(1) infinite; }
+#horarios .hx__s {
+  min-width: 2ch;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: -.02em;
+  color: var(--hx-pink);
+}
+#horarios .hx__date {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0 0;
+  color: rgba(246, 236, 215, .78);
+  font: 500 clamp(.95rem, 1.4vw, 1.1rem)/1.2 var(--hx-sans);
+  letter-spacing: .01em;
+}
+#horarios .hx__date::before {
+  content: '';
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--hx-marigold), var(--hx-pink));
+}
+
+/* Estado */
+#horarios .hx-tile--status { display: flex; align-items: center; gap: 20px; padding: 18px 22px; }
+#horarios .hx-ring { position: relative; flex: 0 0 96px; width: 96px; height: 96px; }
+#horarios .hx-ring svg { display: block; }
+#horarios #hx-ring { transition: stroke-dasharray .8s ease; }
+#horarios .hx-ring__txt {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.1;
+}
+#horarios .hx-ring__txt strong {
+  color: var(--hx-cream);
+  font: 700 1.02rem/1 var(--hx-sans);
+  letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums;
+}
+#horarios .hx-ring__txt span {
+  margin-top: 4px;
+  color: rgba(246, 236, 215, .55);
+  font: 600 .56rem/1 var(--hx-sans);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+#horarios .hx__status { min-width: 0; }
+#horarios .hx__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 15px 8px 12px;
+  border: 1px solid rgba(246, 236, 215, .18);
+  border-radius: 999px;
+  background: rgba(246, 236, 215, .05);
+  color: var(--hx-cream);
+  font: 700 .74rem/1 var(--hx-sans);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+#horarios .hx__dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+#horarios .hx--open .hx__chip { border-color: rgba(43, 181, 166, .5); background: rgba(43, 181, 166, .12); color: #4fe0cd; }
+#horarios .hx--open .hx__dot { animation: hx-pulse 2s ease-out infinite; }
+#horarios .hx--closed .hx__chip { border-color: rgba(228, 69, 123, .45); background: rgba(228, 69, 123, .12); color: #ff8aa8; }
+#horarios .hx__detail {
+  margin: 10px 0 0;
+  color: rgba(246, 236, 215, .8);
+  font: 400 .96rem/1.4 var(--hx-sans);
+}
+
+/* Franjas */
+#horarios .hx-day { padding: 18px 20px 17px; transition: border-color .4s ease, background .4s ease, box-shadow .4s ease; }
+#horarios .hx-day__icon { display: block; margin-bottom: 14px; color: rgba(246, 236, 215, .5); transition: color .4s ease; }
+#horarios .hx-day.is-today .hx-day__icon--sun { color: var(--hx-marigold); }
+#horarios .hx-day.is-today .hx-day__icon--star { color: var(--hx-pink); }
+#horarios .hx-day__label { display: block; margin-bottom: 6px; color: rgba(246, 236, 215, .62); font: 500 .8rem/1.2 var(--hx-sans); letter-spacing: .02em; }
+#horarios .hx-day__time { display: block; color: var(--hx-cream); font: 700 1.28rem/1.1 var(--hx-sans); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+#horarios .hx-day.is-today {
+  border-color: rgba(245, 165, 36, .55);
+  background: linear-gradient(160deg, rgba(245, 165, 36, .16), rgba(245, 165, 36, .03));
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .06);
+}
+#horarios .hx-day[data-group='fri-sat'].is-today {
+  border-color: rgba(228, 69, 123, .55);
+  background: linear-gradient(160deg, rgba(228, 69, 123, .16), rgba(228, 69, 123, .03));
+}
+#horarios .hx-day__tag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: var(--hx-marigold);
+  color: #1b1209;
+  font: 800 .58rem/1 var(--hx-sans);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+#horarios .hx-day[data-group='fri-sat'] .hx-day__tag { background: var(--hx-pink); color: #fff; }
+#horarios .hx-day.is-open .hx-day__tag { background: #2bb5a6; color: #04201d; }
+#horarios .hx-day__tag:empty { display: none; }
+
+/* El estado antiguo sólo se muestra si el reloj no pudo iniciarse. */
+#horarios .hx--live #open-status { display: none; }
+#horarios .hx:not(.hx--live) .hx-tile--time,
+#horarios .hx:not(.hx--live) .hx-tile--status { display: none; }
+#horarios .hx__body > .hours-card__status { grid-column: 1 / -1; justify-self: center; }
+
+/* ── Animaciones ─────────────────────────────────────────── */
+@keyframes hx-sway { from { transform: rotate(-3.2deg); } to { transform: rotate(3.2deg); } }
+@keyframes hx-spin { to { transform: rotate(360deg); } }
+@keyframes hx-blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: .22; } }
+@keyframes hx-pulse { 0% { box-shadow: 0 0 0 0 rgba(43, 181, 166, .6); } 70%, 100% { box-shadow: 0 0 0 9px rgba(43, 181, 166, 0); } }
+@keyframes hx-live { 0% { box-shadow: 0 0 0 0 rgba(228, 69, 123, .65); } 70%, 100% { box-shadow: 0 0 0 8px rgba(228, 69, 123, 0); } }
+@keyframes hx-breathe { 0%, 100% { transform: scale(.97); } 50% { transform: scale(1.04); } }
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 920px) {
+  #horarios .hx__body { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+  #horarios .hx__clock { width: min(100%, 360px); }
+}
+@media (max-width: 520px) {
+  #horarios .hx { padding: 66px 14px 22px; border-radius: 24px; }
+  #horarios .hx__grid { grid-template-columns: 1fr; }
+  #horarios .hx-tile--status { gap: 14px; padding: 16px; }
+  #horarios .hx-ring { flex-basis: 84px; width: 84px; height: 84px; }
+  #horarios .hx-day { display: grid; grid-template-columns: auto 1fr; column-gap: 14px; align-items: center; padding: 16px 18px; }
+  #horarios .hx-day__icon { grid-row: 1 / span 2; margin: 0; }
+  #horarios .hx-day__tag { top: 12px; right: 12px; }
+  #horarios .hx__eyebrow { letter-spacing: .22em; font-size: .64rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #horarios .hx-flag, #horarios .hx-rays, #horarios .hx__aura, #horarios .hx__live,
+  #horarios .hx__dot, #horarios .hx__colon { animation: none; }
+  #horarios #hx-ring, #horarios .hx-day { transition: none; }
+}

@@ -182,7 +182,7 @@
     linear-gradient(90deg, #d9a436, transparent) no-repeat right center / calc(50% - 24px) 1px;
 }
 #bebidas .product-card__price {
-  background: linear-gradient(180deg, #e0a540, #a2640c);
+  background: linear-gradient(180deg, #a8680c, #7d4a08);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

@@ -7,7 +7,7 @@ section#especiales.menu-section {
  --lp-serif:var(--font-display,'Fraunces',Georgia,serif);
  position:relative;isolation:isolate;box-sizing:border-box;overflow:hidden;
  padding:clamp(16px,2.2vw,30px);border:clamp(20px,2.4vw,32px) solid transparent;
- border-image:url('../assets/lupita-aprobados/especiales/arte-fuente.webp') 45 / clamp(20px,2.4vw,32px) round;
+ border-image:url('../assets/lupita-aprobados/especiales/marco-fuente.webp') 45 / clamp(20px,2.4vw,32px) round;
  border-radius:0;background:url('../assets/lupita-aprobados/especiales/grano.svg'),var(--lp-bg);color:var(--lp-text);
  box-shadow:0 12px 32px #0003;scroll-margin-top:90px;
 }

@@ -63,8 +63,10 @@
   width: min(48%, 560px);
   aspect-ratio: 602 / 88;
   background: url('../assets/veganos/adorno-cabecera.webp') center / 100% 100% no-repeat;
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 52%, transparent 100%);
-  mask-image: radial-gradient(ellipse at center, #000 52%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 16%, #000 84%, transparent 100%), linear-gradient(180deg, transparent 0, #000 26%, #000 74%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 0, #000 16%, #000 84%, transparent 100%), linear-gradient(180deg, transparent 0, #000 26%, #000 74%, transparent 100%);
+  mask-composite: intersect;
   pointer-events: none;
 }
 #veganos .section-head > * { position: relative; z-index: 1; }
@@ -99,7 +101,7 @@
   margin: 0 0 clamp(10px, 1.2vw, 18px);
   padding-bottom: .08em;
   color: var(--vg-coral);
-  font: 800 clamp(3rem, 6.2vw, 6rem)/.98 var(--vg-serif);
+  font: 800 clamp(2.8rem, 5.5vw, 5.4rem)/.98 var(--vg-serif);
   letter-spacing: -.04em;
   text-transform: none;
   overflow: visible;
@@ -237,14 +239,14 @@
 #veganos .badge--personalizable { background: #e5dbf5; color: #55349e; }
 #veganos .add-btn.choose::after { content: ' ›'; font: inherit; }
 #veganos .add-btn:hover { background: #12306b; transform: translateY(-1px); }
-#veganos .add-btn:focus-visible { outline: 3px solid var(--vg-coral); outline-offset: 3px; }
+#veganos .add-btn:focus-visible { outline: 3px solid #0a1f45; outline-offset: 3px; }
 
 /* ── Responsive ─────────────────────────────────────────── */
 @media (max-width: 1100px) {
   #veganos .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   #veganos .section-head { padding-right: 46%; }
   #veganos .section-head::before { width: 52%; }
-  #veganos .section-head h3 { font-size: clamp(2.8rem, 6.4vw, 5rem); }
+  #veganos .section-head h3 { font-size: clamp(2.6rem, 5.3vw, 4.6rem); }
 }
 @media (max-width: 700px) {
   #veganos.menu-section { --vg-frame: 18px; padding: 8px; }
@@ -263,7 +265,12 @@
   #veganos .product-grid { grid-template-columns: minmax(0, 1fr); }
   #veganos .product-card__body { padding-left: 26%; }
 }
+@media (max-width: 700px) {
+  #veganos .product-card::before { font-size: 3.5rem; }
+  #veganos .product-card__body { padding-left: 27%; }
+}
 @media (max-width: 385px) {
+  #veganos .section-head h3 { font-size: clamp(2rem, 9.6vw, 2.4rem); }
   #veganos .section-head .eyebrow { letter-spacing: .2em; }
   #veganos .section-head .eyebrow::before { flex-basis: 46px; }
   #veganos .product-card__body { padding-left: 24%; padding-right: 14px; }

@@ -1,0 +1,140 @@
+/* Especiales de la casa · referencia aprobada el 23-10-2026.
+   Cargar DESPUÉS de la base, sustituyendo el tema anterior de esta categoría.
+   El recurso arte-fuente.webp sólo se utiliza recortado mediante CSS para el grabado y los bordes.
+   Todos los nombres, precios, descripciones y botones siguen siendo HTML del renderizador. */
+section#especiales.menu-section {
+ --lp-bg:#19140f;--lp-ink:#faedd4;--lp-body:#eddec3;--lp-card:#f2e3c4;--lp-text:#20170f;--lp-muted:#3f2d20;--lp-gold:#bd8b49;--lp-button:#78311b;
+ --lp-serif:var(--font-display,'Fraunces',Georgia,serif);
+ position:relative;isolation:isolate;box-sizing:border-box;overflow:hidden;
+ padding:clamp(16px,2.2vw,30px);border:clamp(20px,2.4vw,32px) solid transparent;
+ border-image:url('../assets/lupita-aprobados/especiales/arte-fuente.webp') 45 / clamp(20px,2.4vw,32px) round;
+ border-radius:0;background:url('../assets/lupita-aprobados/especiales/grano.svg'),var(--lp-bg);color:var(--lp-text);
+ box-shadow:0 12px 32px #0003;scroll-margin-top:90px;
+}
+section#especiales.menu-section::before,section#especiales.menu-section::after {content:none}
+section#especiales .section-head {
+ position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+ min-height:clamp(255px,25vw,375px);margin:0 0 clamp(18px,2vw,28px);
+ padding:22px 53% 24px clamp(6px,1.4vw,20px);background:none;border:0;border-radius:0;text-align:left;
+}
+/* Ventana gráfica exacta sobre el grabado original: no contiene el título ni tarjetas rasterizadas. */
+section#especiales .section-head::before {
+ content:'';position:absolute;z-index:0;right:0;top:50%;transform:translateY(-50%);
+ width:52%;aspect-ratio:772 / 392;
+ background-image:url('../assets/lupita-aprobados/especiales/arte-fuente.webp');background-repeat:no-repeat;
+ background-size:198.963731% 261.224490%;background-position:96.073298% 4.746835%;
+ pointer-events:none;
+ -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 98%,transparent);
+ mask-image:linear-gradient(90deg,transparent,#000 3%,#000 98%,transparent);
+}
+section#especiales .section-head::after {content:none}
+section#especiales .section-head>* {position:relative;z-index:1}
+section#especiales .eyebrow {
+ display:flex;align-items:center;gap:13px;margin:0 0 11px;color:var(--lp-ink);
+ font:650 clamp(.68rem,.9vw,.85rem)/1.4 var(--lp-serif);letter-spacing:.24em;text-transform:uppercase;white-space:normal;
+}
+section#especiales .eyebrow::before {content:none}
+section#especiales .eyebrow::after {content:'';display:block;width:70px;height:1px;flex:0 1 70px;background:var(--lp-gold);border:0}
+section#especiales .section-head h3 {
+ max-width:100%;margin:0 0 15px;padding:0;color:var(--lp-ink);background:none;
+ font:750 clamp(2.65rem,5.2vw,5.5rem)/1.02 var(--lp-serif);letter-spacing:-.04em;
+ text-transform:none;text-shadow:none;overflow-wrap:normal;word-break:normal;text-wrap:balance;
+}
+section#especiales .section-head h3::before,section#especiales .section-head h3::after {content:none}
+section#especiales .section-head>p {
+ max-width:42ch;margin:0;padding:0;color:var(--lp-body);background:none;
+ font:450 clamp(.96rem,1.4vw,1.25rem)/1.45 var(--lp-serif);text-shadow:none;
+}
+section#especiales .section-head>p::before,section#especiales .section-head>p::after {content:none}
+section#especiales .product-grid {
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.5vw,22px);padding:0;margin:0;
+ counter-reset:none;
+}
+section#especiales .product-card {
+ position:relative;isolation:isolate;display:flex;flex-direction:column;min-width:0;min-height:0;margin:0;
+ overflow:hidden;border:0;border-radius:0;background:url('../assets/lupita-aprobados/especiales/grano.svg'),var(--lp-card);
+ color:var(--lp-text);box-shadow:0 5px 13px #0002;filter:none;counter-increment:none;
+ transition:transform 150ms ease;
+}
+section#especiales .product-card:hover {transform:translateY(-2px);box-shadow:0 7px 17px #0003;border:0}
+section#especiales .product-card::before {
+ content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+ border:16px solid transparent;border-image:url('../assets/lupita-aprobados/especiales/marco-tarjeta.svg') 24 / 16px stretch;
+ background:none;transform:none;width:auto;height:auto;opacity:1;
+}
+section#especiales .product-card::after {content:none}
+section#especiales .product-card__img {display:none}
+section#especiales .product-card__body {
+ position:relative;z-index:1;flex:1;min-width:0;display:grid;
+ grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto 1fr auto auto;
+ gap:10px 12px;padding:clamp(19px,2vw,29px);
+}
+section#especiales .product-card__body::before,section#especiales .product-card__body::after {content:none}
+section#especiales .product-card__top,section#especiales .product-card__foot {display:contents}
+section#especiales .product-card__top::before,section#especiales .product-card__top::after,section#especiales .product-card__foot::before,section#especiales .product-card__foot::after {content:none}
+section#especiales .product-card__top h4 {
+ grid-column:1/-1;grid-row:1;min-width:0;margin:0;padding:0;color:var(--lp-text);background:none;
+ font:650 clamp(1.3rem,2.1vw,2rem)/1.12 var(--lp-serif);letter-spacing:-.025em;text-align:left;
+ overflow-wrap:anywhere;text-shadow:none;
+}
+section#especiales .product-card__top h4::before,section#especiales .product-card__top h4::after {content:none}
+section#especiales .product-card__desc {
+ grid-column:1/-1;grid-row:2;min-width:0;margin:0;padding:0;color:var(--lp-muted);background:none;
+ font:400 clamp(.92rem,1.13vw,1.12rem)/1.42 var(--lp-serif);text-align:left;text-shadow:none;
+}
+section#especiales .product-card__price {
+ grid-column:1;grid-row:4;align-self:center;position:static;inset:auto;display:block;
+ width:auto;height:auto;min-width:0;max-width:none;min-height:0;margin:0;padding:0;
+ background:none;border:0;border-radius:0;color:var(--lp-gold);box-shadow:none;text-shadow:none;
+ font:650 clamp(1.3rem,1.9vw,1.85rem)/1.1 var(--lp-serif);letter-spacing:-.02em;white-space:nowrap;
+}
+section#especiales .product-card__price--from::before {content:'Desde ';font:400 .7rem/1.2 var(--lp-serif);letter-spacing:0;color:inherit}
+section#especiales .product-card__foot>div {
+ grid-column:1/-1;grid-row:3;display:flex;flex-wrap:wrap;gap:5px;align-self:start;margin:0;padding:0;min-width:0;
+}
+section#especiales .product-card__foot>div:empty {display:none}
+section#especiales .badge {
+ display:inline-flex;align-items:center;max-width:100%;padding:4px 8px;margin:0;
+ border:1px solid var(--lp-gold);border-radius:3px;background:none;color:var(--lp-gold);
+ font:550 .65rem/1.2 var(--lp-serif);letter-spacing:.04em;text-transform:uppercase;
+}
+section#especiales .add-btn {
+ grid-column:2;grid-row:4;justify-self:end;align-self:center;display:inline-flex;align-items:center;justify-content:center;
+ min-height:44px;min-width:90px;max-width:100%;margin:0;padding:10px 17px;
+ border:1px solid var(--lp-gold);border-radius:999px;background:var(--lp-button);color:#fff0d6;
+ font:550 clamp(.85rem,1.08vw,1.08rem)/1.15 var(--lp-serif);box-shadow:inset 0 0 0 2px #ffffff0a;text-shadow:none;
+ white-space:normal;letter-spacing:0;text-transform:none;
+}
+section#especiales .add-btn:hover {background:var(--lp-button);filter:brightness(1.12);transform:none}
+section#especiales .add-btn:focus-visible {outline:3px solid var(--lp-gold);outline-offset:3px}
+section#especiales .add-btn.choose::after {content:' +';font:inherit}
+@media(max-width:1000px) {
+ section#especiales .product-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+ section#especiales .section-head h3 {font-size:clamp(2.55rem,5.1vw,4rem)}
+}
+@media(max-width:650px) {
+ section#especiales.menu-section {padding:12px;border-width:18px;border-image-width:18px}
+ section#especiales .section-head {min-height:0;display:flex;padding:14px 4px 10px;margin-bottom:18px;gap:0}
+ section#especiales .section-head h3 {max-width:100%;font-size:clamp(2.5rem,10vw,3.6rem);overflow-wrap:anywhere}
+ section#especiales .section-head::before {position:relative;order:5;top:auto;right:auto;transform:none;width:100%;margin-top:18px}
+ section#especiales .section-head>p {font-size:1rem}
+ section#especiales .product-grid {grid-template-columns:minmax(0,1fr);gap:13px}
+ section#especiales .product-card__body {padding:22px;column-gap:10px}
+ section#especiales .product-card__top h4 {font-size:1.55rem}
+ section#especiales .product-card__desc {font-size:1rem}
+ section#especiales .product-card__price {font-size:1.5rem}
+}
+@media(max-width:360px) {
+ section#especiales.menu-section {padding:8px;border-width:14px;border-image-width:14px}
+ section#especiales .product-card__body {padding:20px 17px}
+ section#especiales .add-btn {min-width:82px;padding:10px 13px}
+}
+@media(prefers-reduced-motion:reduce) {section#especiales .product-card{transition:none}section#especiales .product-card:hover{transform:none}}
+
+section#especiales .product-card__price{color:#772b19}
+section#especiales .section-head h3{max-width:9ch}
+section#especiales .product-card__foot>div .badge{color:#75431d}
+
+/* Escala del título según la referencia aprobada (el título ocupa buena parte de la cabecera). */
+@media(min-width:1001px){section#especiales .section-head h3{font-size:clamp(3rem,8.0vw,8.4rem);}}
+@media(min-width:651px) and (max-width:1000px){section#especiales .section-head h3{font-size:clamp(2.6rem,7.2vw,5rem);}}

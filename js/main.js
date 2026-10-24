@@ -92,14 +92,14 @@
     {id:14,catId:"chorrillanas",name:"Tradicional",price:7490,desc:"Carne mechada, cebolla caramelizada, chorizo y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Individual",price:7490},{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
     {id:15,catId:"chorrillanas",name:"Suprema",price:11990,desc:"Pollo, salsa blanca, champiñones y cebollín.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
     {id:16,catId:"chorrillanas",name:"Pollo Mongoliano",price:11990,desc:"Pollo salteado, cebollín, salsa de ostras y soya.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
-    {id:17,catId:"chorrillanas",name:"Papas Champi",price:11990,desc:"Champiñones salteados, cebollín y salsa de ostras.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
+    {id:17,catId:"chorrillanas",name:"Papas Champi",price:11990,desc:"Champiñones salteados, cebollín y salsa de ostras.",badges:["local"],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
     {id:18,catId:"chorrillanas",name:"La Vegetariana",price:11990,desc:"Cebolla, champiñón, pimentón, cebollín y salsa de queso.",badges:["vegetariano"],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
     {id:19,catId:"chorrillanas",name:"Chicken Teriyaki",price:11990,desc:"Pollo, champiñón, cebollín, sésamo tostado y salsa teriyaki.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
     {id:20,catId:"chorrillanas",name:"Lomo Saltado",price:15990,desc:"Vacuno, cebolla morada, tomate, soya y salsa de ostras.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
     {id:21,catId:"chorrillanas",name:"Carne Mongoliana",price:15990,desc:"Lomo liso, cebollín, cheddar, salsa de ostras y soya.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
     {id:22,catId:"chorrillanas",name:"El Fabi",price:15990,desc:"Chorizo, carne mechada, pollo, tocino y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
     {id:23,catId:"chorrillanas",name:"Tradicional Extra",price:18990,desc:"Cebolla caramelizada, extra cerdo, extra mechada y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:18990},{label:"4 personas",price:22990}]}},
-    {id:24,catId:"chorrillanas",name:"Suprema Camarón",price:18990,desc:"Salsa blanca, cebollín, champiñón, pollo y camarones.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:18990},{label:"4 personas",price:22990}]}},
+    {id:24,catId:"chorrillanas",name:"Suprema Camarón",price:18990,desc:"Salsa blanca, cebollín, champiñón, pollo y camarones.",badges:["local"],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:18990},{label:"4 personas",price:22990}]}},
     {id:25,catId:"chorrillanas",name:"La Reina de la Casa",price:18990,desc:"Salsa blanca, champiñón, pollo apanado, ciboulette y queso rallado.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:18990},{label:"4 personas",price:22990}]}},
     {id:26,catId:"chorrillanas",name:"Don Simón",price:22990,desc:"Salsa blanca, pollo, carne mechada, cebollín y champiñón.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:22990},{label:"4 personas",price:25990}]}},
     {id:27,catId:"chorrillanas",name:"La Carnívora",price:22990,desc:"Chorizo, pollo, mechada, lomo de cerdo, cebolla caramelizada y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:22990},{label:"4 personas",price:25990}]}},
@@ -116,7 +116,7 @@
     {id:34,catId:"mexicana",name:"Salchitacos",price:5990,desc:"Vienesas en tortilla de maíz con papas, salsa marinada y kétchup.",badges:[]},
     {id:35,catId:"mexicana",name:"Arma tu fajita",price:6490,desc:"Tortilla de trigo XL con una proteína, tres ingredientes y hasta dos salsas opcionales. Incluye papas fritas.",badges:["personalizable"],hideFromGrid:true,customizer:{steps:customizerSteps()}},
     {id:122,catId:"mexicana",name:"Taco a tu pinta",price:6490,desc:"Dos tacos preparados con una proteína, tres ingredientes y hasta dos salsas opcionales. Incluye papas fritas.",badges:["personalizable"],hideFromGrid:true,customizer:{steps:customizerSteps()}},
-    {id:123,catId:"mexicana",name:"Taco Individual",price:5990,desc:"Dos unidades de pollo o cochinito con lechuga, frijoles refritos, cebolla y salsa verde.",badges:[]},
+    {id:123,catId:"mexicana",name:"Taco Luchador",price:5990,desc:"Dos unidades de pollo o cochinito con lechuga, frijoles refritos, cebolla y salsa verde.",badges:[],variants:{title:"Elige tu proteína",required:true,options:[{label:"Pollo"},{label:"Cochinito"}]}},
     {id:124,catId:"mexicana",name:"Tacos al Pastor",price:6490,desc:"Dos unidades de cochinito marinado con piña y ají, lechuga, guacamole, cebolla morada y cilantro.",badges:[]},
     {id:36,catId:"mexicana",name:"Súper Burrito de Carne",price:6290,desc:"Carne, arroz Lupita, frijoles, lechuga, salsa verde y guacamole.",badges:[],variants:{title:"Acompañamiento",required:true,options:[{label:"Papas"},{label:"Nachos"}]}},
     {id:37,catId:"mexicana",name:"Burrito Lupita",price:6690,desc:"Pollo, arroz Lupita verde, queso, frijoles, salsa verde y guacamole.",badges:[],variants:{title:"Acompañamiento",required:true,options:[{label:"Papas"},{label:"Nachos"}]}},
@@ -168,8 +168,8 @@
 
     // ─── Veganos y Vegetarianos (200-208)
     // Se sirven 100% veganos por defecto (proteína vegetal + vegetales). El queso, la mayonesa
-    // casera y el huevo frito son agregados opcionales que el cliente suma desde "Agregados" o
-    // indicándolo en observaciones — nunca vienen incluidos automáticamente.
+    // casera y el huevo frito son opcionales incluidos en el selector de cada producto (sin costo
+    // adicional) — nunca vienen incluidos automáticamente.
     {id:200,catId:"veganos",name:"Completa",price:4990,desc:"Tomate, salsa americana y chucrut. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Mayonesa casera"])]}},
     {id:201,catId:"veganos",name:"Chacarera",price:4990,desc:"Tomate, poroto verde crujiente y ají a pedido. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Mayonesa casera"])]}},
     {id:202,catId:"veganos",name:"Luco",price:4990,desc:"Tu proteína vegetal a la plancha, sola y sabrosa. 100% vegano; suma queso Gauda o cheddar de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Queso Gauda", "Queso Cheddar"])]}},
@@ -223,10 +223,10 @@
     {id:"mexicana",name:"Cocina mexicana",eyebrow:"La cocina de Lupita",desc:"Tortillas, frijoles y preparaciones de inspiración mexicana."},
     {id:"hamburguesas",name:"Hamburguesas",eyebrow:"A la parrilla",desc:"Todas incluyen papas rústicas."},
     {id:"chorrillanas",name:"Chorrillanas",eyebrow:"Al centro",desc:"Elige el tamaño antes de agregar."},
-    {id:"sandwiches",name:"Sándwiches",eyebrow:"Elige y arma",desc:"Selecciona primero la proteína y luego la receta. Incluyen papas rústicas."},
+    {id:"sandwiches",name:"Sándwiches",eyebrow:"Elige y arma",desc:"Elige primero la receta y luego la proteína. Incluyen papas rústicas."},
     {id:"especiales",name:"Especiales de la casa",eyebrow:"Del chef",desc:"Preparaciones propias que solo encuentras aquí."},
     {id:"compartir",name:"Para compartir",eyebrow:"Para partir",desc:"Platos abundantes para comenzar al centro de la mesa."},
-    {id:"veganos",name:"Veganos y Vegetarianos",eyebrow:"100% base vegetal",desc:"Sándwiches preparados con proteína vegetal a elección: lentejas, porotos, quínoa o champiñón. Se sirven 100% veganos; si prefieres sumar queso, mayonesa casera o huevo frito, agrégalo desde Agregados o indícalo en tus observaciones. Consulta directamente al restaurante si tienes alergias o restricciones alimentarias específicas."},
+    {id:"veganos",name:"Veganos y Vegetarianos",eyebrow:"100% base vegetal",desc:"Sándwiches preparados con proteína vegetal a elección: lentejas, porotos, quínoa o champiñón. Se sirven 100% veganos; si prefieres sumar queso, mayonesa casera o huevo frito, elígelo al armar tu sándwich, sin costo adicional. Consulta directamente al restaurante si tienes alergias o restricciones alimentarias específicas."},
     {id:"bebidas",name:"Bebidas",eyebrow:"Para acompañar",desc:"Frescas y listas para tu mesa."},
     {id:"salsas",name:"Salsas",eyebrow:"El toque final",desc:"Salsas propias y clásicas para acompañar tu plato."},
     {id:"agregados",name:"Agregados",eyebrow:"Hazlo a tu gusto",desc:"Complementos adicionales para personalizar el pedido."}
@@ -244,6 +244,7 @@
   var customState = null;
   var orderId = '';
   var lastFocusedElement = null;
+  var PICKUP = { address: 'Chile 1040, Batuco, Lampa', maps: 'https://maps.app.goo.gl/sPjfUB7scwAEMmuQ7' };
 
   /* ── DOM Helpers ── */
   var $ = function (s) { return document.querySelector(s); };
@@ -447,9 +448,13 @@
     var ZONES = window.__BRAND__.deliveryZones;
     html += '<div class="fulfillment"><h3>¿Cómo quieres recibirlo?</h3>';
     html += '<div class="segmented">';
-    html += '<button type="button" class="seg-btn' + (fulfillment === 'retiro' ? ' active' : '') + '" data-fulfill="retiro" aria-pressed="' + (fulfillment === 'retiro' ? 'true' : 'false') + '">Retiro</button>';
+    html += '<button type="button" class="seg-btn' + (fulfillment === 'retiro' ? ' active' : '') + '" data-fulfill="retiro" aria-pressed="' + (fulfillment === 'retiro' ? 'true' : 'false') + '">Retiro en el local</button>';
     html += '<button type="button" class="seg-btn' + (fulfillment === 'delivery' ? ' active' : '') + '" data-fulfill="delivery" aria-pressed="' + (fulfillment === 'delivery' ? 'true' : 'false') + '">Delivery</button>';
     html += '<button type="button" class="seg-btn' + (fulfillment === 'mesa' ? ' active' : '') + '" data-fulfill="mesa" aria-pressed="' + (fulfillment === 'mesa' ? 'true' : 'false') + '">A la mesa</button>';
+    html += '</div>';
+    html += '<div class="fulfillment-detail pickup-info' + (fulfillment === 'retiro' ? ' show' : '') + '" id="pickup-info">';
+    html += '<p>Retira tu pedido en <strong>' + escHtml(PICKUP.address) + '</strong>.</p>';
+    html += '<a href="' + PICKUP.maps + '" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps</a>';
     html += '</div>';
     html += '<div class="fulfillment-detail delivery-zone-select' + (fulfillment === 'delivery' ? ' show' : '') + '" id="dz-select">';
     html += '<label for="dz-dropdown">Zona de delivery</label>';
@@ -466,7 +471,8 @@
     for (var table = 1; table <= 9; table++) {
       html += '<option value="' + table + '"' + (String(selectedTable) === String(table) ? ' selected' : '') + '>Mesa ' + table + '</option>';
     }
-    html += '</select></div><p class="fulfillment-error" id="fulfillment-error" role="alert"></p></div>';
+    html += '</select></div><div class="fulfillment-note" id="local-only-note" role="status"></div>';
+    html += '<p class="fulfillment-error" id="fulfillment-error" role="alert"></p></div>';
 
     // Notes
     html += '<div class="notes-field"><label for="cart-notes">Observaciones opcionales</label>';
@@ -476,7 +482,7 @@
     var subtotal = cartTotal();
     html += '<div class="totals" id="cart-totals">';
     html += '<div><span>Subtotal</span><strong>' + fmtPrice(subtotal) + '</strong></div>';
-    html += '<div class="total-grand"><span>Total estimado</span><strong id="grand-total">' + fmtPrice(subtotal) + '</strong></div>';
+    html += '<div class="total-grand"><span>Total estimado</span><strong id="grand-total">' + fmtPrice(subtotal + (fulfillment === 'delivery' ? deliveryPrice : 0)) + '</strong></div>';
     html += '</div>';
 
     cartBody.innerHTML = html;
@@ -519,6 +525,8 @@
     });
     var dzs = $('#dz-select');
     var tableSelect = $('#table-select');
+    var pickupInfo = $('#pickup-info');
+    if (pickupInfo) pickupInfo.classList.toggle('show', type === 'retiro');
     if (dzs) dzs.classList.toggle('show', type === 'delivery');
     if (tableSelect) tableSelect.classList.toggle('show', type === 'mesa');
     if (type !== 'delivery') {
@@ -588,6 +596,7 @@
     lines.push('Quedo atento/a a la confirmación del restaurante.');
     lines.push('[/PEDIDO_WEB]');
     var text = encodeURIComponent(lines.join('\n'));
+    updateLocalOnlyNote();
     var cartWaBtn = $('#cart-wa-btn');
     if (cartWaBtn) {
       var valid = validateFulfillment(false);
@@ -596,9 +605,39 @@
     }
   }
 
+  /* Productos que solo se sirven en las mesas del local (badge "local"). */
+  function localOnlyItems() {
+    return cart.filter(function (item) {
+      var product = PRODUCTS.find(function (p) { return p.id === item.id; });
+      return product && (product.badges || []).indexOf('local') > -1;
+    });
+  }
+
+  function localOnlyMessage() {
+    var names = [];
+    localOnlyItems().forEach(function (item) { if (names.indexOf(item.name) < 0) names.push(item.name); });
+    if (!names.length || fulfillment === 'mesa') return '';
+    return (names.length > 1 ? 'Estos platos se sirven solo en el local: ' : 'Este plato se sirve solo en el local: ') + names.join(', ') +
+      '. No está disponible para retiro ni delivery.';
+  }
+
+  function updateLocalOnlyNote() {
+    var note = $('#local-only-note');
+    if (!note) return;
+    var message = localOnlyMessage();
+    if (!message) { note.innerHTML = ''; note.classList.remove('show'); return; }
+    note.innerHTML = '<p>' + escHtml(message) + ' Cambia a <strong>A la mesa</strong> o elimina el plato del pedido.</p>' +
+      '<button type="button" class="btn btn--outline" id="local-only-switch">Cambiar a pedido a la mesa</button>';
+    note.classList.add('show');
+    var switchBtn = $('#local-only-switch');
+    if (switchBtn) switchBtn.addEventListener('click', function () { setFulfillment('mesa'); });
+  }
+
   function validateFulfillment(showMessage) {
     var message = '';
-    if (fulfillment === 'delivery' && cartTotal() < window.__BRAND__.deliveryMin) {
+    if (localOnlyMessage()) {
+      message = 'Hay platos solo en el local: elige "A la mesa" o elimínalos del pedido.';
+    } else if (fulfillment === 'delivery' && cartTotal() < window.__BRAND__.deliveryMin) {
       message = 'El pedido mínimo para delivery es ' + fmtPrice(window.__BRAND__.deliveryMin) + '.';
     } else if (fulfillment === 'delivery' && !selectedDeliveryZone) {
       message = 'Selecciona una zona de delivery.';
@@ -854,8 +893,14 @@
       };
       var url = buildReservationUrl(data);
       if (feedback) feedback.textContent = 'Solicitud preparada. WhatsApp se abrirá para enviarla al restaurante.';
-      var opened = window.open(url, '_blank', 'noopener,noreferrer');
-      if (!opened) window.location.assign(url);
+      // Con "noopener" window.open siempre devuelve null; un enlace abre WhatsApp una sola vez.
+      var link = document.createElement('a');
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     });
 
     form.addEventListener('input', function (event) {
@@ -942,7 +987,7 @@
   function handleSearch() {
     var input = $('#menu-search');
     if (!input) return;
-    var q = input.value.toLowerCase().trim();
+    var q = normalizeSearch(input.value);
     var sections = $$('#menu-sections .menu-section');
     var totalVisible = 0;
 
@@ -950,8 +995,8 @@
       var cards = sec.querySelectorAll('.product-card');
       var sectionVisible = 0;
       cards.forEach(function (card) {
-        var text = card.textContent.toLowerCase();
-        var match = !q || text.indexOf(q) > -1;
+        var text = normalizeSearch(card.textContent);
+        var match = !q || text.indexOf(q) > -1 || text.replace(/ /g, '').indexOf(q.replace(/ /g, '')) > -1;
         card.style.display = match ? '' : 'none';
         if (match) sectionVisible++;
       });
@@ -961,8 +1006,16 @@
 
     var resultCount = $('#result-count');
     if (resultCount) {
-      resultCount.textContent = q ? totalVisible + ' resultado' + (totalVisible !== 1 ? 's' : '') : '';
+      resultCount.classList.toggle('is-empty', !!q && totalVisible === 0);
+      if (!q) resultCount.textContent = '';
+      else if (totalVisible === 0) resultCount.textContent = 'No encontramos resultados para “' + input.value.trim() + '”. Prueba con otra palabra (por ejemplo: mechada, vegano o queso) o escríbenos por WhatsApp.';
+      else resultCount.textContent = totalVisible + ' resultado' + (totalVisible !== 1 ? 's' : '');
     }
+  }
+
+  /* Minúsculas, sin tildes y con espacios simples, para que "camaron" encuentre "Camarón". */
+  function normalizeSearch(value) {
+    return String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim();
   }
 
   /* ═══ TOAST ═══ */

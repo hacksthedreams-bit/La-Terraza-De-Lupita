@@ -57,7 +57,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="css/styles.css?v=20260911c">
+<link rel="stylesheet" href="css/styles.css?v=20261024a">
 <link rel="stylesheet" href="css/lupita-mexicana.css?v=20261021-1">
 <link rel="stylesheet" href="css/lupita-hamburguesas.css?v=20261022-6">
 <link rel="stylesheet" href="css/lupita-chorrillanas.css?v=20261023-2">
@@ -81,6 +81,11 @@
   </div>
 </div>
 
+<noscript>
+  <style>.splash{display:none!important}</style>
+  <div class="noscript-note">La carta interactiva necesita JavaScript. Mientras tanto, haz tu pedido o reserva por <a href="https://wa.me/56990998900" rel="noreferrer">WhatsApp</a>.</div>
+</noscript>
+
 <!-- ═══ CUSTOM CURSOR (desktop) ═══ -->
 <div class="cursor cursor--outer" id="cursor-outer"></div>
 <div class="cursor cursor--inner" id="cursor-inner"></div>
@@ -102,6 +107,7 @@
     <a href="#galeria">Galería</a>
     <a href="#reservas">Reservas</a>
     <a href="#ubicacion">Ubicación</a>
+    <a href="#horarios">Horarios</a>
   </nav>
   <button class="hamburger" id="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav">
     <span></span><span></span><span></span>
@@ -205,9 +211,9 @@
         </div>
       </article>
       <article class="showcase__card">
-        <div class="showcase__img"><img src="assets/img/la-pizza-burguer.jpg" alt="La Pizza Burguer" width="900" height="1125" loading="lazy"></div>
+        <div class="showcase__img"><img src="assets/img/la-pizza-burguer.jpg" alt="La Pizza Burger" width="900" height="1125" loading="lazy"></div>
         <div class="showcase__info">
-          <h3>La Pizza Burguer</h3>
+          <h3>La Pizza Burger</h3>
           <p>Mantecoso fundido, pepperoni, tomate y aceite de oliva.</p>
           <span class="showcase__price">$6.490</span>
         </div>
@@ -245,9 +251,9 @@
         </div>
       </article>
       <article class="showcase__card">
-        <div class="showcase__img"><img src="assets/img/chorriplancha.webp" alt="Chorriplancha al disco" width="800" height="800" loading="lazy"></div>
+        <div class="showcase__img"><img src="assets/img/chorriplancha.webp" alt="Chorri Plancha al disco" width="800" height="800" loading="lazy"></div>
         <div class="showcase__info">
-          <h3>Chorriplancha</h3>
+          <h3>Chorri Plancha</h3>
           <p>Una experiencia al disco, chisporroteante y abundante. Solo en el local.</p>
           <span class="showcase__price">Desde $11.990</span>
         </div>
@@ -285,9 +291,9 @@
         </div>
       </article>
       <article class="showcase__card">
-        <div class="showcase__img"><img src="assets/img/enchiladas-de-pollo.jpg" alt="Enchiladas de Pollo" width="900" height="1125" loading="lazy"></div>
+        <div class="showcase__img"><img src="assets/img/enchiladas-de-pollo.jpg" alt="Enchilada de Pollo" width="900" height="1125" loading="lazy"></div>
         <div class="showcase__info">
-          <h3>Enchiladas de Pollo</h3>
+          <h3>Enchilada de Pollo</h3>
           <p>Pollo desmenuzado, pimiento rojo y un toque de ajo. Con guacamole y pico de gallo.</p>
           <span class="showcase__price">$7.490</span>
         </div>
@@ -443,7 +449,7 @@
           </div>
           <div class="form-field">
             <label for="reservation-phone">WhatsApp de contacto *</label>
-            <input id="reservation-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" pattern="[0-9 +()\-]{8,20}" placeholder="+56 9 ..." required>
+            <input id="reservation-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" pattern="[0-9 +\(\)\-]{8,20}" placeholder="+56 9 ..." required>
           </div>
           <div class="form-field">
             <label for="reservation-guests">Cantidad de personas *</label>
@@ -595,13 +601,13 @@
   <div class="shell">
     <span class="eyebrow reveal-up">Exclusivo presencial</span>
     <h2 class="section-title reveal-up">Solo en el local</h2>
-    <p class="section-subtitle reveal-up">Hay preparaciones que solo se pueden disfrutar en la terraza. Chorriplanchas al disco, carnitas, fajitas chisporroteando... platos que se sirven calientes del fuego a tu mesa.</p>
+    <p class="section-subtitle reveal-up">Hay preparaciones que solo se pueden disfrutar en la terraza. Chorri Planchas al disco, carnitas, fajitas chisporroteando... platos que se sirven calientes del fuego a tu mesa.</p>
   </div>
   <div class="local-slider" id="local-slider">
     <div class="local-slider__track">
       <figure class="local-slider__item">
-        <img src="assets/img/chorriplancha.webp" alt="Chorriplancha Carne Mongoliana al disco" width="800" height="800" loading="lazy">
-        <figcaption>Chorriplancha Carne Mongoliana</figcaption>
+        <img src="assets/img/chorriplancha.webp" alt="Chorri Plancha Carne Mongoliana al disco" width="800" height="800" loading="lazy">
+        <figcaption>Chorri Plancha Carne Mongoliana</figcaption>
         <span class="local-slider__badge">Solo en el local</span>
       </figure>
       <figure class="local-slider__item">
@@ -636,8 +642,8 @@
         <figcaption>Burrito Lupita</figcaption>
       </figure>
       <figure class="gallery-item reveal-up">
-        <img src="assets/img/taco-luchador.webp" alt="Taco a tu pinta" width="800" height="800" loading="lazy">
-        <figcaption>Taco a tu pinta</figcaption>
+        <img src="assets/img/taco-luchador.webp" alt="Taco Luchador a tu pinta" width="800" height="800" loading="lazy">
+        <figcaption>Taco Luchador a tu pinta</figcaption>
       </figure>
       <figure class="gallery-item reveal-up">
         <img src="assets/img/la-napolitana.webp" alt="La Napolitana" width="800" height="800" loading="lazy">
@@ -656,8 +662,8 @@
         <figcaption>La Chilena</figcaption>
       </figure>
       <figure class="gallery-item reveal-up">
-        <img src="assets/img/chorriplancha.webp" alt="Chorriplancha al disco" width="800" height="800" loading="lazy">
-        <figcaption>Chorriplancha</figcaption>
+        <img src="assets/img/chorriplancha.webp" alt="Chorri Plancha al disco" width="800" height="800" loading="lazy">
+        <figcaption>Chorri Plancha</figcaption>
       </figure>
     </div>
   </div>
@@ -700,8 +706,8 @@
       </div>
       <div class="step-card reveal-up">
         <span class="step-card__num">2</span>
-        <h3>Retiro o delivery</h3>
-        <p>Selecciona si vienes a buscar o quieres que te lo llevemos.</p>
+        <h3>Retiro, delivery o mesa</h3>
+        <p>Retira en el local, pide delivery eligiendo tu zona o pide a la mesa indicando tu número.</p>
       </div>
       <div class="step-card reveal-up">
         <span class="step-card__num">3</span>
@@ -946,7 +952,7 @@
 <!-- ═══ SCRIPTS ═══ -->
 <script defer src="lib/gsap.min.js?v=20260819"></script>
 <script defer src="lib/ScrollTrigger.min.js?v=20260819"></script>
-<script defer src="js/main.js?v=20260930"></script>
+<script defer src="js/main.js?v=20261024a"></script>
 <script defer src="js/horarios-reloj.js?v=20261023-2"></script>
 </body>
 </html>

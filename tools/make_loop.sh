@@ -17,9 +17,9 @@ fi
 
 TMP="$(mktemp -d)"; trap 'rm -rf "$TMP"' EXIT
 
-# 1) Mejora de audio: quita rumble, domestica picos, normaliza (-16 LUFS, -1.5 dBTP)
+# 1) Mejora de audio: quita rumble, domestica picos, normaliza (LUFS=16 por defecto, -1.5 dBTP)
 ffmpeg -v error -y -i "$IN" -vn -af \
-  "highpass=f=35,acompressor=threshold=-18dB:ratio=2.5:attack=20:release=250:makeup=2,loudnorm=I=-16:TP=-1.5:LRA=11" \
+  "highpass=f=35,loudnorm=I=-${LUFS:-16}:TP=-1.5:LRA=11" \
   -ar 44100 -ac 2 "$TMP/clean.wav"
 
 # 2) Unidad de loop: el final se funde con el inicio, asi la repeticion no se nota

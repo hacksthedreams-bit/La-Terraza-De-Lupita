@@ -12,8 +12,21 @@
 <meta property="og:description" content="Dos culturas. Una experiencia llena de sabor. Carta digital, delivery, retiro y pedidos a la mesa en Batuco.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CL">
-<meta property="og:image" content="assets/img/hero.webp">
+<link rel="canonical" href="https://lasterrazasdelupita.cl/">
+<meta property="og:url" content="https://lasterrazasdelupita.cl/">
+<meta property="og:site_name" content="La Terraza de Lupita by Mister Mechada">
+<meta property="og:image" content="https://lasterrazasdelupita.cl/assets/img/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="La Terraza de Lupita by Mister Mechada — Dos culturas, una experiencia llena de sabor">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="La Terraza de Lupita by Mister Mechada">
+<meta name="twitter:description" content="Dos culturas. Una experiencia llena de sabor. Carta digital, delivery, retiro y pedidos a la mesa en Batuco.">
+<meta name="twitter:image" content="https://lasterrazasdelupita.cl/assets/img/og-image.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,6 +37,7 @@
   "name": "La Terraza de Lupita by Mister Mechada",
   "description": "Restaurante de comida fusión chilena-mexicana en Batuco. Chorrillanas, sándwiches, cocina mexicana, hamburguesas y más.",
   "url": "https://lasterrazasdelupita.cl",
+  "image": "https://lasterrazasdelupita.cl/assets/img/og-image.jpg",
   "telephone": "+56990998900",
   "address": {
     "@type": "PostalAddress",
@@ -57,7 +71,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="css/styles.css?v=20261024a">
+<link rel="stylesheet" href="css/styles.css?v=20261113c">
 <link rel="stylesheet" href="css/lupita-mexicana.css?v=20261021-1">
 <link rel="stylesheet" href="css/lupita-hamburguesas.css?v=20261022-6">
 <link rel="stylesheet" href="css/lupita-chorrillanas.css?v=20261023-2">
@@ -97,9 +111,9 @@
 <header class="site-header" id="site-header">
 <div class="shell header-inner">
   <a class="brand-lockup" href="#inicio" aria-label="La Terraza de Lupita by Mister Mechada — volver al inicio">
-    <img src="assets/brand/terraza-lupita.png" alt="La Terraza de Lupita" width="443" height="560">
+    <img src="assets/brand/terraza-lupita.webp" alt="La Terraza de Lupita" width="128" height="162">
     <span class="brand-lockup__divider" aria-hidden="true"></span>
-    <img src="assets/brand/mister-mechada.png" alt="Mister Mechada" width="502" height="560">
+    <img src="assets/brand/mister-mechada.webp" alt="Mister Mechada" width="145" height="162">
   </a>
   <nav class="header-nav" id="header-nav">
     <a href="#la-fusion">La Fusión</a>
@@ -207,7 +221,10 @@
         <div class="showcase__info">
           <h3>Doble Carne</h3>
           <p>Doble carne, cheddar, cebolla morada, pepinillo y lechuga.</p>
-          <span class="showcase__price">$6.490</span>
+          <div class="showcase__foot">
+            <span class="showcase__price">$6.490</span>
+            <button class="add-btn" type="button" data-fav-add="67" aria-label="Agregar Doble Carne">Agregar</button>
+          </div>
         </div>
       </article>
       <article class="showcase__card">
@@ -215,7 +232,10 @@
         <div class="showcase__info">
           <h3>La Pizza Burger</h3>
           <p>Mantecoso fundido, pepperoni, tomate y aceite de oliva.</p>
-          <span class="showcase__price">$6.490</span>
+          <div class="showcase__foot">
+            <span class="showcase__price">$6.490</span>
+            <button class="add-btn" type="button" data-fav-add="68" aria-label="Agregar La Pizza Burger">Agregar</button>
+          </div>
         </div>
       </article>
       <article class="showcase__card">
@@ -223,7 +243,10 @@
         <div class="showcase__info">
           <h3>La Chacarera</h3>
           <p>Tomate, poroto verde crujiente y ají a pedido. Incluye papas rústicas.</p>
-          <span class="showcase__price">Desde $4.800</span>
+          <div class="showcase__foot">
+            <span class="showcase__price">Desde $4.800</span>
+            <button class="add-btn choose" type="button" data-fav-add="52" aria-label="Elegir La Chacarera">Elegir</button>
+          </div>
         </div>
       </article>
       <article class="showcase__card">
@@ -231,7 +254,10 @@
         <div class="showcase__info">
           <h3>La Poderosa</h3>
           <p>Doble hamburguesa, tomate, lechuga, cebolla morada, pepinillo, huevo frito, tocino y mayonesa.</p>
-          <span class="showcase__price">$7.990</span>
+          <div class="showcase__foot">
+            <span class="showcase__price">$7.990</span>
+            <button class="add-btn" type="button" data-fav-add="69" aria-label="Agregar La Poderosa">Agregar</button>
+          </div>
         </div>
       </article>
       <article class="showcase__card">
@@ -239,7 +265,10 @@
         <div class="showcase__info">
           <h3>La Chilena</h3>
           <p>Tomate, cebolla morada curtida, cilantro fresco y ají verde a pedido.</p>
-          <span class="showcase__price">Desde $4.490</span>
+          <div class="showcase__foot">
+            <span class="showcase__price">Desde $4.490</span>
+            <button class="add-btn choose" type="button" data-fav-add="51" aria-label="Elegir La Chilena">Elegir</button>
+          </div>
         </div>
       </article>
       <article class="showcase__card">
@@ -247,15 +276,22 @@
         <div class="showcase__info">
           <h3>La Napolitana</h3>
           <p>Queso Gauda, tomate asado, aceitunas, orégano y salsa atomatada.</p>
-          <span class="showcase__price">Desde $5.290</span>
+          <div class="showcase__foot">
+            <span class="showcase__price">Desde $5.290</span>
+            <button class="add-btn choose" type="button" data-fav-add="58" aria-label="Elegir La Napolitana">Elegir</button>
+          </div>
         </div>
       </article>
       <article class="showcase__card">
         <div class="showcase__img"><img src="assets/img/chorriplancha.webp" alt="Chorri Plancha al disco" width="800" height="800" loading="lazy"></div>
         <div class="showcase__info">
+          <span class="showcase__badge showcase__badge--local">Solo en el local</span>
           <h3>Chorri Plancha</h3>
-          <p>Una experiencia al disco, chisporroteante y abundante. Solo en el local.</p>
-          <span class="showcase__price">Desde $11.990</span>
+          <p>Una experiencia al disco, chisporroteante y abundante.</p>
+          <div class="showcase__foot">
+            <span class="showcase__price">Desde $11.990</span>
+            <button class="add-btn" type="button" data-fav-scroll="29" aria-label="Ver opciones de Chorri Plancha en la carta">Ver opciones</button>
+          </div>
         </div>
       </article>
       <article class="showcase__card">
@@ -263,7 +299,10 @@
         <div class="showcase__info">
           <h3>Gringa</h3>
           <p>Gouda, cheddar, cebolla morada y tocino ahumado crujiente.</p>
-          <span class="showcase__price">Desde $5.290</span>
+          <div class="showcase__foot">
+            <span class="showcase__price">Desde $5.290</span>
+            <button class="add-btn choose" type="button" data-fav-add="56" aria-label="Elegir Gringa">Elegir</button>
+          </div>
         </div>
       </article>
       <article class="showcase__card">
@@ -271,7 +310,10 @@
         <div class="showcase__info">
           <h3>Brasileña</h3>
           <p>Gouda, cheddar y palta cremosa.</p>
-          <span class="showcase__price">Desde $5.290</span>
+          <div class="showcase__foot">
+            <span class="showcase__price">Desde $5.290</span>
+            <button class="add-btn choose" type="button" data-fav-add="60" aria-label="Elegir Brasileña">Elegir</button>
+          </div>
         </div>
       </article>
       <article class="showcase__card">
@@ -279,7 +321,10 @@
         <div class="showcase__info">
           <h3>Suprema Camarón</h3>
           <p>Salsa blanca, cebollín, champiñón, pollo y camarones.</p>
-          <span class="showcase__price">Desde $18.990</span>
+          <div class="showcase__foot">
+            <span class="showcase__price">Desde $18.990</span>
+            <button class="add-btn choose" type="button" data-fav-add="24" aria-label="Elegir Suprema Camarón">Elegir</button>
+          </div>
         </div>
       </article>
       <article class="showcase__card">
@@ -287,7 +332,10 @@
         <div class="showcase__info">
           <h3>Quesadilla Mixta</h3>
           <p>Carne y pollo juntos. Con guacamole, pico de gallo y sour cream.</p>
-          <span class="showcase__price">$9.990</span>
+          <div class="showcase__foot">
+            <span class="showcase__price">$9.990</span>
+            <button class="add-btn" type="button" data-fav-add="46" aria-label="Agregar Quesadilla Mixta">Agregar</button>
+          </div>
         </div>
       </article>
       <article class="showcase__card">
@@ -295,7 +343,10 @@
         <div class="showcase__info">
           <h3>Enchilada de Pollo</h3>
           <p>Pollo desmenuzado, pimiento rojo y un toque de ajo. Con guacamole y pico de gallo.</p>
-          <span class="showcase__price">$7.490</span>
+          <div class="showcase__foot">
+            <span class="showcase__price">$7.490</span>
+            <button class="add-btn" type="button" data-fav-add="40" aria-label="Agregar Enchilada de Pollo">Agregar</button>
+          </div>
         </div>
       </article>
       <article class="showcase__card">
@@ -303,7 +354,10 @@
         <div class="showcase__info">
           <h3>Chorrillana Papas Champi</h3>
           <p>Champiñones salteados, cebollín y salsa de ostras.</p>
-          <span class="showcase__price">Desde $11.990</span>
+          <div class="showcase__foot">
+            <span class="showcase__price">Desde $11.990</span>
+            <button class="add-btn choose" type="button" data-fav-add="17" aria-label="Elegir Chorrillana Papas Champi">Elegir</button>
+          </div>
         </div>
       </article>
       <article class="showcase__card">
@@ -311,7 +365,10 @@
         <div class="showcase__info">
           <h3>Burrito Lupita</h3>
           <p>Pollo, arroz Lupita verde, queso, frijoles, salsa verde y guacamole.</p>
-          <span class="showcase__price">$6.690</span>
+          <div class="showcase__foot">
+            <span class="showcase__price">$6.690</span>
+            <button class="add-btn choose" type="button" data-fav-add="37" aria-label="Elegir Burrito Lupita">Elegir</button>
+          </div>
         </div>
       </article>
     </div>
@@ -604,20 +661,10 @@
     <p class="section-subtitle reveal-up">Hay preparaciones que solo se pueden disfrutar en la terraza. Chorri Planchas al disco, carnitas, fajitas chisporroteando... platos que se sirven calientes del fuego a tu mesa.</p>
   </div>
   <div class="local-slider" id="local-slider">
-    <div class="local-slider__track">
+    <div class="local-slider__track local-slider__track--single">
       <figure class="local-slider__item">
-        <img src="assets/img/chorriplancha.webp" alt="Chorri Plancha Carne Mongoliana al disco" width="800" height="800" loading="lazy">
-        <figcaption>Chorri Plancha Carne Mongoliana</figcaption>
-        <span class="local-slider__badge">Solo en el local</span>
-      </figure>
-      <figure class="local-slider__item">
-        <img src="assets/img/suprema-camaron.jpg" alt="Suprema Camarón" width="900" height="1125" loading="lazy">
-        <figcaption>Suprema Camarón</figcaption>
-        <span class="local-slider__badge">Solo en el local</span>
-      </figure>
-      <figure class="local-slider__item">
-        <img src="assets/img/chorrillana-papas-champi.jpg" alt="Chorrillana Papas Champi" width="900" height="1125" loading="lazy">
-        <figcaption>Chorrillana Papas Champi</figcaption>
+        <img src="assets/img/chorriplancha.webp" alt="Chorri Plancha al disco" width="800" height="800" loading="lazy">
+        <figcaption>Chorri Plancha al disco</figcaption>
         <span class="local-slider__badge">Solo en el local</span>
       </figure>
     </div>
@@ -663,6 +710,7 @@
       </figure>
       <figure class="gallery-item reveal-up">
         <img src="assets/img/chorriplancha.webp" alt="Chorri Plancha al disco" width="800" height="800" loading="lazy">
+        <span class="gallery-item__badge">Solo en el local</span>
         <figcaption>Chorri Plancha</figcaption>
       </figure>
     </div>
@@ -881,13 +929,13 @@
         <h3>Redes</h3>
         <div class="social-row">
           <a class="social-link social-link--instagram magnetic" href="https://www.instagram.com/lasterrazasdelupita?igsi=MWZkdG1henR4amFkOQ%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" aria-label="Instagram">
-            <img src="assets/icons/instagram.png" alt="" width="28" height="28" loading="lazy" decoding="async">
+            <img src="assets/icons/instagram.webp" alt="" width="28" height="28" loading="lazy" decoding="async">
           </a>
           <a class="social-link social-link--facebook magnetic" href="https://www.facebook.com/share/1C8872zJEe/?mibextid=wwXIfr" target="_blank" rel="noreferrer" aria-label="Facebook">
-            <img src="assets/brand/facebook.png" alt="" width="149" height="160">
+            <img src="assets/brand/facebook.webp" alt="" width="149" height="160">
           </a>
           <a class="social-link social-link--tiktok magnetic" href="https://www.tiktok.com/@lasterrazasdelupita" target="_blank" rel="noreferrer" aria-label="TikTok">
-            <img src="assets/icons/tiktok.png" alt="" width="28" height="28" loading="lazy" decoding="async">
+            <img src="assets/icons/tiktok.webp" alt="" width="28" height="28" loading="lazy" decoding="async">
           </a>
         </div>
       </div>
@@ -952,7 +1000,7 @@
 <!-- ═══ SCRIPTS ═══ -->
 <script defer src="lib/gsap.min.js?v=20260819"></script>
 <script defer src="lib/ScrollTrigger.min.js?v=20260819"></script>
-<script defer src="js/main.js?v=20261024a"></script>
+<script defer src="js/main.js?v=20261113a"></script>
 <script defer src="js/horarios-reloj.js?v=20261023-2"></script>
 </body>
 </html>

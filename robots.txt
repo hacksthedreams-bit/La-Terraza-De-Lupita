@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lasterrazasdelupita.cl/sitemap.xml
+Sitemap: https://laterrazadelupita.cl/sitemap.xml

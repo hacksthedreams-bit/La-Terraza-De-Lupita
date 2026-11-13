@@ -1021,9 +1021,19 @@
   }
 
   /* Favoritos: el botón abre el mismo selector que la carta; en la Chorri Plancha lleva a sus opciones. */
+  function preselectVariant(label) {
+    $$('#variant-body .variant-opt').forEach(function (opt) {
+      var l = opt.querySelector('.variant-opt__label');
+      if (l && l.textContent === label) opt.click();
+    });
+  }
+
   function initFavorites() {
     $$('[data-fav-add]').forEach(function (btn) {
-      btn.addEventListener('click', function () { handleAdd(parseInt(btn.dataset.favAdd, 10)); });
+      btn.addEventListener('click', function () {
+        handleAdd(parseInt(btn.dataset.favAdd, 10));
+        if (btn.dataset.favOpt) preselectVariant(btn.dataset.favOpt);
+      });
     });
     $$('[data-fav-scroll]').forEach(function (btn) {
       btn.addEventListener('click', function () {

@@ -124,7 +124,7 @@
     {id:39,catId:"mexicana",name:"Chilaquiles en salsa roja o verde",price:6690,desc:"Pino de carne con frijoles negros, pico de gallo, queso rallado y huevo frito.",badges:[],variants:{title:"Elige salsa",required:true,options:[{label:"Salsa roja"},{label:"Salsa verde"}]}},
     {id:40,catId:"mexicana",name:"Enchilada de Pollo",price:7490,desc:"Pollo desmenuzado, pimiento rojo, un toque de ajo y queso, envuelto en tortilla de trigo. Con lechuga, pico de gallo, queso rallado y guacamole.",badges:[]},
     {id:41,catId:"mexicana",name:"Quesadilla de Pollo",price:6990,desc:"Pollo, cebolla finamente picada y queso en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:[]},
-    {id:42,catId:"mexicana",name:"Quesadilla de Verduras",price:7490,desc:"Choclo, champiñones, cebollín o cebolla finamente picada y queso en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:["vegetariano"]},
+    {id:42,catId:"mexicana",name:"Quesadilla de Verduras",price:7490,desc:"Choclo, champiñones, cebolla finamente picada y queso en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:["vegetariano"]},
     {id:43,catId:"mexicana",name:"Quesadilla de Carne",price:7990,desc:"Carne, cebolla finamente picada y queso en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:[]},
     {id:44,catId:"mexicana",name:"El Terrible Burrito",price:7790,desc:"Carne y pollo, arroz Lupita, frijoles, papas, queso, lechuga, salsa verde y salsa de tocino.",badges:[]},
     {id:45,catId:"mexicana",name:"Quesadilla de Camarón",price:9490,desc:"Camarones, cebolla finamente picada y queso en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:[]},

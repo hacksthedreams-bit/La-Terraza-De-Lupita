@@ -122,13 +122,13 @@
     {id:37,catId:"mexicana",name:"Burrito Lupita",price:6690,desc:"Pollo, arroz Lupita verde, queso, frijoles, salsa verde y guacamole.",badges:[],variants:{title:"Acompañamiento",required:true,options:[{label:"Papas"},{label:"Nachos"}]}},
     {id:38,catId:"mexicana",name:"Burrito El Facu",price:6690,desc:"Carne mechada, arroz Lupita, cebolla caramelizada, frijoles y cheddar.",badges:[],variants:{title:"Acompañamiento",required:true,options:[{label:"Papas"},{label:"Nachos"}]}},
     {id:39,catId:"mexicana",name:"Chilaquiles en salsa roja o verde",price:6690,desc:"Pino de carne con frijoles negros, pico de gallo, queso rallado y huevo frito.",badges:[],variants:{title:"Elige salsa",required:true,options:[{label:"Salsa roja"},{label:"Salsa verde"}]}},
-    {id:40,catId:"mexicana",name:"Enchilada de Pollo",price:7490,desc:"Pollo desmenuzado, pimiento rojo y un toque de ajo. Con guacamole y pico de gallo.",badges:[]},
-    {id:41,catId:"mexicana",name:"Quesadilla de Pollo",price:6990,desc:"Preparada en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:[]},
-    {id:42,catId:"mexicana",name:"Quesadilla de Verduras",price:7490,desc:"Choclo, champiñones y cebollín en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:["vegetariano"]},
-    {id:43,catId:"mexicana",name:"Quesadilla de Carne",price:7990,desc:"Preparada en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:[]},
-    {id:44,catId:"mexicana",name:"El Terrible Burrito",price:7790,desc:"Carne y pollo, arroz Lupita, frijoles, papas, queso, salsa verde y salsa de tocino.",badges:[]},
-    {id:45,catId:"mexicana",name:"Quesadilla de Camarón",price:9490,desc:"Preparada en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:[]},
-    {id:46,catId:"mexicana",name:"Quesadilla Mixta",price:9990,desc:"Carne y pollo juntos en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:[]},
+    {id:40,catId:"mexicana",name:"Enchilada de Pollo",price:7490,desc:"Pollo desmenuzado, pimiento rojo, un toque de ajo y queso, envuelto en tortilla de trigo. Con lechuga, pico de gallo, queso rallado y guacamole.",badges:[]},
+    {id:41,catId:"mexicana",name:"Quesadilla de Pollo",price:6990,desc:"Pollo, cebolla finamente picada y queso en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:[]},
+    {id:42,catId:"mexicana",name:"Quesadilla de Verduras",price:7490,desc:"Choclo, champiñones, cebollín o cebolla finamente picada y queso en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:["vegetariano"]},
+    {id:43,catId:"mexicana",name:"Quesadilla de Carne",price:7990,desc:"Carne, cebolla finamente picada y queso en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:[]},
+    {id:44,catId:"mexicana",name:"El Terrible Burrito",price:7790,desc:"Carne y pollo, arroz Lupita, frijoles, papas, queso, lechuga, salsa verde y salsa de tocino.",badges:[]},
+    {id:45,catId:"mexicana",name:"Quesadilla de Camarón",price:9490,desc:"Camarones, cebolla finamente picada y queso en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:[]},
+    {id:46,catId:"mexicana",name:"Quesadilla Mixta",price:9990,desc:"Carne, pollo, cebolla finamente picada y queso en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:[]},
 
     // ─── Sándwiches (47-62)
     {id:51,catId:"sandwiches",name:"La Chilena",price:4490,desc:"Tomate, cebolla morada, cilantro, ají verde opcional y mayonesa de la casa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:4490},{label:"Lomito",price:4490},{label:"Pollo",price:4490},{label:"Mechada",price:5800}]}},
@@ -160,7 +160,7 @@
 
     // ─── Especiales (71-76)
     {id:71,catId:"especiales",name:"Milanesa de Pollo",price:6990,desc:"Milanesa de pollo con tomate, lechuga, huevo frito y mayonesa de la casa.",badges:[]},
-    {id:72,catId:"especiales",name:"Milanesa Kaiser",price:6990,desc:"Milanesa de pollo, jamón planchado, queso Gauda, lechuga, tomate, huevo frito y mayonesa de la casa.",badges:[]},
+    {id:72,catId:"especiales",name:"Milanesa Kaiser",price:6990,desc:"Milanesa de pollo, jamón planchado, queso Gauda, lechuga, tomate, huevo frito y mayonesa de la casa o tocino ahumado.",badges:[]},
     {id:73,catId:"especiales",name:"Lomo Saltado",price:6990,desc:"Lomo liso, cebolla morada, tomate, soya y salsa de ostras.",badges:[]},
     {id:74,catId:"especiales",name:"Lomo a la Napolitana",price:6990,desc:"Lomo liso, queso gratinado, tomate asado, orégano, aceite de oliva y aceitunas.",badges:[]},
     {id:75,catId:"especiales",name:"Crispy Sandwich",price:6990,desc:"Pollo crispy, lechuga, tomate, queso Gauda, tocino, mayonesa de tocino ahumado y salsa BBQ.",badges:[]},
@@ -256,7 +256,7 @@
 
   function fmtPrice(p) {
     var s = String(p);
-    return s.length > 3 ? '$' + s.slice(0, -3) + '.' + s.slice(-3) : '$' + s;
+    return '$' + s.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   }
 
   function escHtml(s) {

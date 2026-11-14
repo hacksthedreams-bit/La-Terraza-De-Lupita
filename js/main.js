@@ -246,16 +246,6 @@
   var lastFocusedElement = null;
   var PICKUP = { address: 'Chile 1040, Batuco, Lampa', maps: 'https://maps.app.goo.gl/sPjfUB7scwAEMmuQ7' };
 
-  /* Fotos de la carta: id de producto → miniatura cuadrada en assets/img/carta/.
-     Solo se muestran platos con foto propia; el resto de tarjetas queda igual. */
-  var PRODUCT_PHOTOS = {
-    13: 'tablita-lupita', 17: 'chorrillana-papas-champi', 24: 'suprema-camaron', 37: 'burrito-lupita',
-    40: 'enchiladas-de-pollo', 44: 'terrible-burrito', 46: 'quesadilla-mixta', 51: 'la-chilena-plato',
-    52: 'la-chacarera', 56: 'gringa', 58: 'la-napolitana', 60: 'brasilena', 64: 'la-texana',
-    67: 'doble-carne', 68: 'la-pizza-burguer', 69: 'la-poderosa', 75: 'crispy-sandwich',
-    123: 'taco-luchador', 125: 'nachos-chili-carne', 127: 'nachos-supremos'
-  };
-
   /* ── DOM Helpers ── */
   var $ = function (s) { return document.querySelector(s); };
   var $$ = function (s) { return document.querySelectorAll(s); };
@@ -337,12 +327,7 @@
       prods.forEach(function (p, productIndex) {
         var hasVariants = !!p.variants;
         var hasChooser = hasVariants || !!p.customizer;
-        var photo = PRODUCT_PHOTOS[p.id];
-        html += '<article class="product-card product-card--tone-' + (productIndex % 4) + (photo ? ' product-card--photo' : '') + '" data-pid="' + p.id + '">';
-
-        if (photo) {
-          html += '<div class="product-card__photo"><img src="assets/img/carta/' + photo + '.webp" alt="' + escHtml(p.name) + '" width="360" height="360" loading="lazy" decoding="async"></div>';
-        }
+        html += '<article class="product-card product-card--tone-' + (productIndex % 4) + '" data-pid="' + p.id + '">';
 
         html += '<div class="product-card__body">';
         html += '<div class="product-card__top">';

@@ -265,7 +265,7 @@
 
   function cleanText(value, maxLength) {
     return String(value || '')
-      .replace(/[ -]/g, '')
+      .replace(/[\x00-\x1f\x7f]/g, '')
       .replace(/\s+/g, ' ')
       .trim()
       .slice(0, maxLength || 500);
@@ -927,7 +927,7 @@
       link.addEventListener('click', function (e) {
         e.preventDefault();
         var service = link.dataset.eventService || 'Por definir';
-        window.open(buildEventQuoteUrl(service), '_blank');
+        window.open(buildEventQuoteUrl(service), '_blank', 'noopener,noreferrer');
       });
     });
   }

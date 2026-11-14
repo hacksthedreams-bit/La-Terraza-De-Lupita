@@ -71,7 +71,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="css/styles.css?v=20261114c">
+<link rel="stylesheet" href="css/styles.css?v=20261114f">
 <link rel="stylesheet" href="css/lupita-mexicana.css?v=20261021-1">
 <link rel="stylesheet" href="css/lupita-hamburguesas.css?v=20261022-6">
 <link rel="stylesheet" href="css/lupita-chorrillanas.css?v=20261023-2">
@@ -595,7 +595,8 @@
           </div>
           <div class="form-field">
             <label for="reservation-time">Hora aproximada *</label>
-            <input id="reservation-time" name="time" type="time" required>
+            <input id="reservation-time" name="time" type="time" min="19:00" max="23:30" step="900" required aria-describedby="reservation-time-hint">
+            <small id="reservation-time-hint" class="form-hint">Atendemos desde las 19:00. Última reserva: 23:30.</small>
           </div>
           <div class="form-field form-field--wide">
             <label for="reservation-type">¿Qué quieres celebrar? *</label>
@@ -1105,7 +1106,7 @@
 <!-- ═══ SCRIPTS ═══ -->
 <script defer src="lib/gsap.min.js?v=20260819"></script>
 <script defer src="lib/ScrollTrigger.min.js?v=20260819"></script>
-<script defer src="js/main.js?v=20261114e"></script>
+<script defer src="js/main.js?v=20261114f"></script>
 <script defer src="js/horarios-reloj.js?v=20261023-2"></script>
 </body>
 </html>

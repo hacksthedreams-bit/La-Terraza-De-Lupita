@@ -629,6 +629,7 @@ body.cursor-visible .cursor{opacity:1}
 .form-field--wide{grid-column:1/-1}
 .form-field label{display:block;margin-bottom:7px;font-size:.78rem;font-weight:600;color:var(--cream-soft)}
 .form-field label span{font-weight:400;color:var(--cream-muted)}
+.form-hint{display:block;margin-top:6px;font-size:.74rem;line-height:1.35;color:var(--cream-muted)}
 .form-field input,.form-field select,.form-field textarea{
   width:100%;border:1px solid var(--border);border-radius:var(--radius-sm);
   background:var(--bg-elevated);color:var(--cream);padding:12px 13px;outline:none;

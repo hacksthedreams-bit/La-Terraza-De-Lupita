@@ -7,7 +7,7 @@ section#especiales.menu-section {
  --lp-serif:var(--font-display,'Fraunces',Georgia,serif);
  position:relative;isolation:isolate;box-sizing:border-box;overflow:hidden;
  padding:clamp(16px,2.2vw,30px);border:clamp(20px,2.4vw,32px) solid transparent;
- border-image:url('../assets/lupita-aprobados/especiales/marco-fuente.webp') 45 / clamp(20px,2.4vw,32px) round;
+ border-image:url('../assets/lupita-aprobados/especiales/marco-fuente-v2.webp') 45 / clamp(20px,2.4vw,32px) round;
  border-radius:0;background:url('../assets/lupita-aprobados/especiales/grano.svg'),var(--lp-bg);color:var(--lp-text);
  box-shadow:0 12px 32px #0003;scroll-margin-top:90px;
 }
@@ -21,7 +21,7 @@ section#especiales .section-head {
 section#especiales .section-head::before {
  content:'';position:absolute;z-index:0;right:0;top:50%;transform:translateY(-50%);
  width:52%;aspect-ratio:772 / 392;
- background-image:url('../assets/lupita-aprobados/especiales/arte-fuente.webp');background-repeat:no-repeat;
+ background-image:url('../assets/lupita-aprobados/especiales/arte-fuente-v2.webp');background-repeat:no-repeat;
  background-size:198.963731% 261.224490%;background-position:96.073298% 4.746835%;
  pointer-events:none;
  -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 98%,transparent);

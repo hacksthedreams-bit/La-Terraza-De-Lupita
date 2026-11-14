@@ -29,7 +29,7 @@ section#compartir .section-head {
 section#compartir .section-head::before {
  content:'';position:absolute;z-index:0;right:0;top:50%;transform:translateY(-50%);
  width:52%;aspect-ratio:711 / 312;
- background-image:url('../assets/lupita-aprobados/compartir/arte-fuente.webp');background-repeat:no-repeat;
+ background-image:url('../assets/lupita-aprobados/compartir/arte-fuente-v2.webp');background-repeat:no-repeat;
  background-size:216.033755% 328.205128%;background-position:95.151515% 7.443820%;
  pointer-events:none;
  -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 98%,transparent);

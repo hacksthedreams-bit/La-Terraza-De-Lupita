@@ -7,7 +7,7 @@ section#salsas.menu-section {
  --lp-serif:var(--font-display,'Fraunces',Georgia,serif);
  position:relative;isolation:isolate;box-sizing:border-box;overflow:hidden;
  padding:clamp(16px,2.2vw,30px);border:clamp(20px,2.4vw,32px) solid transparent;
- border-image:url('../assets/lupita-aprobados/salsas/marco-fuente.webp') 65 / clamp(20px,2.4vw,32px) round;
+ border-image:url('../assets/lupita-aprobados/salsas/marco-fuente-v2.webp') 65 / clamp(20px,2.4vw,32px) round;
  border-radius:0;background:url('../assets/lupita-aprobados/salsas/grano.svg'),var(--lp-bg);color:var(--lp-text);
  box-shadow:0 12px 32px #0003;scroll-margin-top:90px;
 }
@@ -21,7 +21,7 @@ section#salsas .section-head {
 section#salsas .section-head::before {
  content:'';position:absolute;z-index:0;right:0;top:50%;transform:translateY(-50%);
  width:52%;aspect-ratio:742 / 376;
- background-image:url('../assets/lupita-aprobados/salsas/arte-fuente.webp');background-repeat:no-repeat;
+ background-image:url('../assets/lupita-aprobados/salsas/arte-fuente-v2.webp');background-repeat:no-repeat;
  background-size:207.008086% 272.340426%;background-position:91.939547% 11.111111%;
  pointer-events:none;
  -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 98%,transparent);

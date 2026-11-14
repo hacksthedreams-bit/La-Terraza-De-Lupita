@@ -7,7 +7,7 @@ section#sandwiches.menu-section {
  --lp-serif:var(--font-display,'Fraunces',Georgia,serif);
  position:relative;isolation:isolate;box-sizing:border-box;overflow:hidden;
  padding:clamp(16px,2.2vw,30px);border:clamp(20px,2.4vw,32px) solid transparent;
- border-image:url('../assets/lupita-sandwiches-aprobado/marco-fuente.webp') 40 / clamp(20px,2.4vw,32px) round;
+ border-image:url('../assets/lupita-sandwiches-aprobado/marco-fuente-v2.webp') 40 / clamp(20px,2.4vw,32px) round;
  border-radius:0;background:url('../assets/lupita-sandwiches-aprobado/grano.svg'),var(--lp-bg);color:var(--lp-text);
  box-shadow:0 12px 32px #0003;scroll-margin-top:90px;
 }
@@ -21,7 +21,7 @@ section#sandwiches .section-head {
 section#sandwiches .section-head::before {
  content:'';position:absolute;z-index:0;right:0;top:50%;transform:translateY(-50%);
  width:52%;aspect-ratio:687 / 358;
- background-image:url('../assets/lupita-sandwiches-aprobado/arte-fuente.webp');background-repeat:no-repeat;
+ background-image:url('../assets/lupita-sandwiches-aprobado/arte-fuente-v2.webp');background-repeat:no-repeat;
  background-size:223.580786% 286.033520%;background-position:94.817432% 3.753754%;
  pointer-events:none;
  -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 98%,transparent);

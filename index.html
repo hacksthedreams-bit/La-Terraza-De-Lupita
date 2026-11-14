@@ -71,7 +71,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="css/styles.css?v=20261114f">
+<link rel="stylesheet" href="css/styles.css?v=20261115a">
 <link rel="stylesheet" href="css/lupita-mexicana.css?v=20261021-1">
 <link rel="stylesheet" href="css/lupita-hamburguesas.css?v=20261022-6">
 <link rel="stylesheet" href="css/lupita-chorrillanas.css?v=20261023-2">
@@ -1100,13 +1100,19 @@
   </div>
 </div>
 
+<!-- ═══ FICHA DE PRODUCTO ═══ -->
+<dialog class="pd" id="product-dialog" aria-labelledby="pd-title">
+  <button class="pd__close" id="pd-close" type="button" aria-label="Cerrar detalle">&times;</button>
+  <div id="pd-content"></div>
+</dialog>
+
 <!-- ═══ TOAST ═══ -->
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <!-- ═══ SCRIPTS ═══ -->
 <script defer src="lib/gsap.min.js?v=20260819"></script>
 <script defer src="lib/ScrollTrigger.min.js?v=20260819"></script>
-<script defer src="js/main.js?v=20261114f"></script>
+<script defer src="js/main.js?v=20261115b"></script>
 <script defer src="js/horarios-reloj.js?v=20261023-2"></script>
 </body>
 </html>

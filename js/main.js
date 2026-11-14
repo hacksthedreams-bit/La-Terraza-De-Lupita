@@ -246,6 +246,17 @@
   var lastFocusedElement = null;
   var PICKUP = { address: 'Chile 1040, Batuco, Lampa', maps: 'https://maps.app.goo.gl/sPjfUB7scwAEMmuQ7' };
 
+  /* Ficha de producto: id → [foto en assets/img/, posición vertical del encuadre (%)].
+     La foto lleva el título impreso abajo; el encuadre 3:2 deja el plato y corta el título.
+     Los productos que no están aquí abren la ficha sin foto. */
+  var PRODUCT_PHOTOS = {
+    13:['tablita-lupita',59], 17:['chorrillana-papas-champi',46], 24:['suprema-camaron',51], 31:['chorriplancha',42],
+    37:['burrito-lupita',57], 40:['enchiladas-de-pollo',59], 44:['terrible-burrito',59], 46:['quesadilla-mixta',58],
+    51:['la-chilena-plato',57], 52:['la-chacarera',52], 56:['gringa',51], 58:['la-napolitana',55], 60:['brasilena',51],
+    64:['la-texana',55], 67:['doble-carne',55], 68:['la-pizza-burguer',60], 69:['la-poderosa',79], 75:['crispy-sandwich',55],
+    123:['taco-luchador',55], 125:['nachos-chili-carne',42], 127:['nachos-supremos',55]
+  };
+
   /* ── DOM Helpers ── */
   var $ = function (s) { return document.querySelector(s); };
   var $$ = function (s) { return document.querySelectorAll(s); };
@@ -331,7 +342,7 @@
 
         html += '<div class="product-card__body">';
         html += '<div class="product-card__top">';
-        html += '<h4>' + escHtml(p.name) + '</h4>';
+        html += '<h4><button type="button" class="product-card__open" data-detail="' + p.id + '" aria-haspopup="dialog">' + escHtml(p.name) + '</button></h4>';
 
         if (hasVariants && p.variants.options && p.variants.options.some(function (o) { return o.price; })) {
           var minP = Math.min.apply(null, p.variants.options.map(function (o) { return o.price || p.price; }));
@@ -983,6 +994,139 @@
     }
   }
 
+  /* ═══ FICHA DE PRODUCTO ═══
+     Al tocar una tarjeta se abre un <dialog> con foto (si la hay), descripción, precio y acciones.
+     La URL queda como ?producto=ID para poder compartir el plato. */
+  var pdTimer;
+
+  function productPriceInfo(p) {
+    if (p.variants && p.variants.options && p.variants.options.some(function (o) { return o.price; })) {
+      return { from: true, value: Math.min.apply(null, p.variants.options.map(function (o) { return o.price || p.price; })) };
+    }
+    return { from: false, value: p.price };
+  }
+
+  function setProductParam(id) {
+    try {
+      var url = new URL(window.location.href);
+      if (id === null) url.searchParams.delete('producto'); else url.searchParams.set('producto', String(id));
+      history.replaceState(null, '', url.pathname + url.search + url.hash);
+    } catch (e) { /* sin historial: no pasa nada */ }
+  }
+
+  /* Restaura la URL y el scroll de la página. Es idempotente: se llama al cerrar y también desde el evento close. */
+  function releaseProductDetail() {
+    setProductParam(null);
+    if (!hasOpenSheet()) document.body.style.overflow = '';
+  }
+
+  function closeProductDetail() {
+    var dlg = $('#product-dialog');
+    if (dlg && dlg.open) dlg.close();
+    releaseProductDetail();
+  }
+
+  function openProductDetail(productId) {
+    var dlg = $('#product-dialog');
+    var box = $('#pd-content');
+    var p = PRODUCTS.find(function (x) { return x.id === productId; });
+    if (!dlg || !box || !p || typeof dlg.showModal !== 'function') return;
+
+    var cat = CATEGORIES.find(function (c) { return c.id === p.catId; });
+    var photo = PRODUCT_PHOTOS[p.id];
+    var hasChooser = !!(p.variants || p.customizer);
+    var info = productPriceInfo(p);
+    var badgeMap = { vegano: 'Vegano', vegetariano: 'Vegetariano', personalizable: 'Personalizable', local: 'Solo en el local' };
+
+    var html = '';
+    if (photo) {
+      html += '<div class="pd__photo"><img src="assets/img/' + photo[0] + '.webp" alt="' + escHtml(p.name) + '" width="900" height="600" decoding="async"></div>';
+    }
+    html += '<div class="pd__body' + (photo ? '' : ' pd__body--nophoto') + '">';
+    if (cat) html += '<p class="pd__eyebrow">' + escHtml(cat.name) + '</p>';
+    html += '<h2 class="pd__title" id="pd-title">' + escHtml(p.name) + '</h2>';
+    html += '<div class="pd__pricebar"><span class="pd__price">' + (info.from ? '<small>Desde</small> ' : '') + fmtPrice(info.value) + '</span>';
+    (p.badges || []).forEach(function (b) {
+      html += '<span class="badge badge--' + b + '">' + (badgeMap[b] || b) + '</span>';
+    });
+    html += '</div>';
+    if (p.desc) html += '<p class="pd__desc">' + escHtml(p.desc) + '</p>';
+
+    if (p.variants && p.variants.options && p.variants.options.length) {
+      html += '<div class="pd__options"><h3>' + escHtml(p.variants.title || 'Opciones') + '</h3><ul>';
+      p.variants.options.forEach(function (o) {
+        html += '<li><span>' + escHtml(o.label) + '</span>' + (o.price ? '<span class="pd__opt-price">' + fmtPrice(o.price) + '</span>' : '') + '</li>';
+      });
+      html += '</ul></div>';
+    }
+    if (p.customizer && p.customizer.steps) {
+      var labels = p.customizer.steps.map(function (s) { return s.label; }).filter(Boolean);
+      if (labels.length) html += '<p class="pd__note">Lo armas a tu gusto: ' + escHtml(labels.join(', ').toLowerCase()) + '.</p>';
+    }
+
+    var wa = 'https://wa.me/' + window.__BRAND__.phone + '?text=' + encodeURIComponent('Hola La Terraza de Lupita 👋 Vengo desde la carta digital y quisiera consultar por: ' + p.name + '.');
+    html += '<div class="pd__actions">';
+    html += '<button type="button" class="pd__add" id="pd-add">' + (hasChooser ? 'Elegir opciones' : 'Agregar al pedido') + '</button>';
+    html += '<a class="pd__wa" href="' + wa + '" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp ↗</a>';
+    html += '</div></div>';
+
+    box.innerHTML = html;
+    if (photo) {
+      var img = box.querySelector('.pd__photo img');
+      if (img) img.style.objectPosition = '50% ' + photo[1] + '%';
+    }
+
+    var add = $('#pd-add');
+    if (add) add.addEventListener('click', function () {
+      if (hasChooser) { closeProductDetail(); handleAdd(p.id); return; }
+      addToCart(p, null, null);
+      var n = cart.reduce(function (s, c) { return c.id === p.id ? s + c.qty : s; }, 0);
+      add.textContent = '✓ Agregado · ' + n + ' en tu pedido';
+      add.classList.add('is-done');
+      clearTimeout(pdTimer);
+      pdTimer = setTimeout(function () { add.textContent = 'Agregar otro'; add.classList.remove('is-done'); }, 2200);
+    });
+
+    dlg.scrollTop = 0;
+    if (!dlg.open) dlg.showModal();
+    document.body.style.overflow = 'hidden';
+    setProductParam(p.id);
+  }
+
+  function initProductDetail() {
+    var dlg = $('#product-dialog');
+    if (!dlg || typeof dlg.showModal !== 'function') return;
+
+    dlg.addEventListener('cancel', releaseProductDetail);   /* tecla Esc */
+    dlg.addEventListener('close', function () { if (!dlg.open) releaseProductDetail(); });
+    dlg.addEventListener('click', function (event) { if (event.target === dlg) closeProductDetail(); });
+    var closeBtn = $('#pd-close');
+    if (closeBtn) closeBtn.addEventListener('click', closeProductDetail);
+
+    /* Tarjetas de la carta: el nombre o cualquier zona libre de la tarjeta abre la ficha. */
+    var menu = $('#menu-sections');
+    if (menu) menu.addEventListener('click', function (event) {
+      var card = event.target.closest('.product-card');
+      if (!card) return;
+      if (!event.target.closest('[data-detail]') && event.target.closest('button, a, input, select, textarea')) return;
+      openProductDetail(parseInt(card.getAttribute('data-pid'), 10));
+    });
+
+    /* Favoritos: la foto y el nombre abren la ficha del mismo plato. */
+    $$('.showcase__card').forEach(function (card) {
+      var btn = card.querySelector('[data-fav-add]');
+      if (!btn) return;
+      var id = parseInt(btn.getAttribute('data-fav-add'), 10);
+      card.classList.add('is-openable');
+      Array.prototype.forEach.call(card.querySelectorAll('.showcase__img, h3'), function (el) {
+        el.addEventListener('click', function () { openProductDetail(id); });
+      });
+    });
+
+    var q = new URLSearchParams(window.location.search).get('producto');
+    if (q && /^\d+$/.test(q)) setTimeout(function () { openProductDetail(parseInt(q, 10)); }, 350);
+  }
+
   /* ═══ SEARCH ═══ */
   function handleSearch() {
     var input = $('#menu-search');
@@ -1340,6 +1484,7 @@
     safe(initCursor);
     safe(renderMenu);
     safe(initFavorites);
+    safe(initProductDetail);
     safe(initCategoryNav);
     safe(initReveal);
     safe(initCounters);

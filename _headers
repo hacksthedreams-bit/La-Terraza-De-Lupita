@@ -16,8 +16,29 @@
 /js/*
   Cache-Control: no-cache, must-revalidate
 
-# Imágenes, íconos y fuentes: 30 días
-/assets/*
+# Fotos de platos y portada: 1 hora (si se reemplaza una foto, se ve el cambio en menos de 1 h).
+# Las reglas NO deben solaparse: Cloudflare une los valores si dos reglas coinciden con una ruta.
+/assets/img/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Adornos, marcos, marca e íconos (casi nunca cambian): 30 días
+/assets/bebidas/*
+  Cache-Control: public, max-age=2592000
+/assets/brand/*
+  Cache-Control: public, max-age=2592000
+/assets/decor/*
+  Cache-Control: public, max-age=2592000
+/assets/horarios/*
+  Cache-Control: public, max-age=2592000
+/assets/icons/*
+  Cache-Control: public, max-age=2592000
+/assets/lupita-aprobados/*
+  Cache-Control: public, max-age=2592000
+/assets/lupita-sandwiches-aprobado/*
+  Cache-Control: public, max-age=2592000
+/assets/menu/*
+  Cache-Control: public, max-age=2592000
+/assets/veganos/*
   Cache-Control: public, max-age=2592000
 /favicon.ico
   Cache-Control: public, max-age=2592000

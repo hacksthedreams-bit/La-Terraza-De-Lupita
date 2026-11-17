@@ -32,7 +32,7 @@
   var CUSTOM_SAUCES = ['Salsa de cilantro', 'Salsa BBQ', 'Salsa de queso', 'Salsa de tocino'];
   var INCLUDED_DRINKS = [
     'Coca-Cola', 'Coca-Cola Zero', 'Fanta', 'Sprite', 'Sprite Zero',
-    'Bilz', 'Kem Piña', 'Pepsi', 'Pepsi Zero'
+    'Bilz', 'Kem Piña', 'Pepsi', 'Pepsi Zero', 'Limón Soda', 'Pap', 'Crush Orange'
   ];
 
   function customizerSteps() {
@@ -177,7 +177,7 @@
     {id:204,catId:"veganos",name:"Italiana",price:4990,desc:"Tomate y palta. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Mayonesa casera"])]}},
     {id:205,catId:"veganos",name:"Doble Quesos",price:5490,desc:"Tu proteína vegetal a la plancha, sola y sabrosa. 100% vegano; suma doble queso Gauda y doble cheddar de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Doble Queso Gauda", "Doble Queso Cheddar"])]}},
     {id:206,catId:"veganos",name:"Brasileña",price:5490,desc:"Palta cremosa. 100% vegana; suma queso Gauda o cheddar de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Queso Gauda", "Queso Cheddar"])]}},
-    {id:207,catId:"veganos",name:"Tradicional",price:5490,desc:"Lechuga, tomate, cebolla morada y pepinillo. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Mayonesa casera"])]}},
+    {id:207,catId:"veganos",name:"Vegetariana Tradicional",price:5490,desc:"Lechuga, tomate, cebolla morada y pepinillo. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Mayonesa casera"])]}},
     {id:208,catId:"veganos",name:"De Luxe",price:5490,desc:"Champiñón salteado y cebolla caramelizada. 100% vegana; suma queso Gauda, cheddar o mayonesa casera de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Queso Gauda", "Queso Cheddar", "Mayonesa casera"])]}},
 
     // ─── Bebidas (91-97)
@@ -187,13 +187,16 @@
     {id:94,catId:"bebidas",name:"Bebida en lata 350 cc",price:1700,desc:"Lata individual bien fría.",badges:[],variants:{title:"Elige tu bebida",required:true,options:INCLUDED_DRINKS.map(function (label) { return {label:label}; })}},
     {id:96,catId:"bebidas",name:"Café",price:2000,desc:"Preparado al momento.",badges:[]},
     {id:97,catId:"bebidas",name:"Bebida en botella 1,25 L",price:3000,desc:"Para toda la mesa.",badges:[],variants:{title:"Elige tu bebida",required:true,options:[{label:"Coca-Cola"},{label:"Coca-Cola Zero"},{label:"Sprite"},{label:"Fanta"}]}},
-    {id:95,catId:"bebidas",name:"Jugos",price:3000,desc:"Consultar disponibilidad de sabores.",badges:[]},
+    {id:95,catId:"bebidas",name:"Jugos",price:3000,desc:"Néctar Jumex en lata de 335 ml.",badges:[],variants:{title:"Elige tu sabor",required:true,options:[{label:"Jumex Durazno"},{label:"Jumex Guayaba"},{label:"Jumex Manzana"},{label:"Jumex Piña"}]}},
 
-    // ─── Salsas (102-105)
+    // ─── Salsas (102-105 + 137-139)
     {id:102,catId:"salsas",name:"Salsa verde",price:800,desc:"Tomatillo, cilantro y un toque de jalapeño.",badges:[]},
+    {id:137,catId:"salsas",name:"Salsa de queso cheddar",price:800,desc:"Salsa cremosa de queso cheddar.",badges:[]},
+    {id:138,catId:"salsas",name:"Salsa barbacoa",price:800,desc:"Salsa barbacoa para acompañar tu plato.",badges:[]},
     {id:103,catId:"salsas",name:"Pico de gallo",price:1200,desc:"Tomate, cebolla, cilantro y limón.",badges:[]},
     {id:104,catId:"salsas",name:"Sour cream",price:1200,desc:"Crema ácida para complementar.",badges:[]},
     {id:105,catId:"salsas",name:"Guacamole",price:1200,desc:"Palta fresca con cilantro y limón.",badges:[]},
+    {id:139,catId:"salsas",name:"Salsa de tocino",price:1200,desc:"Salsa cremosa con tocino.",badges:[]},
 
     // ─── Agregados (106-121 + 133-135)
     {id:106,catId:"agregados",name:"Cebolla caramelizada",price:800,desc:"",badges:[]},
@@ -226,7 +229,7 @@
     {id:"sandwiches",name:"Sándwiches",eyebrow:"Elige y arma",desc:"Elige primero la receta y luego la proteína. Incluyen papas rústicas."},
     {id:"especiales",name:"Especiales de la casa",eyebrow:"Del chef",desc:"Preparaciones propias que solo encuentras aquí."},
     {id:"compartir",name:"Para compartir",eyebrow:"Para partir",desc:"Platos abundantes para comenzar al centro de la mesa."},
-    {id:"veganos",name:"Veganos y Vegetarianos",eyebrow:"100% base vegetal",desc:"Sándwiches preparados con proteína vegetal a elección: lentejas, porotos, quínoa o champiñón. Se sirven 100% veganos; si prefieres sumar queso, mayonesa casera o huevo frito, elígelo al armar tu sándwich, sin costo adicional. Consulta directamente al restaurante si tienes alergias o restricciones alimentarias específicas."},
+    {id:"veganos",name:"Veganos y Vegetarianos",eyebrow:"100% base vegetal",desc:"Sándwiches con proteína vegetal a elección: lentejas, porotos, quínoa o champiñón."},
     {id:"bebidas",name:"Bebidas",eyebrow:"Para acompañar",desc:"Frescas y listas para tu mesa."},
     {id:"salsas",name:"Salsas",eyebrow:"El toque final",desc:"Salsas propias y clásicas para acompañar tu plato."},
     {id:"agregados",name:"Agregados",eyebrow:"Hazlo a tu gusto",desc:"Complementos adicionales para personalizar el pedido."}
@@ -254,7 +257,17 @@
     37:['burrito-lupita',57], 40:['enchiladas-de-pollo',59], 44:['terrible-burrito',59], 46:['quesadilla-mixta',58],
     51:['la-chilena-plato',57], 52:['la-chacarera',52], 56:['gringa',51], 58:['la-napolitana',55], 60:['brasilena',51],
     64:['la-texana',55], 67:['doble-carne',55], 68:['la-pizza-burguer',60], 69:['la-poderosa',79], 75:['crispy-sandwich',55],
-    123:['taco-luchador',55], 125:['nachos-chili-carne',42], 127:['nachos-supremos',55]
+    123:['taco-luchador',55], 125:['nachos-chili-carne',42], 127:['nachos-supremos',55],
+    42:['quesadilla-de-verduras',42], 70:['la-terrible',54], 207:['vegetariana-tradicional',41],
+    102:['salsa-verde',40], 103:['salsa-pico-de-gallo',54], 105:['salsa-guacamole',55],
+    137:['salsa-queso-cheddar',40], 138:['salsa-barbacoa',51], 139:['salsa-tocino',55]
+  };
+
+  /* Productos con varias fotos (una por opción o sabor): id → [[etiqueta, foto, posición], ...].
+     Se muestran como miniaturas bajo la foto principal (encuadre 4:3). */
+  var PRODUCT_GALLERY = {
+    94:[['Bilz','bilz',44], ['Pepsi','pepsi',40], ['Kem Piña','kem',37], ['Limón Soda','limon-soda',40], ['Pap','pap',41], ['Crush Orange','crush-orange',46]],
+    95:[['Jumex Durazno','jumex-durazno',47], ['Jumex Guayaba','jumex-guayaba',42], ['Jumex Manzana','jumex-manzana',32], ['Jumex Piña','jumex-pina',45]]
   };
 
   /* ── DOM Helpers ── */
@@ -319,6 +332,20 @@
     return 'RES-' + p.year + p.month + p.day + '-' + p.hour + p.minute + '-' + String(Math.floor(Math.random() * 900) + 100);
   }
 
+  /* Guía de la sección Veganos y Vegetarianos: explica cómo se adapta cada sándwich. */
+  function dietGuideHtml() {
+    return '<aside class="diet-guide" aria-label="Cómo funcionan los sándwiches veganos y vegetarianos">' +
+      '<p class="diet-guide__kicker">Tú decides cómo lo quieres</p>' +
+      '<div class="diet-guide__tiles">' +
+        '<div class="diet-guide__tile diet-guide__tile--vegan"><span class="diet-guide__icon" aria-hidden="true">🌱</span>' +
+          '<div><p class="diet-guide__name">Vegano</p><p class="diet-guide__text">Tal como se sirve: proteína vegetal y ningún producto de origen animal.</p></div></div>' +
+        '<div class="diet-guide__tile diet-guide__tile--veggie"><span class="diet-guide__icon" aria-hidden="true">🧀</span>' +
+          '<div><p class="diet-guide__name">Vegetariano</p><p class="diet-guide__text">¿Comes productos de origen animal? Suma queso, huevo frito o mayonesa casera al armarlo y pasa a ser vegetariano.</p></div></div>' +
+      '</div>' +
+      '<p class="diet-guide__foot">Todos los sándwiches se pueden modificar y los extras opcionales no tienen costo adicional. ¿Alergias o restricciones? Consúltanos antes de pedir.</p>' +
+    '</aside>';
+  }
+
   /* ═══ RENDER MENU SECTIONS ═══ */
   function renderMenu() {
     var container = $('#menu-sections');
@@ -333,6 +360,7 @@
       html += '<h3 id="heading-' + cat.id + '">' + cat.name + '</h3>';
       html += '<p>' + cat.desc + '</p>';
       html += '</div>';
+      if (cat.id === 'veganos') html += dietGuideHtml();
       html += '<div class="product-grid">';
 
       prods.forEach(function (p, productIndex) {
@@ -1033,14 +1061,25 @@
     if (!dlg || !box || !p || typeof dlg.showModal !== 'function') return;
 
     var cat = CATEGORIES.find(function (c) { return c.id === p.catId; });
-    var photo = PRODUCT_PHOTOS[p.id];
+    var gallery = PRODUCT_GALLERY[p.id];
+    var photo = gallery ? [gallery[0][1], gallery[0][2]] : PRODUCT_PHOTOS[p.id];
     var hasChooser = !!(p.variants || p.customizer);
     var info = productPriceInfo(p);
     var badgeMap = { vegano: 'Vegano', vegetariano: 'Vegetariano', personalizable: 'Personalizable', local: 'Solo en el local' };
 
     var html = '';
     if (photo) {
-      html += '<div class="pd__photo"><img src="assets/img/' + photo[0] + '.webp" alt="' + escHtml(p.name) + '" width="900" height="600" decoding="async"></div>';
+      html += '<div class="pd__photo"><img src="assets/img/' + photo[0] + '.webp" alt="' + escHtml(gallery ? gallery[0][0] : p.name) + '" width="900" height="' + (gallery ? 675 : 600) + '" decoding="async">';
+      if (gallery) html += '<span class="pd__photo-label" id="pd-photo-label">' + escHtml(gallery[0][0]) + '</span>';
+      html += '</div>';
+      if (gallery) {
+        html += '<div class="pd__thumbs" role="group" aria-label="Fotos de ' + escHtml(p.name) + '">';
+        gallery.forEach(function (g, i) {
+          html += '<button type="button" class="pd__thumb' + (i === 0 ? ' is-active' : '') + '" data-i="' + i + '" aria-pressed="' + (i === 0 ? 'true' : 'false') + '" aria-label="Ver foto de ' + escHtml(g[0]) + '">' +
+            '<img src="assets/img/' + g[1] + '-t.webp" alt="" width="200" height="150" loading="lazy" decoding="async"><span>' + escHtml(g[0]) + '</span></button>';
+        });
+        html += '</div>';
+      }
     }
     html += '<div class="pd__body' + (photo ? '' : ' pd__body--nophoto') + '">';
     if (cat) html += '<p class="pd__eyebrow">' + escHtml(cat.name) + '</p>';
@@ -1074,6 +1113,27 @@
     if (photo) {
       var img = box.querySelector('.pd__photo img');
       if (img) img.style.objectPosition = '50% ' + photo[1] + '%';
+      var frame = box.querySelector('.pd__photo');
+      if (frame && gallery) frame.style.aspectRatio = '4 / 3';
+    }
+    if (gallery) {
+      var thumbs = box.querySelectorAll('.pd__thumb');
+      Array.prototype.forEach.call(thumbs, function (t) {
+        t.addEventListener('click', function () {
+          var g = gallery[parseInt(t.getAttribute('data-i'), 10)];
+          var main = box.querySelector('.pd__photo img');
+          var label = $('#pd-photo-label');
+          main.src = 'assets/img/' + g[1] + '.webp';
+          main.alt = g[0];
+          main.style.objectPosition = '50% ' + g[2] + '%';
+          if (label) label.textContent = g[0];
+          Array.prototype.forEach.call(thumbs, function (o) {
+            var on = o === t;
+            o.classList.toggle('is-active', on);
+            o.setAttribute('aria-pressed', on ? 'true' : 'false');
+          });
+        });
+      });
     }
 
     var add = $('#pd-add');
@@ -1476,6 +1536,15 @@
     });
   }
 
+  /* Mientras el hero está a la vista se oculta el botón flotante de WhatsApp (el hero ya tiene "Pedir ahora"). */
+  function initHeroFloat() {
+    var hero = $('#inicio');
+    if (!hero || typeof IntersectionObserver === 'undefined') return;
+    new IntersectionObserver(function (entries) {
+      document.body.classList.toggle('hero-in-view', entries[0].intersectionRatio > 0.35);
+    }, { threshold: [0, 0.35, 0.6, 1] }).observe(hero);
+  }
+
   /* ═══ INIT ═══ */
   function init() {
     safe(initSplash);
@@ -1485,6 +1554,7 @@
     safe(renderMenu);
     safe(initFavorites);
     safe(initProductDetail);
+    safe(initHeroFloat);
     safe(initCategoryNav);
     safe(initReveal);
     safe(initCounters);

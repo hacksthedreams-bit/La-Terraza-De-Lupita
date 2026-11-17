@@ -71,14 +71,14 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="css/styles.css?v=20261115a">
+<link rel="stylesheet" href="css/styles.css?v=20261117e">
 <link rel="stylesheet" href="css/lupita-mexicana.css?v=20261021-1">
 <link rel="stylesheet" href="css/lupita-hamburguesas.css?v=20261022-6">
 <link rel="stylesheet" href="css/lupita-chorrillanas.css?v=20261023-2">
 <link rel="stylesheet" href="css/lupita-sandwiches-aprobado.css?v=20261023-marraqueta-final3-img2">
 <link rel="stylesheet" href="css/lupita-especiales-aprobado.css?v=20261023-4-img2">
 <link rel="stylesheet" href="css/lupita-compartir-aprobado.css?v=20261023-4-img2">
-<link rel="stylesheet" href="css/lupita-veganos.css?v=20261023-3">
+<link rel="stylesheet" href="css/lupita-veganos.css?v=20261117a">
 <link rel="stylesheet" href="css/lupita-bebidas.css?v=20261023-1">
 <link rel="stylesheet" href="css/lupita-salsas-aprobado.css?v=20261023-4-img2">
 <link rel="stylesheet" href="css/lupita-agregados-aprobado.css?v=20261023-4-img2">
@@ -146,11 +146,19 @@
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="inicio">
   <h1 class="sr-only">La Terraza de Lupita by Mister Mechada — restaurante fusión chileno-mexicana en Batuco</h1>
-  <p class="sr-only">Dos culturas. Una experiencia llena de sabor. Descubre nuestra fusión chileno-mexicana y disfruta una carta creada para todos los antojos.</p>
   <div class="hero__visual">
-    <img src="assets/img/hero-2026.webp" alt="La Terraza de Lupita by Mister Mechada. Dos culturas, una experiencia llena de sabor, junto a una hamburguesa con papas fritas" width="1536" height="864" fetchpriority="high" decoding="async">
+    <picture>
+      <source media="(max-width: 959px)" srcset="assets/img/hero-foto-m.webp" width="640" height="703">
+      <img src="assets/img/hero-foto.webp" alt="Hamburguesa con huevo frito, tocino y queso junto a papas fritas, sobre una tabla de madera" width="774" height="864" fetchpriority="high" decoding="async">
+    </picture>
   </div>
   <div class="hero__content shell">
+    <div class="hero__copy reveal-up">
+      <img class="hero__wordmark" src="assets/img/hero-wordmark.webp" alt="" width="658" height="227" decoding="async">
+      <p class="hero__tagline">Dos culturas. Una experiencia llena de sabor.</p>
+      <div class="hero__rule" aria-hidden="true"><span></span><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.6 2c.4 3.1-1.3 4.8-2.9 6.6C8.2 10.3 6.8 12 6.8 14.7c0 3.4 2.4 6.3 5.2 6.3s5.2-2.7 5.2-6.1c0-2.2-1-3.8-2.1-5.1-.3 1.2-.8 2-1.6 2.6.4-3.7-.5-7.6-.9-10.4z"/></svg><span></span></div>
+      <p class="hero__lead">Descubre nuestra fusión chileno-mexicana y disfruta una carta creada para todos los antojos.</p>
+    </div>
     <div class="hero__actions reveal-up">
       <a class="btn btn--primary magnetic" href="#carta">Explorar la carta</a>
       <a class="btn btn--whatsapp magnetic" href="https://wa.me/56990998900" target="_blank" rel="noreferrer">
@@ -1112,7 +1120,7 @@
 <!-- ═══ SCRIPTS ═══ -->
 <script defer src="lib/gsap.min.js?v=20260819"></script>
 <script defer src="lib/ScrollTrigger.min.js?v=20260819"></script>
-<script defer src="js/main.js?v=20261115b"></script>
+<script defer src="js/main.js?v=20261117c"></script>
 <script defer src="js/horarios-reloj.js?v=20261023-2"></script>
 </body>
 </html>

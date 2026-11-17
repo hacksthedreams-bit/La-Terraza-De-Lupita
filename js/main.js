@@ -1479,16 +1479,6 @@
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) return;
 
-    // Hero fade-in
-    safe(function () {
-      gsap.from('.hero__visual img', {
-        opacity: 0,
-        y: 20,
-        duration: 1,
-        ease: 'power2.out'
-      });
-    });
-
     // Showcase horizontal scroll hint
     safe(function () {
       var track = document.querySelector('.showcase__track');

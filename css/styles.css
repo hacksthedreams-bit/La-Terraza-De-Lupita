@@ -246,36 +246,66 @@ body.cursor-visible .cursor{opacity:1}
   font-family:var(--font-body) !important;
 }
 
-/* ═══ HERO ═══
-   Móvil y tablet vertical: foto arriba con desvanecido inferior y texto encima.
-   Desde 960 px (o horizontal ≥ 640 px): texto a la izquierda, foto a la derecha fundida con el fondo. */
+/* ═══ HERO · "La Mesa de Lupita" ═══
+   Tres arcos con los platos estrella, banderines y luces del local, y el sello de la marca.
+   Móvil / tablet vertical: arcos arriba y texto debajo. Desde 960 px (o horizontal): texto a la izquierda, arcos a la derecha. */
 .hero{
-  position:relative;
-  padding-top:var(--header-h);
-  background:radial-gradient(ellipse 70% 55% at 50% 62%,rgba(196,154,91,.09),transparent 70%),var(--bg);
-  overflow:hidden;
+  position:relative;isolation:isolate;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;
+  padding:calc(var(--header-h) + 58px) 0 clamp(26px,5vw,44px);
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 30%,rgba(214,120,48,.17),transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 85%,rgba(196,154,91,.08),transparent 70%),
+    var(--bg);
 }
-.hero__visual{
-  position:relative;display:block;
-  width:100%;max-width:720px;margin:0 auto;
-  aspect-ratio:5/4;max-height:min(58vh,560px);max-height:min(58svh,560px);
-  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 7%,#000 52%,transparent 100%),linear-gradient(90deg,transparent 0,#000 10%,#000 90%,transparent 100%);
-  -webkit-mask-composite:source-in;
-  mask-image:linear-gradient(180deg,transparent 0,#000 7%,#000 52%,transparent 100%),linear-gradient(90deg,transparent 0,#000 10%,#000 90%,transparent 100%);
-  mask-composite:intersect;
+.hero__garland{
+  position:absolute;z-index:3;top:var(--header-h);left:-12px;right:-12px;height:56px;
+  background:url('../assets/decor/hero-banderines.svg') repeat-x 0 0/240px 52px;
+  transform-origin:50% 0;animation:heroSway 7s ease-in-out infinite alternate;pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
 }
-.hero__visual img{
-  display:block;width:100%;height:100%;
-  object-fit:cover;object-position:50% 38%;
+.hero__stage{
+  order:-1;position:relative;
+  width:min(calc(100% - 16px),620px);aspect-ratio:1.6/1;margin:0 auto;
+}
+.arch{
+  position:absolute;margin:0;overflow:hidden;
+  border-radius:999px 999px 14px 14px;background:var(--bg-card);
+  border:1px solid rgba(226,188,122,.6);
+  box-shadow:0 0 0 5px var(--bg),0 0 0 6px rgba(196,154,91,.5),0 26px 50px rgba(0,0,0,.6);
+  animation:archIn .9s cubic-bezier(.2,.8,.2,1) var(--d,0s) both,archFloat var(--fd,7s) ease-in-out calc(var(--d,0s) + 1s) infinite alternate;
+}
+.arch img{display:block;width:100%;height:100%;object-fit:cover}
+.arch--center{left:26%;width:48%;top:0;aspect-ratio:4/5;z-index:2;--d:.1s;--fd:8s}
+.arch--left{left:0;width:31%;top:21%;aspect-ratio:4/5;--d:.3s;--fd:6.5s}
+.arch--right{right:0;width:31%;top:21%;aspect-ratio:4/5;--d:.45s;--fd:7.5s}
+.hero__stage::before{
+  content:'';position:absolute;z-index:0;left:50%;top:40%;
+  width:112%;aspect-ratio:1;transform:translate(-50%,-50%);
+  background:url('../assets/decor/hero-sol.svg') center/contain no-repeat;opacity:.55;
+  -webkit-mask-image:radial-gradient(circle,#000 38%,transparent 66%);mask-image:radial-gradient(circle,#000 38%,transparent 66%);
+  animation:heroSun 90s linear infinite;pointer-events:none;
+}
+.arch{z-index:1}
+.arch--center img{object-position:50% 40%}
+.hero__seal{
+  position:absolute;z-index:4;left:17%;bottom:-3%;
+  width:22%;max-width:130px;height:auto;transform:rotate(-9deg);
+  filter:drop-shadow(0 8px 14px rgba(0,0,0,.65));
+}
+.hero__seal--mm{
+  left:auto;right:16%;bottom:-4%;width:21%;transform:rotate(8deg);
+  filter:drop-shadow(0 0 1.5px rgba(226,188,122,.95)) drop-shadow(0 8px 14px rgba(0,0,0,.65));
 }
 .hero__content{
   position:relative;z-index:2;
-  width:100%;max-width:640px;margin:clamp(-120px,-13vw,-56px) auto 0;
-  padding:0 clamp(20px,5vw,40px) clamp(28px,5vw,44px);
+  width:100%;max-width:680px;margin:clamp(22px,4vw,34px) auto 0;
+  padding:0 clamp(20px,5vw,40px);
   text-align:center;
 }
 .hero__copy{display:flex;flex-direction:column;align-items:center}
-.hero__wordmark{width:min(82%,460px);height:auto}
+.hero__wordmark{width:min(82%,440px);height:auto}
 .hero__tagline{
   margin-top:clamp(12px,2.4vw,22px);max-width:20ch;
   font-family:var(--font-display);font-weight:600;
@@ -299,44 +329,33 @@ body.cursor-visible .cursor{opacity:1}
   display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
   margin-top:clamp(20px,3vw,30px);
 }
+@keyframes heroSun{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes archIn{from{opacity:0;translate:0 30px}}
+@keyframes archFloat{to{transform:translateY(-9px)}}
+@keyframes heroSway{from{transform:rotate(-.3deg)}to{transform:rotate(.3deg)}}
 @media (max-width:540px){
-  .hero__visual{aspect-ratio:1/1;max-height:46vh;max-height:46svh}
-  .hero__visual img{object-position:50% 42%}
-  .hero__content{margin-top:-64px;padding-bottom:28px}
+  .hero{padding-top:calc(var(--header-h) + 50px)}
+  .hero__garland{height:48px;background-size:200px 44px}
   .hero__wordmark{width:min(86%,340px)}
   .hero__actions{gap:10px}
   .hero__actions .btn{width:100%;justify-content:center;padding:13px 20px}
 }
-@media (max-width:540px) and (max-height:700px){
-  .hero__visual{max-height:38vh;max-height:38svh}
-  .hero__content{margin-top:-52px}
-}
 @media (min-width:960px),(min-width:640px) and (orientation:landscape){
   .hero{
-    --hero-h:clamp(520px,calc(100vh - var(--header-h)),860px);
-    --hero-h:clamp(520px,calc(100svh - var(--header-h)),860px);
-    display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
-    min-height:calc(var(--hero-h) + var(--header-h));
-    background:radial-gradient(ellipse 55% 70% at 26% 50%,rgba(196,154,91,.09),transparent 70%),var(--bg);
+    display:grid;grid-template-columns:minmax(0,4.7fr) minmax(0,6.6fr);align-items:center;
+    column-gap:clamp(8px,2vw,32px);
+    min-height:clamp(600px,88vh,860px);min-height:clamp(600px,88svh,860px);
+    padding:calc(var(--header-h) + 64px) max(clamp(20px,4vw,64px),calc((100% - 1440px)/2)) clamp(36px,4vw,56px);
   }
-  .hero__visual{
-    grid-column:2;grid-row:1;
-    width:auto;max-width:none;max-height:none;margin:0 0 0 -5vw;
-    height:var(--hero-h);aspect-ratio:774/864;
-    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 32%),linear-gradient(180deg,transparent 0,#000 12%,#000 88%,transparent 100%);
-    -webkit-mask-composite:source-in;
-    mask-image:linear-gradient(90deg,transparent 0,#000 32%),linear-gradient(180deg,transparent 0,#000 12%,#000 88%,transparent 100%);
-    mask-composite:intersect;
-  }
-  .hero__visual img{object-position:left center}
-  .hero .hero__content{
-    grid-column:1;grid-row:1;
-    width:auto;max-width:680px;margin:0 auto;
-    padding:clamp(24px,3vw,48px) clamp(28px,4.5vw,64px);
-  }
-  .hero__wordmark{width:min(100%,clamp(300px,36vw,600px))}
+  .hero__garland{height:70px;background-size:320px 70px}
+  .hero__stage{order:0;grid-column:2;grid-row:1;width:100%;max-width:1000px;justify-self:end}
+  .hero .hero__content{grid-column:1;grid-row:1;margin:0;max-width:none;padding:0}
+  .hero__wordmark{width:min(100%,clamp(300px,34vw,560px))}
   .hero__tagline{font-size:clamp(1.3rem,2.3vw,2.2rem)}
   .hero__lead{font-size:clamp(.95rem,1.25vw,1.12rem)}
+}
+@media (prefers-reduced-motion:reduce){
+  .arch,.hero__garland,.hero__stage::before{animation:none}
 }
 
 /* ═══ BUTTONS ═══ */

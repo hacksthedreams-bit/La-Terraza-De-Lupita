@@ -1755,3 +1755,7 @@ body.hero-in-view .wa-float{opacity:0;visibility:hidden;transform:scale(.7);poin
 .pd__thumb:hover{opacity:1}
 .pd__thumb.is-active{opacity:1;border-color:var(--gold)}
 .pd__thumb:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.delivery-cost-note{margin:8px 0 12px;font-size:.78rem;line-height:1.45;color:var(--cream-muted)}
+
+.location-delivery .delivery-note{margin-top:14px;font-size:.8rem;line-height:1.5;color:var(--cream-muted)}

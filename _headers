@@ -22,8 +22,6 @@
   Cache-Control: public, max-age=3600, must-revalidate
 
 # Adornos, marcos, marca e íconos (casi nunca cambian): 30 días
-/assets/bebidas/*
-  Cache-Control: public, max-age=2592000
 /assets/brand/*
   Cache-Control: public, max-age=2592000
 /assets/decor/*
@@ -32,13 +30,7 @@
   Cache-Control: public, max-age=2592000
 /assets/icons/*
   Cache-Control: public, max-age=2592000
-/assets/lupita-aprobados/*
-  Cache-Control: public, max-age=2592000
-/assets/lupita-sandwiches-aprobado/*
-  Cache-Control: public, max-age=2592000
 /assets/menu/*
-  Cache-Control: public, max-age=2592000
-/assets/veganos/*
   Cache-Control: public, max-age=2592000
 /favicon.ico
   Cache-Control: public, max-age=2592000

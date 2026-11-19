@@ -1,0 +1,360 @@
+/* LÍNEA GRÁFICA ÚNICA DE LA CARTA · "Fuego de parrilla" aplicado a todas las secciones.
+   Basada en la sección Hamburguesas (marco con esquinas, grano, cobre, serif crema, precios dorados, botón naranja).
+   Encabezado como la carta en PDF: foto panorámica de platos + placa con el título. Icono del pie por sección (--sec-ico). Cargar tras styles.css. */
+#menu-sections .menu-section {
+  --hb-bg: #11100f;
+  --hb-card: #191714;
+  --hb-copper: #b86539;
+  --hb-gold: #e8b65e;
+  --hb-line: #c0612f;
+  --hb-serif: var(--font-display, Fraunces, Georgia, serif);
+  --sec-ico: url('../assets/decor/hb-flame.svg');
+  --sec-ico-size: 26px 34px;
+}
+#menu-sections #hamburguesas { --sec-ico: url('../assets/decor/hb-spatulas.svg'); --sec-ico-size: 38px 38px; }
+
+#menu-sections .menu-section {
+  --hb-bg: #11100f;
+  --hb-card: #191714;
+  --hb-copper: #b86539;
+  --hb-gold: #e8b65e;
+  --hb-line: #c0612f;
+  --hb-serif: var(--font-display, Fraunces, Georgia, serif);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(22px, 3vw, 40px) clamp(22px, 3vw, 40px) clamp(84px, 7.5vw, 104px);
+  border: 0;
+  border-radius: 0;
+  background: url('../assets/decor/hb-grain.svg') var(--hb-bg);
+  color: #f9f2e8;
+  box-shadow: 0 14px 40px rgba(0,0,0,.26);
+}
+/* Marco exterior con esquinas (sustituye el adorno difuso compartido). */
+#menu-sections .menu-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 1;
+  mix-blend-mode: normal;
+  background: none;
+  border: 26px solid transparent;
+  border-image: url('../assets/decor/hb-frame.svg') 24 / 26px stretch;
+  pointer-events: none;
+}
+/* Divisor inferior con llama. */
+#menu-sections .menu-section::after {
+  content: '';
+  position: absolute;
+  inset: auto auto clamp(30px, 3.4vw, 44px) 50%;
+  z-index: -1;
+  width: min(72%, 840px);
+  height: 28px;
+  transform: translateX(-50%);
+  background:
+    url('../assets/decor/hb-flame.svg') no-repeat center / 20px 27px,
+    linear-gradient(var(--hb-line), var(--hb-line)) no-repeat left center / calc(50% - 26px) 1px,
+    linear-gradient(var(--hb-line), var(--hb-line)) no-repeat right center / calc(50% - 26px) 1px;
+  pointer-events: none;
+}
+/* ── Encabezado de sección (estilo de la carta en PDF): foto panorámica + placa con el título ── */
+#menu-sections .menu-section .section-head {
+  position: relative;
+  display: block;
+  min-height: 0;
+  overflow: visible;
+  margin: 0 0 clamp(16px, 1.8vw, 24px);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+#menu-sections .menu-section .section-head::before,
+#menu-sections .menu-section .section-head::after { content: none; }
+#menu-sections .menu-section .section-head__photo {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 2.6 / 1;
+  margin: 0 0 12px;
+  border: 1px solid rgba(232, 182, 94, .6);
+  background: #0d0b09;
+}
+/* Marquito interior y viñeta suave sobre la foto. */
+#menu-sections .menu-section .section-head__photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.2), transparent 24%, transparent 68%, rgba(0,0,0,.32));
+  box-shadow: inset 0 0 0 4px rgba(16, 14, 12, .92), inset 0 0 0 5px rgba(232, 182, 94, .38);
+  pointer-events: none;
+}
+#menu-sections .menu-section .section-head__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% var(--py, 55%);
+  transform: scale(var(--zoom, 1));
+  transform-origin: var(--zo, 50% 50%);
+}
+#menu-sections .menu-section .section-head__plate {
+  position: relative;
+  padding: clamp(16px, 1.9vw, 26px) clamp(58px, 7vw, 104px) clamp(16px, 1.9vw, 24px);
+  text-align: center;
+  background: url('../assets/decor/hb-grain.svg') #100e0c;
+}
+#menu-sections .menu-section .section-head__plate::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 18px solid transparent;
+  border-image: url('../assets/decor/hb-frame.svg') 24 / 18px stretch;
+  pointer-events: none;
+}
+#menu-sections .menu-section .section-head__plate .eyebrow {
+  display: block;
+  margin: 0 0 6px;
+  color: #d3ae6c;
+  font: 700 .72rem/1.35 var(--font-body, Inter, sans-serif);
+  letter-spacing: .26em;
+  text-transform: uppercase;
+}
+#menu-sections .menu-section .section-head__plate h3 {
+  margin: 0;
+  color: #fae9bf;
+  font: 700 clamp(1.7rem, 3.7vw, 3.1rem)/1.12 var(--hb-serif);
+  letter-spacing: .045em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .55);
+}
+/* Rombos dorados a los lados del título. */
+#menu-sections .menu-section .section-head__plate h3::before,
+#menu-sections .menu-section .section-head__plate h3::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  margin-top: -4px;
+  background: #d9b062;
+  transform: rotate(45deg);
+}
+#menu-sections .menu-section .section-head__plate h3::before { left: clamp(26px, 3.4vw, 46px); }
+#menu-sections .menu-section .section-head__plate h3::after { right: clamp(26px, 3.4vw, 46px); }
+#menu-sections .menu-section .section-head__plate > p {
+  margin: 8px 0 0;
+  color: #dccfba;
+  font: italic 400 clamp(.92rem, 1.3vw, 1.1rem)/1.4 var(--hb-serif);
+}
+#menu-sections .menu-section .product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.8vw, 22px);
+}
+#menu-sections .menu-section .product-card,
+#menu-sections .menu-section .product-card--tone-1,
+#menu-sections .menu-section .product-card--tone-2,
+#menu-sections .menu-section .product-card--tone-3 {
+  position: relative;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: url('../assets/decor/hb-grain.svg') var(--hb-card);
+  color: #fff7e9;
+  box-shadow: none;
+  transition: transform .18s ease;
+}
+/* Marco de la tarjeta con esquinas con muesca. */
+#menu-sections .menu-section .product-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 18px solid transparent;
+  border-image: url('../assets/decor/hb-frame.svg') 24 / 18px stretch;
+  pointer-events: none;
+  transition: filter .18s ease;
+}
+#menu-sections .menu-section .product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+#menu-sections .menu-section .product-card:hover::after { filter: brightness(1.35); }
+#menu-sections .menu-section .product-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: clamp(22px, 2.2vw, 30px) clamp(22px, 2.2vw, 30px) clamp(20px, 2vw, 26px);
+}
+#menu-sections .menu-section .product-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 10px;
+}
+#menu-sections .menu-section .product-card__top h4 {
+  min-width: 0;
+  margin: 0;
+  color: #fff7eb;
+  font: 700 clamp(1.2rem, 1.9vw, 1.65rem)/1.18 var(--hb-serif);
+  overflow-wrap: normal;
+}
+#menu-sections .menu-section .product-card__price {
+  flex: none;
+  color: var(--hb-gold);
+  font: 700 clamp(1rem, 1.5vw, 1.35rem)/1.25 var(--hb-serif);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+#menu-sections .menu-section .product-card__desc {
+  color: #ece3d4;
+  font: 400 clamp(.97rem, 1.18vw, 1.08rem)/1.5 var(--hb-serif);
+  margin: 0 0 auto;
+  padding: 0 0 22px;
+}
+#menu-sections .menu-section .product-card__foot {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: auto;
+  padding: 0;
+  border: 0;
+}
+/* Espátulas cruzadas + filete cobre (decorativo). */
+#menu-sections .menu-section .product-card__foot > div {
+  flex: 1 1 60px;
+  max-width: 170px;
+  min-height: 40px;
+  background:
+    var(--sec-ico) no-repeat left center / var(--sec-ico-size),
+    linear-gradient(90deg, rgba(192,97,47,.8), rgba(192,97,47,0)) no-repeat 52px center / calc(100% - 52px) 1px;
+}
+#menu-sections .menu-section .add-btn {
+  flex: none;
+  min-width: 118px;
+  min-height: 48px;
+  margin-left: auto;
+  padding: 10px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #d4592f 0%, #a93e1d 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.28), 0 3px 8px rgba(0,0,0,.45);
+  color: #fff9ef;
+  font: 600 1.05rem/1.2 var(--hb-serif);
+  transition: filter .18s ease, transform .18s ease;
+}
+#menu-sections .menu-section .add-btn:hover { background: linear-gradient(180deg, #e0643a 0%, #b94622 100%); }
+#menu-sections .menu-section .add-btn:focus-visible { outline: 3px solid #fff6df; outline-offset: 3px; }
+@media (max-width: 1080px) {
+  #menu-sections .menu-section .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #menu-sections .menu-section .section-head__photo { aspect-ratio: 2.2 / 1; }
+}
+@media (max-width: 660px) {
+  #menu-sections .menu-section { padding: 18px 16px 74px; }
+  #menu-sections .menu-section::before { border-width: 18px; border-image-width: 18px; }
+  #menu-sections .menu-section .section-head { margin-bottom: 14px; }
+  #menu-sections .menu-section .section-head__photo { aspect-ratio: 1.75 / 1; margin-bottom: 10px; }
+  #menu-sections .menu-section .section-head__plate { padding: 16px 40px 16px; }
+  #menu-sections .menu-section .section-head__plate h3 { font-size: clamp(1.3rem, 6.2vw, 1.9rem); letter-spacing: .03em; }
+  #menu-sections .menu-section .section-head__plate h3::before { left: 16px; }
+  #menu-sections .menu-section .section-head__plate h3::after { right: 16px; }
+  #menu-sections .menu-section .section-head__plate .eyebrow { font-size: .64rem; letter-spacing: .2em; }
+  #menu-sections .menu-section .product-grid { grid-template-columns: minmax(0, 1fr); }
+  #menu-sections .menu-section .product-card__top { gap: 9px; }
+  #menu-sections .menu-section .product-card__top h4 { font-size: 1.3rem; }
+  #menu-sections .menu-section .product-card__price { font-size: 1.1rem; }
+}
+@media (max-width: 350px) {
+  #menu-sections .menu-section .product-card__top { flex-direction: column; gap: 4px; }
+  #menu-sections .menu-section .product-card__foot > div { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #menu-sections .menu-section .product-card, #menu-sections .menu-section .add-btn, #menu-sections .menu-section .product-card::after { transition: none; }
+  #menu-sections .menu-section .product-card:hover { transform: none; }
+}
+
+/* ── Etiquetas (Vegano, Solo en el local…) dentro del pie de la tarjeta ── */
+#menu-sections .menu-section .product-card__foot > div:has(.badge) {
+  flex: 1 1 auto;
+  max-width: none;
+  min-height: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  background: none;
+}
+#menu-sections .menu-section .product-card__foot:has(.badge) { flex-wrap: wrap; }
+#menu-sections .menu-section .badge {
+  padding: 4px 11px;
+  border: 1px solid rgba(192, 97, 47, .6);
+  background: rgba(232, 182, 94, .1);
+  color: var(--hb-gold);
+  font: 600 .7rem/1.2 var(--font-body, Inter, sans-serif);
+  letter-spacing: .06em;
+}
+#menu-sections .menu-section .badge--vegano,
+#menu-sections .menu-section .badge--vegetariano { border-color: rgba(110, 200, 150, .55); background: rgba(110, 200, 150, .1); color: #8fdcb2; }
+#menu-sections .menu-section .product-card__price--from::before { color: #d9cdb8; }
+
+/* ── Guía vegano / vegetariano ── */
+#menu-sections .menu-section .diet-guide {
+  position: relative;
+  margin: 0 0 clamp(16px, 1.8vw, 24px);
+  padding: clamp(18px, 2vw, 26px);
+  background: url('../assets/decor/hb-grain.svg') #100e0c;
+}
+#menu-sections .menu-section .diet-guide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 18px solid transparent;
+  border-image: url('../assets/decor/hb-frame.svg') 24 / 18px stretch;
+  pointer-events: none;
+}
+#menu-sections .menu-section .diet-guide__kicker {
+  margin: 0 0 14px;
+  color: #e58b4f;
+  font: 700 .78rem/1 var(--font-body, Inter, sans-serif);
+  letter-spacing: .22em;
+  text-align: center;
+  text-transform: uppercase;
+}
+#menu-sections .menu-section .diet-guide__tiles { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+#menu-sections .menu-section .diet-guide__tile {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1px solid rgba(192, 97, 47, .55);
+  background: url('../assets/decor/hb-grain.svg') var(--hb-card);
+  color: #fff7e9;
+}
+#menu-sections .menu-section .diet-guide__icon {
+  flex: 0 0 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(192, 97, 47, .6);
+  border-radius: 50%;
+  background: rgba(232, 182, 94, .08);
+  font-size: 1.5rem;
+}
+#menu-sections .menu-section .diet-guide__name { margin: 0 0 4px; color: #fff7eb; font: 700 1.3rem/1.15 var(--hb-serif); }
+#menu-sections .menu-section .diet-guide__text { margin: 0; color: #ece3d4; font: 400 .98rem/1.45 var(--hb-serif); }
+#menu-sections .menu-section .diet-guide__foot { position: relative; z-index: 1; margin: 14px 0 0; color: #d9cdb8; font: 400 .92rem/1.5 var(--hb-serif); text-align: center; }
+@media (max-width: 700px) {
+  #menu-sections .menu-section .diet-guide__tiles { grid-template-columns: minmax(0, 1fr); }
+  #menu-sections .menu-section .diet-guide__kicker { letter-spacing: .14em; }
+  #menu-sections .menu-section .diet-guide__tile { gap: 12px; padding: 12px 14px; }
+  #menu-sections .menu-section .diet-guide__icon { flex-basis: 38px; height: 38px; font-size: 1.2rem; }
+  #menu-sections .menu-section .diet-guide__name { font-size: 1.15rem; }
+  #menu-sections .menu-section .diet-guide__text { font-size: .9rem; }
+  #menu-sections .menu-section .diet-guide__foot { font-size: .84rem; }
+}

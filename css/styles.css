@@ -1657,7 +1657,7 @@ body.hero-in-view .wa-float{opacity:0;visibility:hidden;transform:scale(.7);poin
   letter-spacing:inherit;text-transform:inherit;line-height:inherit;text-shadow:inherit;
   cursor:pointer;
 }
-.product-card__open::after{content:' \2197';font-size:.78em;opacity:.55;transition:opacity .2s}
+.product-card__open::after{content:'\00a0\2197';font-size:.78em;opacity:.55;transition:opacity .2s}
 .product-card:hover .product-card__open::after,.product-card__open:focus-visible::after{opacity:1}
 .product-card__open:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:3px}
 .showcase__card.is-openable .showcase__img,.showcase__card.is-openable h3{cursor:pointer}

@@ -29,7 +29,7 @@
     'Arroz Lupita', 'Champiñón salteado', 'Guacamole', 'Papas fritas', 'Pico de gallo',
     'Queso', 'Cebolla caramelizada', 'Choclo', 'Jalapeño', 'Papas hilo', 'Pimentón', 'Tomate'
   ];
-  var CUSTOM_SAUCES = ['Salsa de cilantro', 'Salsa BBQ', 'Salsa de queso', 'Salsa de tocino'];
+  var CUSTOM_SAUCES = ['Salsa verde', 'Salsa BBQ', 'Salsa de queso', 'Salsa de tocino'];
   var INCLUDED_DRINKS = [
     'Coca-Cola', 'Coca-Cola Zero', 'Fanta', 'Sprite', 'Sprite Zero',
     'Bilz', 'Kem Piña', 'Pepsi', 'Pepsi Zero', 'Limón Soda', 'Pap', 'Crush Orange'
@@ -65,68 +65,68 @@
   /* ── Product Catalog ── */
   var PRODUCTS = [
     // ─── Para compartir (0-13 + 125-132)
-    {id:0,catId:"compartir",name:"Aros de Cebolla",price:3490,desc:"Doce aros gruesos, apanados y fritos al momento.",badges:[]},
-    {id:1,catId:"compartir",name:"Papas Rústicas",price:3500,desc:"Con cáscara, doradas por fuera y cremosas por dentro. Con salsa de la casa.",badges:[]},
-    {id:2,catId:"compartir",name:"Empanaditas de Queso",price:4990,desc:"Recién fritas, con el queso todavía haciendo hilo.",badges:[]},
-    {id:3,catId:"compartir",name:"Nuggets",price:4990,desc:"Diez nuggets de pollo dorados y crujientes.",badges:[]},
-    {id:4,catId:"compartir",name:"Papas Cheddar",price:4990,desc:"Papas rústicas bajo una capa de cheddar caliente.",badges:[]},
-    {id:5,catId:"compartir",name:"Salchipapas",price:5490,desc:"Papas y vienesas doradas. El clásico que nunca falla.",badges:[]},
-    {id:6,catId:"compartir",name:"Papas Cheddar y Tocino",price:5990,desc:"Cheddar fundido y tocino ahumado crujiente encima.",badges:[]},
+    {id:0,catId:"compartir",name:"Aros de Cebolla",price:3490,desc:"12 aros de cebolla fritos.",badges:[]},
+    {id:1,catId:"compartir",name:"Papas Rústicas",price:3500,desc:"Porción de papas fritas con salsa de cortesía.",badges:[]},
+    {id:2,catId:"compartir",name:"Empanaditas de Queso",price:4990,desc:"8 empanadas fritas.",badges:[]},
+    {id:3,catId:"compartir",name:"Nuggets",price:4990,desc:"10 nuggets de pollo fritos.",badges:[]},
+    {id:4,catId:"compartir",name:"Papas Cheddar",price:4990,desc:"Papas fritas con cheddar.",badges:[]},
+    {id:5,catId:"compartir",name:"Salchipapas",price:5490,desc:"Papas fritas, salchichas y kétchup.",badges:[]},
+    {id:6,catId:"compartir",name:"Papas Cheddar y Tocino",price:5990,desc:"Papas fritas con tocino crujiente y cheddar.",badges:[]},
     {id:125,catId:"compartir",name:"Nachos con Chili de Carne",price:6490,desc:"Nachos, chili de carne, frijoles, choclo, salsa cheddar, guacamole y cebollín.",badges:[]},
-    {id:126,catId:"compartir",name:"Flautitas de Pollo Fritas",price:6790,desc:"Cuatro unidades de pino de pollo y queso Gauda en tortilla de trigo frita. Acompañadas de guacamole y pico de gallo.",badges:[]},
-    {id:127,catId:"compartir",name:"Nachos Supremos",price:6990,desc:"Nachos, salsa cheddar, chili de carne, tomate en cubos, sour cream, cebollín opcional y jalapeños.",badges:[]},
-    {id:128,catId:"compartir",name:"Papitas Lupita",price:8490,desc:"Papas, salsa cheddar, chili de carne, sour cream, queso rallado, tomate en cubos y cebollín.",badges:[]},
-    {id:129,catId:"compartir",name:"Papitas Bravas",price:8490,desc:"Papas, cheddar, chili de carne, sour cream, cebollín y jalapeños.",badges:[]},
-    {id:130,catId:"compartir",name:"Papitas Cheddar Tocino",price:8490,desc:"Porción para picotear. Papas, cheddar, tocino en cubos y queso rallado.",badges:[]},
-    {id:7,catId:"compartir",name:"Boneless Lupita",price:8990,desc:"Seis trozos de pollo rebozado, papas, salchitacos y salsa de la casa.",badges:[]},
-    {id:131,catId:"compartir",name:"Canastita Mexicana",price:8990,desc:"Canastita de tortilla de trigo, lechuga, guacamole, pollo apanado y frito y salsa de queso.",badges:[]},
-    {id:132,catId:"compartir",name:"Alitas Chingonas",price:9490,desc:"Seis alitas de pollo fritas, papas y nachos. Acompañadas de BBQ, guacamole y queso rallado.",badges:[]},
-    {id:8,catId:"compartir",name:"Mister Alitas",price:9990,desc:"Seis alitas apanadas, seis empanaditas de queso y papas.",badges:[]},
-    {id:9,catId:"compartir",name:"Mister Nuggets",price:10990,desc:"Ocho nuggets, ocho empanaditas de queso y papas.",badges:[]},
-    {id:10,catId:"compartir",name:"Carnita al Disco",price:14990,desc:"Lomo liso de 300 g al disco con verduras salteadas y papas asadas. Con sour cream o guacamole.",badges:["local"]},
-    {id:11,catId:"compartir",name:"Fajitas al Disco",price:16990,desc:"Seis tortillas, vacuno, pollo y verduras chisporroteando en el disco. Con queso, frijoles, guacamole y sour cream.",badges:["local"]},
-    {id:12,catId:"compartir",name:"Trilogía de Taquitos",price:17990,desc:"Dos de pollo, dos de carnita y dos de cochinito. Con choclo, guacamole, pico de gallo y limón.",badges:[]},
-    {id:13,catId:"compartir",name:"Tablita Lupita Tex-Mex",price:19990,desc:"Quesadilla de carne, flautitas, alitas, nachos con guacamole, aros de cebolla y papas. Con tres salsas.",badges:[]},
+    {id:126,catId:"compartir",name:"Flautitas de Pollo Fritas",price:6790,desc:"4 flautitas de trigo fritas con pino de pollo y queso Gouda; guacamole y pico de gallo.",badges:[]},
+    {id:127,catId:"compartir",name:"Nachos Supremos",price:6990,desc:"Nachos, salsa cheddar, chili de carne, tomate, sour cream, jalapeños y cebollín opcional.",badges:[]},
+    {id:128,catId:"compartir",name:"Papitas Lupita",price:8490,desc:"Papas, salsa cheddar, chili de carne, sour cream, queso rallado, tomate y cebollín.",badges:[]},
+    {id:129,catId:"compartir",name:"Papitas Bravas",price:8490,desc:"Papas, salsa cheddar, chili de carne, sour cream, cebollín y jalapeño.",badges:[]},
+    {id:130,catId:"compartir",name:"Papitas Cheddar Tocino",price:8490,desc:"Papas, salsa cheddar, tocino en cubitos asados y queso rallado.",badges:[]},
+    {id:7,catId:"compartir",name:"Boneless Lupita",price:8990,desc:"6 trozos de pollo rebozado y frito, papas fritas, salchitacos y salsa de la casa.",badges:[]},
+    {id:131,catId:"compartir",name:"Canastita Mexicana",price:8990,desc:"Canasta de tortilla de trigo, lechuga, guacamole, pollo apanado y frito, con salsa de queso.",badges:[]},
+    {id:132,catId:"compartir",name:"Alitas Chingonas",price:9490,desc:"6 alitas de pollo fritas, papas fritas y nachos. Con salsa BBQ, guacamole y queso rallado.",badges:[]},
+    {id:8,catId:"compartir",name:"Mister Alitas",price:9990,desc:"6 alitas apanadas, 6 empanaditas de queso y papas fritas.",badges:[]},
+    {id:9,catId:"compartir",name:"Mister Nuggets",price:10990,desc:"8 nuggets de pollo, 8 empanaditas de queso y papas fritas.",badges:[]},
+    {id:10,catId:"compartir",name:"Carnita al Disco",price:14990,desc:"Lomo liso de 300 g, verduras surtidas y papas asadas. Con sour cream o guacamole.",badges:["local"]},
+    {id:11,catId:"compartir",name:"Fajitas al Disco",price:16990,desc:"6 tortillas, vacuno, pollo, verduras surtidas, queso rallado, lechuga, pico de gallo, frijoles, guacamole y sour cream.",badges:["local"]},
+    {id:12,catId:"compartir",name:"Trilogía de Taquitos",price:17990,desc:"2 de pollo, 2 de carnita y 2 de cochinito. Con lechuga, choclo, guacamole, pico de gallo, sour cream y limón.",badges:[]},
+    {id:13,catId:"compartir",name:"Tablita Lupita Tex-Mex",price:19990,desc:"Quesadilla de carne, flautitas de pollo, Alitas Chingonas, nachos con guacamole, aros de cebolla y papas fritas. Con pico de gallo, salsa de la casa y BBQ.",badges:[]},
 
     // ─── Chorrillanas (14-28)
-    {id:14,catId:"chorrillanas",name:"Tradicional",price:7490,desc:"Carne mechada, cebolla caramelizada, chorizo y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Individual",price:7490},{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
+    {id:14,catId:"chorrillanas",name:"Tradicional",price:7490,desc:"Mechada, cebolla caramelizada, chorizo y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"Individual",price:7490},{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
     {id:15,catId:"chorrillanas",name:"Suprema",price:11990,desc:"Pollo, salsa blanca, champiñones y cebollín.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
-    {id:16,catId:"chorrillanas",name:"Pollo Mongoliano",price:11990,desc:"Pollo salteado, cebollín, salsa de ostras y soya.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
-    {id:17,catId:"chorrillanas",name:"Papas Champi",price:11990,desc:"Champiñones salteados, cebollín y salsa de ostras.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
-    {id:18,catId:"chorrillanas",name:"La Vegetariana",price:11990,desc:"Cebolla, champiñón, pimentón, cebollín y salsa de queso.",badges:["vegetariano"],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
-    {id:19,catId:"chorrillanas",name:"Chicken Teriyaki",price:11990,desc:"Pollo, champiñón, cebollín, sésamo tostado y salsa teriyaki.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
-    {id:20,catId:"chorrillanas",name:"Lomo Saltado",price:15990,desc:"Vacuno, cebolla morada, tomate, soya y salsa de ostras.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
+    {id:16,catId:"chorrillanas",name:"Pollo Mongoliano",price:11990,desc:"Pollo, cebollín, salsa de ostras y soya.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
+    {id:17,catId:"chorrillanas",name:"Papas Champi",price:11990,desc:"Champiñones, cebollín y salsa de ostras.",badges:["local"],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
+    {id:18,catId:"chorrillanas",name:"La Vegetariana",price:11990,desc:"Cebolla, champiñones, pimentón, cebollín y salsa de queso.",badges:["vegetariano"],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
+    {id:19,catId:"chorrillanas",name:"Chicken Teriyaki",price:11990,desc:"Pollo, cebollín, champiñones, sésamo y salsa teriyaki.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"2 personas",price:11990},{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
+    {id:20,catId:"chorrillanas",name:"Lomo Saltado",price:15990,desc:"Vacuno, cebolla morada, tomate, salsa de soya y salsa de ostras.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
     {id:21,catId:"chorrillanas",name:"Carne Mongoliana",price:15990,desc:"Lomo liso, cebollín, cheddar, salsa de ostras y soya.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
     {id:22,catId:"chorrillanas",name:"El Fabi",price:15990,desc:"Chorizo, carne mechada, pollo, tocino y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:15990},{label:"4 personas",price:19990}]}},
     {id:23,catId:"chorrillanas",name:"Tradicional Extra",price:18990,desc:"Cebolla caramelizada, extra cerdo, extra mechada y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:18990},{label:"4 personas",price:22990}]}},
-    {id:24,catId:"chorrillanas",name:"Suprema Camarón",price:18990,desc:"Salsa blanca, cebollín, champiñón, pollo y camarones.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:18990},{label:"4 personas",price:22990}]}},
+    {id:24,catId:"chorrillanas",name:"Suprema Camarón",price:18990,desc:"Salsa blanca, cebollín, champiñón, pollo y camarones.",badges:["local"],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:18990},{label:"4 personas",price:22990}]}},
     {id:25,catId:"chorrillanas",name:"La Reina de la Casa",price:18990,desc:"Salsa blanca, champiñón, pollo apanado, ciboulette y queso rallado.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:18990},{label:"4 personas",price:22990}]}},
-    {id:26,catId:"chorrillanas",name:"Don Simón",price:22990,desc:"Salsa blanca, pollo, carne mechada, cebollín y champiñón.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:22990},{label:"4 personas",price:25990}]}},
-    {id:27,catId:"chorrillanas",name:"La Carnívora",price:22990,desc:"Chorizo, pollo, mechada, lomo de cerdo, cebolla caramelizada y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:22990},{label:"4 personas",price:25990}]}},
-    {id:28,catId:"chorrillanas",name:"Mar y Tierra",price:22990,desc:"Chorizo, vacuno, pollo, camarones, algas, cebolla caramelizada y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:22990},{label:"4 personas",price:25990}]}},
+    {id:26,catId:"chorrillanas",name:"Don Simón",price:22990,desc:"Salsa blanca, pollo, mechada, cebollín y champiñón.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:22990},{label:"4 personas",price:25990}]}},
+    {id:27,catId:"chorrillanas",name:"La Carnívora",price:22990,desc:"Cebolla caramelizada, chorizo, pollo, mechada, lomo de cerdo y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:22990},{label:"4 personas",price:25990}]}},
+    {id:28,catId:"chorrillanas",name:"Mar y Tierra",price:22990,desc:"Cebolla caramelizada, chorizo, vacuno, pollo, camarones, algas y huevo frito.",badges:[],variants:{title:"Elige tamaño",required:true,options:[{label:"3 personas",price:22990},{label:"4 personas",price:25990}]}},
 
     // ─── Chorri Plancha — solo en el local (29-33)
-    {id:29,catId:"chorrillanas",name:"Chorri Plancha — Suprema",price:11990,desc:"Pollo, salsa blanca, champiñones y cebollín.",badges:["local"]},
+    {id:29,catId:"chorrillanas",name:"Chorri Plancha — Suprema",price:11990,desc:"Pollo, salsa blanca, champiñón y cebollín.",badges:["local"]},
     {id:30,catId:"chorrillanas",name:"Chorri Plancha — Pollo Mongoliano",price:11990,desc:"Pollo, cebollín, salsa de ostras y soya.",badges:["local"]},
-    {id:31,catId:"chorrillanas",name:"Chorri Plancha — Carne Mongoliana",price:11990,desc:"Lomo liso, cebollín, cheddar, ostra y soya.",badges:["local"]},
-    {id:32,catId:"chorrillanas",name:"Chorri Plancha — Pollo Champiñón",price:11990,desc:"Pollo, cebollín, champiñones y salsa de la casa.",badges:["local"]},
-    {id:33,catId:"chorrillanas",name:"Chorri Plancha — Especial de la Casa",price:13990,desc:"Mozzarella fundida, carne y camarones con salsa de la casa.",badges:["local"]},
+    {id:31,catId:"chorrillanas",name:"Chorri Plancha — Carne Mongoliana",price:11990,desc:"Lomo liso, cebollín, cheddar, salsa de ostras y soya.",badges:["local"]},
+    {id:32,catId:"chorrillanas",name:"Chorri Plancha — Pollo Champiñón",price:11990,desc:"Pollo, cebollín, champiñón y salsa de la casa.",badges:["local"]},
+    {id:33,catId:"chorrillanas",name:"Chorri Plancha — Especial de la Casa",price:13990,desc:"Mozzarella, carne, camarón y salsa de la casa.",badges:["local"]},
 
     // ─── Cocina mexicana (34-46 + 122-124)
-    {id:34,catId:"mexicana",name:"Salchitacos",price:5990,desc:"Vienesas en tortilla de maíz con papas, salsa marinada y kétchup.",badges:[]},
-    {id:35,catId:"mexicana",name:"Arma tu fajita",price:6490,desc:"Tortilla de trigo XL con una proteína, tres ingredientes y hasta dos salsas opcionales. Incluye papas fritas.",badges:["personalizable"],hideFromGrid:true,customizer:{steps:customizerSteps()}},
-    {id:122,catId:"mexicana",name:"Taco a tu pinta",price:6490,desc:"Dos tacos preparados con una proteína, tres ingredientes y hasta dos salsas opcionales. Incluye papas fritas.",badges:["personalizable"],hideFromGrid:true,customizer:{steps:customizerSteps()}},
-    {id:123,catId:"mexicana",name:"Taco Luchador",price:5990,desc:"Dos unidades de pollo o cochinito con lechuga, frijoles refritos, cebolla y salsa verde.",badges:[],variants:{title:"Elige tu proteína",required:true,options:[{label:"Pollo"},{label:"Cochinito"}]}},
-    {id:124,catId:"mexicana",name:"Tacos al Pastor",price:6490,desc:"Dos unidades de cochinito marinado con piña y ají, lechuga, guacamole, cebolla morada y cilantro.",badges:[]},
-    {id:36,catId:"mexicana",name:"Súper Burrito de Carne",price:6290,desc:"Carne, arroz Lupita, frijoles, lechuga, salsa verde y guacamole.",badges:[],variants:{title:"Acompañamiento",required:true,options:[{label:"Papas"},{label:"Nachos"}]}},
-    {id:37,catId:"mexicana",name:"Burrito Lupita",price:6690,desc:"Pollo, arroz Lupita verde, queso, frijoles, salsa verde y guacamole.",badges:[],variants:{title:"Acompañamiento",required:true,options:[{label:"Papas"},{label:"Nachos"}]}},
-    {id:38,catId:"mexicana",name:"Burrito El Facu",price:6690,desc:"Carne mechada, arroz Lupita, cebolla caramelizada, frijoles y cheddar.",badges:[],variants:{title:"Acompañamiento",required:true,options:[{label:"Papas"},{label:"Nachos"}]}},
-    {id:39,catId:"mexicana",name:"Chilaquiles en salsa roja o verde",price:6690,desc:"Pino de carne con frijoles negros, pico de gallo, queso rallado y huevo frito.",badges:[],variants:{title:"Elige salsa",required:true,options:[{label:"Salsa roja"},{label:"Salsa verde"}]}},
-    {id:40,catId:"mexicana",name:"Enchilada de Pollo",price:7490,desc:"Pollo desmenuzado, pimiento rojo, un toque de ajo y queso, envuelto en tortilla de trigo. Con lechuga, pico de gallo, queso rallado y guacamole.",badges:[]},
+    {id:34,catId:"mexicana",name:"Salchitacos",price:5990,desc:"Salchichas en tortilla de maíz y papas fritas. Con salsa marinada y kétchup.",badges:[]},
+    {id:35,catId:"mexicana",name:"Arma tu Fajita XL",price:6490,desc:"Tortilla de trigo XL con una proteína, tres ingredientes y hasta dos salsas opcionales. Incluye papas fritas.",badges:["personalizable"],hideFromGrid:true,customizer:{steps:customizerSteps()}},
+    {id:122,catId:"mexicana",name:"Taco a tu pinta",price:6490,desc:"Dos unidades en tortilla de trigo, preparadas con una proteína, tres ingredientes y hasta dos salsas opcionales. Incluye papas fritas.",badges:["personalizable"],hideFromGrid:true,customizer:{steps:customizerSteps()}},
+    {id:123,catId:"mexicana",name:"Taco El Luchador",price:5990,desc:"2 unidades de pollo o cochinito, lechuga, frijoles prefritos, cebolla y salsa verde.",badges:[],variants:{title:"Elige tu proteína",required:true,options:[{label:"Pollo"},{label:"Cochinito"}]}},
+    {id:124,catId:"mexicana",name:"Tacos al Pastor",price:6490,desc:"2 unidades de cochinito macerado con piña y ají, lechuga, guacamole, cebolla morada y cilantro.",badges:[]},
+    {id:36,catId:"mexicana",name:"Súper Burrito de Carne",price:6290,desc:"Tortilla de trigo, carne, arroz Lupita verde, frijoles, lechuga, salsa verde y guacamole. Con papas fritas o nachos.",badges:[],variants:{title:"Acompañamiento",required:true,options:[{label:"Papas"},{label:"Nachos"}]}},
+    {id:37,catId:"mexicana",name:"Burrito Lupita",price:6690,desc:"Tortilla de trigo, pollo, arroz Lupita verde, queso, frijoles, lechuga, salsa verde y guacamole. Con papas fritas o nachos.",badges:[],variants:{title:"Acompañamiento",required:true,options:[{label:"Papas"},{label:"Nachos"}]}},
+    {id:38,catId:"mexicana",name:"Burrito El Facu",price:6690,desc:"Tortilla de trigo, carne mechada, arroz Lupita, cebolla caramelizada, frijoles, cheddar y papas fritas. Con papas fritas o nachos.",badges:[],variants:{title:"Acompañamiento",required:true,options:[{label:"Papas"},{label:"Nachos"}]}},
+    {id:39,catId:"mexicana",name:"Chilaquiles",price:6690,desc:"Tortilla de trigo, pino de carne, frijoles negros, pico de gallo, queso rallado y huevo frito. Salsa roja o verde.",badges:[],variants:{title:"Elige salsa",required:true,options:[{label:"Salsa roja"},{label:"Salsa verde"}]}},
+    {id:40,catId:"mexicana",name:"Enchilada de Pollo",price:7490,desc:"Tortilla de trigo, pollo desmenuzado, pimientos rojos, ajo y queso. Con lechuga, pico de gallo, queso rallado y guacamole.",badges:[]},
     {id:41,catId:"mexicana",name:"Quesadilla de Pollo",price:6990,desc:"Pollo, cebolla finamente picada y queso en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:[]},
-    {id:42,catId:"mexicana",name:"Quesadilla de Verduras",price:7490,desc:"Choclo, champiñones, cebolla finamente picada y queso en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:["vegetariano"]},
+    {id:42,catId:"mexicana",name:"Quesadilla de Verduras",price:7490,desc:"Choclo, champiñones, cebollín o cebolla finamente picada y queso en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:["vegetariano"]},
     {id:43,catId:"mexicana",name:"Quesadilla de Carne",price:7990,desc:"Carne, cebolla finamente picada y queso en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:[]},
-    {id:44,catId:"mexicana",name:"El Terrible Burrito",price:7790,desc:"Carne y pollo, arroz Lupita, frijoles, papas, queso, lechuga, salsa verde y salsa de tocino.",badges:[]},
+    {id:44,catId:"mexicana",name:"El Terrible Burrito",price:7790,desc:"Tortilla de trigo, carne, pollo, arroz Lupita verde, frijoles, papas fritas, queso, lechuga, salsa verde y salsa de tocino. Con salsas, pico de gallo y nachos.",badges:[]},
     {id:45,catId:"mexicana",name:"Quesadilla de Camarón",price:9490,desc:"Camarones, cebolla finamente picada y queso en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:[]},
     {id:46,catId:"mexicana",name:"Quesadilla Mixta",price:9990,desc:"Carne, pollo, cebolla finamente picada y queso en tortilla de trigo. Acompañada de guacamole, pico de gallo y sour cream.",badges:[]},
 
@@ -136,35 +136,35 @@
     {id:50,catId:"sandwiches",name:"Pobre",price:4800,desc:"Cebolla caramelizada y huevo frito.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:4800},{label:"Lomito",price:4800},{label:"Pollo",price:4800},{label:"Mechada",price:5800},{label:"Hamburguesa casera",price:4800}]}},
     {id:52,catId:"sandwiches",name:"Chacarera",price:4800,desc:"Tomate, poroto verde, ají opcional y mayonesa de la casa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:4800},{label:"Lomito",price:4800},{label:"Pollo",price:4800},{label:"Mechada",price:5800},{label:"Hamburguesa casera",price:4800}]}},
     {id:48,catId:"sandwiches",name:"Italiana",price:4800,desc:"Tomate, palta y mayonesa de la casa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:4800},{label:"Lomito",price:4800},{label:"Pollo",price:4800},{label:"Mechada",price:5800},{label:"Hamburguesa casera",price:4800}]}},
-    {id:47,catId:"sandwiches",name:"Luco",price:4800,desc:"Queso Gauda y cheddar.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:4800},{label:"Lomito",price:4800},{label:"Pollo",price:4800},{label:"Mechada",price:5800},{label:"Hamburguesa casera",price:4800}]}},
-    {id:60,catId:"sandwiches",name:"Brasileña",price:5290,desc:"Queso Gauda, cheddar y palta.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:5290},{label:"Lomito",price:5290},{label:"Pollo",price:5290},{label:"Mechada",price:6290},{label:"Hamburguesa casera",price:5290}]}},
+    {id:47,catId:"sandwiches",name:"Luco",price:4800,desc:"Queso Gouda y cheddar.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:4800},{label:"Lomito",price:4800},{label:"Pollo",price:4800},{label:"Mechada",price:5800},{label:"Hamburguesa casera",price:4800}]}},
+    {id:60,catId:"sandwiches",name:"Brasileña",price:5290,desc:"Queso Gouda, cheddar y palta.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:5290},{label:"Lomito",price:5290},{label:"Pollo",price:5290},{label:"Mechada",price:6290},{label:"Hamburguesa casera",price:5290}]}},
     {id:61,catId:"sandwiches",name:"Tradicional",price:5290,desc:"Lechuga, tomate, cebolla morada, pepinillo y mayonesa de la casa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:5290},{label:"Lomito",price:5290},{label:"Pollo",price:5290},{label:"Mechada",price:5990},{label:"Hamburguesa casera",price:5290}]}},
-    {id:58,catId:"sandwiches",name:"La Napolitana",price:5290,desc:"Queso Gauda, tomate asado, aceitunas, orégano y salsa atomatada.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:5290},{label:"Lomito",price:5290},{label:"Pollo",price:5290},{label:"Mechada",price:6290}]}},
+    {id:58,catId:"sandwiches",name:"La Napolitana",price:5290,desc:"Queso Gouda, tomate asado, aceitunas, orégano y salsa atomatada.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:5290},{label:"Lomito",price:5290},{label:"Pollo",price:5290},{label:"Mechada",price:6290}]}},
     {id:59,catId:"sandwiches",name:"La Mexicana",price:5290,desc:"Cheddar, cebolla caramelizada, papas hilo, guacamole y mayonesa de la casa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:5290},{label:"Lomito",price:5290},{label:"Pollo",price:5290},{label:"Mechada",price:6290}]}},
-    {id:54,catId:"sandwiches",name:"Queso Champi",price:5290,desc:"Queso Gauda, cheddar, champiñón y mayonesa de la casa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:5290},{label:"Lomito",price:5290},{label:"Pollo",price:5290},{label:"Mechada",price:6290},{label:"Hamburguesa casera",price:5490}]}},
+    {id:54,catId:"sandwiches",name:"Queso Champi",price:5290,desc:"Queso Gouda, cheddar, champiñón y mayonesa de la casa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:5290},{label:"Lomito",price:5290},{label:"Pollo",price:5290},{label:"Mechada",price:6290},{label:"Hamburguesa casera",price:5490}]}},
     {id:57,catId:"sandwiches",name:"La Mozza",price:5290,desc:"Mozzarella, aceitunas y mayonesa de la casa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:5290},{label:"Lomito",price:5290},{label:"Pollo",price:5290},{label:"Mechada",price:6290},{label:"Hamburguesa casera",price:5490}]}},
-    {id:55,catId:"sandwiches",name:"De Luxe",price:5290,desc:"Queso Gauda, cheddar, champiñón, cebolla caramelizada y mayonesa de la casa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:5290},{label:"Lomito",price:5290},{label:"Pollo",price:5290},{label:"Mechada",price:6290},{label:"Hamburguesa casera",price:5290}]}},
-    {id:56,catId:"sandwiches",name:"Gringa",price:5290,desc:"Queso Gauda, cheddar, cebolla morada, tocino y mayonesa de la casa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:5290},{label:"Lomito",price:5290},{label:"Pollo",price:5290},{label:"Mechada",price:6290},{label:"Hamburguesa casera",price:5290}]}},
-    {id:53,catId:"sandwiches",name:"Doble/Cuatro Quesos",price:5290,desc:"Doble queso Gauda y doble cheddar.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:5290},{label:"Lomito",price:5290},{label:"Pollo",price:5290},{label:"Mechada",price:6290},{label:"Hamburguesa casera",price:5290}]}},
+    {id:55,catId:"sandwiches",name:"De Luxe",price:5290,desc:"Queso Gouda, cheddar, champiñón, cebolla caramelizada y mayonesa de la casa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:5290},{label:"Lomito",price:5290},{label:"Pollo",price:5290},{label:"Mechada",price:6290},{label:"Hamburguesa casera",price:5290}]}},
+    {id:56,catId:"sandwiches",name:"Gringa",price:5290,desc:"Queso Gouda, cheddar, cebolla morada, tocino y mayonesa de la casa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:5290},{label:"Lomito",price:5290},{label:"Pollo",price:5290},{label:"Mechada",price:6290},{label:"Hamburguesa casera",price:5290}]}},
+    {id:53,catId:"sandwiches",name:"Doble Queso",price:5290,desc:"Dos quesos cheddar y dos quesos Gouda.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:5290},{label:"Lomito",price:5290},{label:"Pollo",price:5290},{label:"Mechada",price:6290},{label:"Hamburguesa casera",price:5290}]}},
     {id:62,catId:"sandwiches",name:"La de la Casa",price:5490,desc:"Lechuga, tomate, cebolla morada, pepinillo, huevo y mayonesa de la casa.",badges:[],variants:{title:"Elige proteína",required:true,options:[{label:"Churrasco",price:5490},{label:"Lomito",price:5490},{label:"Pollo",price:5490},{label:"Mechada",price:6490}]}},
 
     // ─── Hamburguesas (63-70)
     {id:63,catId:"hamburguesas",name:"Clásica Burger",price:5490,desc:"Hamburguesa casera, lechuga, tomate, mozzarella, cebolla y kétchup.",badges:[]},
     {id:64,catId:"hamburguesas",name:"La Texana",price:5990,desc:"Hamburguesa casera, lechuga, tomate, cheddar, aros de cebolla y salsa BBQ.",badges:[]},
-    {id:65,catId:"hamburguesas",name:"Tex-Mex Burger",price:5990,desc:"Hamburguesa casera, cheddar, guacamole, tomate, jalapeño, salsa chipotle y papas.",badges:[]},
-    {id:66,catId:"hamburguesas",name:"La Doble Barbacoa",price:5990,desc:"Doble hamburguesa, cheddar, cebolla morada, pepinillo, lechuga, BBQ y cebolla crispy.",badges:[]},
-    {id:67,catId:"hamburguesas",name:"Doble Carne",price:6490,desc:"Doble hamburguesa, cheddar, cebolla morada, pepinillo, lechuga y mayonesa.",badges:[]},
+    {id:65,catId:"hamburguesas",name:"Tex-Mex Burger",price:5990,desc:"Hamburguesa casera, cheddar, guacamole, tomate, jalapeño, salsa chipotle y papas fritas.",badges:[]},
+    {id:66,catId:"hamburguesas",name:"La Doble Barbacoa",price:5990,desc:"Doble hamburguesa, cheddar, cebolla morada, pepinillo, lechuga, salsa BBQ y cebolla crispy.",badges:[]},
+    {id:67,catId:"hamburguesas",name:"Doble Cheeseburger",price:6490,desc:"Doble hamburguesa, cheddar, cebolla morada, pepinillo, lechuga y mayonesa de la casa.",badges:[]},
     {id:68,catId:"hamburguesas",name:"La Pizza Burger",price:6490,desc:"Hamburguesa casera, tomate, cebolla caramelizada, queso mantecoso, aceite de oliva y pepperoni.",badges:[]},
-    {id:69,catId:"hamburguesas",name:"La Poderosa",price:7990,desc:"Doble hamburguesa, tomate, lechuga, cebolla morada, pepinillo, huevo frito, tocino y mayonesa.",badges:[]},
-    {id:70,catId:"hamburguesas",name:"La Terrible",price:8490,desc:"Doble hamburguesa, queso Gauda, cheddar, lechuga, tomate, cebolla morada, pepinillo, huevo frito, tocino, chorizo y mayonesa.",badges:[]},
+    {id:69,catId:"hamburguesas",name:"La Poderosa",price:7990,desc:"Doble hamburguesa, tomate, lechuga, cebolla morada, pepinillo, huevo frito, tocino y mayonesa de la casa.",badges:[]},
+    {id:70,catId:"hamburguesas",name:"La Terrible",price:8490,desc:"Doble hamburguesa, queso Gouda, cheddar, lechuga, tomate, cebolla morada, pepinillo, huevo frito, tocino, chorizo y mayonesa de la casa.",badges:[]},
 
     // ─── Especiales (71-76)
-    {id:71,catId:"especiales",name:"Milanesa de Pollo",price:6990,desc:"Milanesa de pollo con tomate, lechuga, huevo frito y mayonesa de la casa.",badges:[]},
-    {id:72,catId:"especiales",name:"Milanesa Kaiser",price:6990,desc:"Milanesa de pollo, jamón planchado, queso Gauda, lechuga, tomate, huevo frito y mayonesa de la casa o tocino ahumado.",badges:[]},
-    {id:73,catId:"especiales",name:"Lomo Saltado",price:6990,desc:"Lomo liso, cebolla morada, tomate, soya y salsa de ostras.",badges:[]},
-    {id:74,catId:"especiales",name:"Lomo a la Napolitana",price:6990,desc:"Lomo liso, queso gratinado, tomate asado, orégano, aceite de oliva y aceitunas.",badges:[]},
-    {id:75,catId:"especiales",name:"Crispy Sandwich",price:6990,desc:"Pollo crispy, lechuga, tomate, queso Gauda, tocino, mayonesa de tocino ahumado y salsa BBQ.",badges:[]},
-    {id:76,catId:"especiales",name:"Milanesa de Vacuno",price:7490,desc:"Milanesa de vacuno con tomate, lechuga, huevo frito y mayonesa de la casa.",badges:[]},
+    {id:71,catId:"especiales",name:"Milanesa de Pollo",price:6990,desc:"Milanesa de pollo, tomate, lechuga, huevo frito y mayonesa de la casa.",badges:[]},
+    {id:72,catId:"especiales",name:"Milanesa Kaiser",price:6990,desc:"Milanesa de pollo, jamón planchado, queso Gouda, lechuga, tomate, huevo frito y mayonesa de la casa o tocino ahumado.",badges:[]},
+    {id:73,catId:"especiales",name:"Lomo Saltado",price:6990,desc:"Lomo liso, cebolla morada, tomate, salsa de soya y salsa de ostras.",badges:[]},
+    {id:74,catId:"especiales",name:"Lomo a la Napolitana",price:6990,desc:"Lomo liso, queso, tomate, orégano, aceite de oliva y aceitunas.",badges:[]},
+    {id:75,catId:"especiales",name:"Crispy Sandwich",price:6990,desc:"Pollo crispy, lechuga, tomate, queso Gouda, tocino, mayonesa de tocino ahumado y salsa BBQ.",badges:[]},
+    {id:76,catId:"especiales",name:"Milanesa de Vacuno",price:7490,desc:"Milanesa de vacuno, tomate, lechuga, huevo frito y mayonesa de la casa.",badges:[]},
 
     // ─── Veganos y Vegetarianos (200-208)
     // Se sirven 100% veganos por defecto (proteína vegetal + vegetales). El queso, la mayonesa
@@ -172,13 +172,13 @@
     // adicional) — nunca vienen incluidos automáticamente.
     {id:200,catId:"veganos",name:"Completa",price:4990,desc:"Tomate, salsa americana y chucrut. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Mayonesa casera"])]}},
     {id:201,catId:"veganos",name:"Chacarera",price:4990,desc:"Tomate, poroto verde crujiente y ají a pedido. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Mayonesa casera"])]}},
-    {id:202,catId:"veganos",name:"Luco",price:4990,desc:"Tu proteína vegetal a la plancha, sola y sabrosa. 100% vegano; suma queso Gauda o cheddar de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Queso Gauda", "Queso Cheddar"])]}},
+    {id:202,catId:"veganos",name:"Luco",price:4990,desc:"Tu proteína vegetal a la plancha, sola y sabrosa. 100% vegano; suma queso Gouda o cheddar de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Queso Gouda", "Queso Cheddar"])]}},
     {id:203,catId:"veganos",name:"Pobre",price:4990,desc:"Cebolla caramelizada. 100% vegana; suma huevo frito de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Huevo frito"])]}},
     {id:204,catId:"veganos",name:"Italiana",price:4990,desc:"Tomate y palta. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Mayonesa casera"])]}},
-    {id:205,catId:"veganos",name:"Doble Quesos",price:5490,desc:"Tu proteína vegetal a la plancha, sola y sabrosa. 100% vegano; suma doble queso Gauda y doble cheddar de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Doble Queso Gauda", "Doble Queso Cheddar"])]}},
-    {id:206,catId:"veganos",name:"Brasileña",price:5490,desc:"Palta cremosa. 100% vegana; suma queso Gauda o cheddar de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Queso Gauda", "Queso Cheddar"])]}},
+    {id:205,catId:"veganos",name:"Doble Queso",price:5490,desc:"Tu proteína vegetal a la plancha, sola y sabrosa. 100% vegano; suma doble queso Gouda y doble cheddar de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Doble Queso Gouda", "Doble Queso Cheddar"])]}},
+    {id:206,catId:"veganos",name:"Brasileña",price:5490,desc:"Palta cremosa. 100% vegana; suma queso Gouda o cheddar de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Queso Gouda", "Queso Cheddar"])]}},
     {id:207,catId:"veganos",name:"Vegetariana Tradicional",price:5490,desc:"Lechuga, tomate, cebolla morada y pepinillo. 100% vegana; suma mayonesa casera de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Mayonesa casera"])]}},
-    {id:208,catId:"veganos",name:"De Luxe",price:5490,desc:"Champiñón salteado y cebolla caramelizada. 100% vegana; suma queso Gauda, cheddar o mayonesa casera de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Queso Gauda", "Queso Cheddar", "Mayonesa casera"])]}},
+    {id:208,catId:"veganos",name:"De Luxe",price:5490,desc:"Champiñón salteado y cebolla caramelizada. 100% vegana; suma queso Gouda, cheddar o mayonesa casera de forma opcional.",badges:["vegano","personalizable"],customizer:{steps:[veganProteinStep(), veganExtrasStep(["Queso Gouda", "Queso Cheddar", "Mayonesa casera"])]}},
 
     // ─── Bebidas (91-97)
     {id:91,catId:"bebidas",name:"Bebida Express",price:1200,desc:"Vaso de bebida.",badges:[],variants:{title:"Elige tu bebida",required:true,options:[{label:"Coca-Cola"},{label:"Coca-Cola Zero"},{label:"Fanta"},{label:"Sprite"}]}},
@@ -223,17 +223,25 @@
 
   /* ── Category definitions ── */
   var CATEGORIES = [
-    {id:"mexicana",name:"Cocina mexicana",eyebrow:"La cocina de Lupita",desc:"Tortillas, frijoles y preparaciones de inspiración mexicana."},
+    {id:"mexicana",name:"Cocina mexicana",eyebrow:"Cocina chilena · mexicana",desc:"Tortillas, frijoles y preparaciones de inspiración mexicana."},
     {id:"hamburguesas",name:"Hamburguesas",eyebrow:"A la parrilla",desc:"Todas incluyen papas rústicas."},
-    {id:"chorrillanas",name:"Chorrillanas",eyebrow:"Al centro",desc:"Elige el tamaño antes de agregar."},
-    {id:"sandwiches",name:"Sándwiches",eyebrow:"Elige y arma",desc:"Elige primero la receta y luego la proteína. Incluyen papas rústicas."},
+    {id:"chorrillanas",name:"Chorrillanas",eyebrow:"Tu antojo, en el tamaño que prefieres",desc:"Elige el tamaño antes de agregar."},
+    {id:"sandwiches",name:"Sándwiches",eyebrow:"Recetas para descubrir",desc:"Elige primero la receta y luego la proteína. Incluyen papas rústicas."},
     {id:"especiales",name:"Especiales de la casa",eyebrow:"Del chef",desc:"Preparaciones propias que solo encuentras aquí."},
-    {id:"compartir",name:"Para compartir",eyebrow:"Para partir",desc:"Platos abundantes para comenzar al centro de la mesa."},
+    {id:"compartir",name:"Para compartir",eyebrow:"Al centro de la mesa",desc:"Platos abundantes para comenzar al centro de la mesa."},
     {id:"veganos",name:"Veganos y Vegetarianos",eyebrow:"100% base vegetal",desc:"Sándwiches con proteína vegetal a elección: lentejas, porotos, quínoa o champiñón."},
-    {id:"bebidas",name:"Bebidas",eyebrow:"Para acompañar",desc:"Frescas y listas para tu mesa."},
+    {id:"bebidas",name:"Bebidas",eyebrow:"Refresca tu antojo",desc:"Frescas y listas para tu mesa."},
     {id:"salsas",name:"Salsas",eyebrow:"El toque final",desc:"Salsas propias y clásicas para acompañar tu plato."},
-    {id:"agregados",name:"Agregados",eyebrow:"Hazlo a tu gusto",desc:"Complementos adicionales para personalizar el pedido."}
+    {id:"agregados",name:"Agregados",eyebrow:"Hazlo más tuyo",desc:"Complementos adicionales para personalizar el pedido."}
   ];
+
+  /* Foto panorámica del encabezado de cada sección (de la carta en PDF): id → [archivo, posición vertical, zoom, origen del zoom]. */
+  var SECTION_PHOTOS = {
+    mexicana: ['mexicana', '58%'], hamburguesas: ['hamburguesas', '56%'], chorrillanas: ['chorrillanas', '55%'],
+    sandwiches: ['sandwiches', '55%'], especiales: ['especiales', '58%'], compartir: ['compartir-c', '92%'],
+    veganos: ['veganos', '58%'], bebidas: ['bebidas', '18%'], agregados: ['agregados-b', '65%'],
+    salsas: ['salsas-c', '65%']
+  };
 
   /* ── State ── */
   var cart = [];
@@ -356,10 +364,15 @@
       var prods = PRODUCTS.filter(function (p) { return p.catId === cat.id && !p.hideFromGrid; });
       html += '<section class="menu-section menu-section--decor-' + (catIndex % 2 === 0 ? 'a' : 'b') + '" id="' + cat.id + '" aria-labelledby="heading-' + cat.id + '">';
       html += '<div class="section-head">';
+      var sp = SECTION_PHOTOS[cat.id];
+      if (sp) {
+        html += '<div class="section-head__photo"><img src="assets/img/sec-' + sp[0] + '.webp" alt="" width="1600" height="711" loading="lazy" decoding="async" style="--py:' + sp[1] + (sp[2] ? ';--zoom:' + sp[2] + ';--zo:' + sp[3] : '') + '"></div>';
+      }
+      html += '<div class="section-head__plate">';
       html += '<span class="eyebrow">' + cat.eyebrow + '</span>';
       html += '<h3 id="heading-' + cat.id + '">' + cat.name + '</h3>';
       html += '<p>' + cat.desc + '</p>';
-      html += '</div>';
+      html += '</div></div>';
       if (cat.id === 'veganos') html += dietGuideHtml();
       html += '<div class="product-grid">';
 

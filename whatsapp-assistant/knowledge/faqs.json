@@ -1,0 +1,37 @@
+[
+  {
+    "id": "horarios",
+    "keywords": ["horario", "horarios", "hora abren", "hora cierran", "a que hora", "abierto", "cerrado"],
+    "respuesta": "Nuestro horario de atención es de martes a domingo, de 12:00 m. a 9:00 p.m. Los lunes permanecemos cerrados. 🌮"
+  },
+  {
+    "id": "ubicacion",
+    "keywords": ["ubicacion", "direccion", "donde estan", "donde quedan", "como llegar"],
+    "respuesta": "Nos encuentras en [DIRECCIÓN COMPLETA]. Aquí tienes el mapa: [LINK GOOGLE MAPS]"
+  },
+  {
+    "id": "domicilios",
+    "keywords": ["domicilio", "domicilios", "llevan a", "entrega", "delivery"],
+    "respuesta": "Sí, hacemos domicilios en [ZONAS DE COBERTURA]. El costo del envío depende de la zona, ¿a qué dirección sería?"
+  },
+  {
+    "id": "reservas",
+    "keywords": ["reserva", "reservar", "mesa para", "separar mesa"],
+    "respuesta": "¡Con gusto! Cuéntame para cuántas personas, la fecha y la hora que prefieres, y te confirmamos la disponibilidad."
+  },
+  {
+    "id": "menu",
+    "keywords": ["menu", "carta", "que tienen", "platos", "que venden"],
+    "respuesta": "Claro, te comparto nuestro menú: [LINK O IMAGEN DEL MENÚ]. ¿Buscas algo en especial (mechada, parrilla, bebidas)?"
+  },
+  {
+    "id": "metodos_pago",
+    "keywords": ["pago", "efectivo", "tarjeta", "nequi", "daviplata", "transferencia"],
+    "respuesta": "Aceptamos efectivo, tarjeta débito/crédito y [NEQUI/DAVIPLATA/TRANSFERENCIA]. 😊"
+  },
+  {
+    "id": "saludo",
+    "keywords": ["hola", "buenas", "buenos dias", "buenas tardes", "buenas noches"],
+    "respuesta": "¡Hola! Bienvenido(a) a La Terraza de Lupita y Mr. Mechada 🌮🔥 ¿En qué te podemos ayudar? Puedes preguntarme por el menú, horarios, domicilios o reservas."
+  }
+]

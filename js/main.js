@@ -366,7 +366,7 @@
       html += '<div class="section-head">';
       var sp = SECTION_PHOTOS[cat.id];
       if (sp) {
-        html += '<div class="section-head__photo"><img src="assets/img/sec-' + sp[0] + '.webp" alt="" width="1600" height="711" loading="lazy" decoding="async" style="--py:' + sp[1] + (sp[2] ? ';--zoom:' + sp[2] + ';--zo:' + sp[3] : '') + '"></div>';
+        html += '<div class="section-head__photo"><img src="assets/img/sec-' + sp[0] + '.webp" srcset="assets/img/sec-' + sp[0] + '-800.webp 800w, assets/img/sec-' + sp[0] + '.webp 1600w" sizes="(max-width: 900px) 100vw, 1100px" alt="" width="1600" height="711" loading="lazy" decoding="async" style="--py:' + sp[1] + (sp[2] ? ';--zoom:' + sp[2] + ';--zo:' + sp[3] : '') + '"></div>';
       }
       html += '<div class="section-head__plate">';
       html += '<span class="eyebrow">' + cat.eyebrow + '</span>';

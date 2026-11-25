@@ -454,7 +454,58 @@
     renderCart();
   }
 
+  /* ── Persistencia: el pedido sobrevive a recargar la página (se guarda solo en este navegador, 24 h) ── */
+  var CART_STORAGE_KEY = 'lupita_cart_v1';
+  var CART_TTL_MS = 24 * 60 * 60 * 1000;
+
+  function saveCart() {
+    try {
+      if (!cart.length) { localStorage.removeItem(CART_STORAGE_KEY); return; }
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify({
+        t: Date.now(),
+        items: cart.map(function (i) { return { id: i.id, price: i.price, qty: i.qty, variant: i.variant }; })
+      }));
+    } catch (e) { /* almacenamiento bloqueado: el pedido sigue funcionando sin guardarse */ }
+  }
+
+  function loadCart() {
+    try {
+      var raw = localStorage.getItem(CART_STORAGE_KEY);
+      if (!raw) return;
+      var data = JSON.parse(raw);
+      if (!data || !Array.isArray(data.items) || Date.now() - data.t > CART_TTL_MS) { localStorage.removeItem(CART_STORAGE_KEY); return; }
+      data.items.forEach(function (s) {
+        var product = PRODUCTS.find(function (p) { return p.id === s.id; });
+        var qty = parseInt(s.qty, 10);
+        if (!product || !(qty >= 1 && qty <= 99)) return;
+        // Solo se recupera si el precio guardado sigue siendo uno vigente del producto (si cambió la carta, se descarta).
+        var prices = [product.price];
+        if (product.variants && product.variants.options) {
+          product.variants.options.forEach(function (o) { if (o.price) prices.push(o.price); });
+        }
+        if (prices.indexOf(s.price) < 0) return;
+        var variant = typeof s.variant === 'string' ? cleanText(s.variant, 200) : null;
+        var key = String(product.id) + '|' + (variant || '');
+        if (cart.some(function (c) { return c.key === key; })) return;
+        cart.push({ key: key, id: product.id, name: product.name, price: s.price, qty: qty, variant: variant });
+      });
+    } catch (e) { cart = []; }
+  }
+
+  /* Categoría del producto, para distinguir platos con el mismo nombre (p. ej. "Tradicional" en sándwiches y chorrillanas). */
+  function categoryNameOf(item) {
+    var product = PRODUCTS.find(function (p) { return p.id === item.id; });
+    var cat = product && CATEGORIES.find(function (c) { return c.id === product.catId; });
+    return cat ? cat.name : (product && product.catId === 'salsas' ? 'Salsas' : '');
+  }
+
+  function hasHomonym(item) {
+    var product = PRODUCTS.find(function (p) { return p.id === item.id; });
+    return !!product && PRODUCTS.some(function (p) { return p.id !== product.id && p.name === product.name && p.catId !== product.catId; });
+  }
+
   function updateCartUI() {
+    saveCart();
     var count = cartCount();
     var total = cartTotal();
     var fabCount = $('#fab-count');
@@ -482,7 +533,7 @@
     cart.forEach(function (item) {
       html += '<li class="cart-item">';
       html += '<div class="cart-item__main"><div>';
-      html += '<div class="cart-item__name">' + escHtml(item.name) + '</div>';
+      html += '<div class="cart-item__name">' + escHtml(item.name) + (hasHomonym(item) ? ' <span class="cart-item__cat">· ' + escHtml(categoryNameOf(item)) + '</span>' : '') + '</div>';
       if (item.variant) html += '<div class="cart-item__variant">' + escHtml(item.variant) + '</div>';
       html += '</div><div class="cart-item__price">' + fmtPrice(item.price * item.qty) + '</div></div>';
       html += '<div class="cart-item__controls">';
@@ -619,7 +670,8 @@
     lines.push('\n*PRODUCTOS*');
     cart.forEach(function (item, i) {
       var protein = item.variant ? item.variant + ' — ' : '';
-      var line = (i + 1) + '. ' + item.qty + ' × ' + protein + item.name + ' — ' + fmtPrice(item.price * item.qty);
+      var catName = categoryNameOf(item);
+      var line = (i + 1) + '. ' + item.qty + ' × ' + protein + item.name + (catName ? ' (' + catName + ')' : '') + ' — ' + fmtPrice(item.price * item.qty);
       lines.push(line);
     });
     var subtotal = cartTotal();
@@ -1695,12 +1747,26 @@
       });
       var cartWaBtn = $('#cart-wa-btn');
       if (cartWaBtn) cartWaBtn.addEventListener('click', function (event) {
-        if (!validateFulfillment(true)) event.preventDefault();
+        if (!validateFulfillment(true)) { event.preventDefault(); return; }
+        // El pedido ya salió hacia WhatsApp: se vacía para no enviarlo dos veces por accidente.
+        setTimeout(function () {
+          cart = [];
+          cartNotes = '';
+          deliveryAddress = '';
+          selectedDeliveryZone = '';
+          selectedTable = '';
+          orderId = '';
+          updateCartUI();
+          renderCart();
+          closeSheet($('#cart-sheet'));
+          showToast('Pedido enviado. Confirma los detalles por WhatsApp.');
+        }, 400);
       });
       var searchInput = $('#menu-search');
       if (searchInput) searchInput.addEventListener('input', handleSearch);
     });
 
+    loadCart();
     updateCartUI();
 
     // GSAP after libs load

@@ -1487,6 +1487,7 @@ body.hero-in-view .wa-float{opacity:0;visibility:hidden;transform:scale(.7);poin
 .cart-item__main{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
 .cart-item__name{font-size:.9rem;font-weight:600}
 .cart-item__variant{font-size:.78rem;color:var(--cream-muted)}
+.cart-item__cat{font-weight:400;font-size:.78rem;color:var(--cream-muted)}
 .cart-item__price{font-size:.9rem;font-weight:700;white-space:nowrap;color:var(--gold)}
 .cart-item__controls{display:flex;align-items:center;justify-content:space-between}
 .qty-control{

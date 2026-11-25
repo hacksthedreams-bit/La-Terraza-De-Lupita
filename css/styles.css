@@ -59,6 +59,10 @@ input,textarea,select{font:inherit}
 address{font-style:normal}
 :focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+/* Enlace "Saltar al contenido": solo se ve al enfocarlo con el teclado */
+.skip-link{position:fixed;top:8px;left:8px;z-index:10001;padding:10px 16px;border-radius:8px;background:var(--gold,#C49A5B);color:#0E0B09;font-weight:700;text-decoration:none;transform:translateY(-200%)}
+.skip-link:focus{transform:none;outline:2px solid #fff;outline-offset:2px}
+#contenido:focus{outline:none}
 .shell{width:var(--shell);margin:0 auto;padding:0 clamp(16px,4vw,32px)}
 
 /* ── Typography Helpers ── */
@@ -91,7 +95,7 @@ address{font-style:normal}
   position:fixed;inset:0;z-index:9999;
   background:var(--bg);
   display:flex;align-items:center;justify-content:center;
-  transition:opacity .6s,visibility .6s;
+  transition:opacity .4s,visibility .4s;
 }
 .splash.done{opacity:0;visibility:hidden;pointer-events:none}
 /* Respaldo sin JavaScript: si el script no corre, la pantalla de carga se retira sola. */
@@ -123,7 +127,7 @@ address{font-style:normal}
 .splash__fill{
   width:0;height:100%;
   background:var(--gold);border-radius:2px;
-  animation:splashFill 1.8s ease-in-out forwards;
+  animation:splashFill .7s ease-in-out forwards;
 }
 @keyframes splashFill{
   0%{width:0}

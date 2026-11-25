@@ -916,20 +916,86 @@
   function initReservations() {
     var form = $('#reservation-form');
     if (!form) return;
+    var nameInput = $('#reservation-name');
+    var guestsInput = $('#reservation-guests');
     var dateInput = $('#reservation-date');
+    var timeInput = $('#reservation-time');
     var phoneInput = $('#reservation-phone');
     var feedback = $('#reservation-feedback');
-    if (dateInput) dateInput.min = chileDateISO();
+
+    // Límites de la solicitud. Para grupos mayores se invita a escribir por WhatsApp.
+    var MAX_GUESTS = 20;
+    var MAX_DAYS_AHEAD = 365;
+    var LAST_SLOT_MIN = 23 * 60 + 30;
+
+    function addDaysISO(iso, days) {
+      var p = iso.split('-');
+      var d = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2] + days));
+      return d.toISOString().slice(0, 10);
+    }
+
+    function setLimits() {
+      var today = chileDateISO();
+      if (dateInput) { dateInput.min = today; dateInput.max = addDaysISO(today, MAX_DAYS_AHEAD); }
+      if (guestsInput) { guestsInput.min = '1'; guestsInput.max = String(MAX_GUESTS); guestsInput.step = '1'; }
+    }
+
+    function validateReservation() {
+      setLimits();
+      var msg;
+
+      if (nameInput) {
+        var nm = cleanText(nameInput.value, 80);
+        msg = (nm.length < 2 || !/[A-Za-zÀ-ÿ]/.test(nm)) ? 'Ingresa tu nombre y apellido.' : '';
+        nameInput.setCustomValidity(msg);
+      }
+
+      if (phoneInput) {
+        var raw = phoneInput.value.trim();
+        var digits = raw.replace(/\D/g, '');
+        msg = (!/^[0-9 +()\-]+$/.test(raw) || digits.length < 8 || digits.length > 15) ? 'Ingresa un número de WhatsApp válido, solo con números.' : '';
+        phoneInput.setCustomValidity(msg);
+      }
+
+      if (guestsInput) {
+        var g = guestsInput.value === '' ? NaN : Number(guestsInput.value);
+        msg = '';
+        if (!isNaN(g)) {
+          if (g < 1 || g !== Math.floor(g)) msg = 'Ingresa una cantidad de personas válida.';
+          else if (g > MAX_GUESTS) msg = 'Para grupos de más de ' + MAX_GUESTS + ' personas, escríbenos directamente por WhatsApp.';
+        }
+        guestsInput.setCustomValidity(msg);
+      }
+
+      var today = chileDateISO();
+      if (dateInput) {
+        msg = '';
+        if (dateInput.value) {
+          if (dateInput.value < today) msg = 'Elige una fecha desde hoy en adelante.';
+          else if (dateInput.value > addDaysISO(today, MAX_DAYS_AHEAD)) msg = 'Elige una fecha dentro del próximo año.';
+        }
+        dateInput.setCustomValidity(msg);
+      }
+
+      if (timeInput) {
+        msg = '';
+        if (timeInput.value && dateInput && dateInput.value === today) {
+          var now = chileParts(new Date());
+          var nowMin = parseInt(now.hour, 10) * 60 + parseInt(now.minute, 10);
+          var tp = timeInput.value.split(':');
+          var slotMin = parseInt(tp[0], 10) * 60 + parseInt(tp[1], 10);
+          if (nowMin > LAST_SLOT_MIN) msg = 'Ya no quedan horarios para hoy. Elige otra fecha.';
+          else if (slotMin <= nowMin) msg = 'Esa hora ya pasó. Elige una hora posterior.';
+        }
+        timeInput.setCustomValidity(msg);
+      }
+    }
+
+    setLimits();
 
     form.addEventListener('submit', function (event) {
       event.preventDefault();
-      if (phoneInput) {
-        phoneInput.setCustomValidity('');
-        var phoneDigits = phoneInput.value.replace(/\D/g, '');
-        if (phoneDigits.length < 8 || phoneDigits.length > 15) {
-          phoneInput.setCustomValidity('Ingresa un número de WhatsApp válido.');
-        }
-      }
+      validateReservation();
       if (!form.checkValidity()) {
         form.reportValidity();
         if (feedback) feedback.textContent = 'Revisa los campos marcados para continuar.';
@@ -957,10 +1023,11 @@
       document.body.removeChild(link);
     });
 
-    form.addEventListener('input', function (event) {
-      if (event.target === phoneInput && phoneInput) phoneInput.setCustomValidity('');
+    form.addEventListener('input', function () {
+      validateReservation();
       if (feedback) feedback.textContent = '';
     });
+    form.addEventListener('change', validateReservation);
   }
 
   function buildEventQuoteUrl(service) {
@@ -1207,6 +1274,7 @@
     var input = $('#menu-search');
     if (!input) return;
     var q = normalizeSearch(input.value);
+    var tokens = q ? q.split(' ') : [];
     var sections = $$('#menu-sections .menu-section');
     var totalVisible = 0;
 
@@ -1215,7 +1283,14 @@
       var sectionVisible = 0;
       cards.forEach(function (card) {
         var text = normalizeSearch(searchableText(card));
-        var match = !q || text.indexOf(q) > -1 || text.replace(/ /g, '').indexOf(q.replace(/ /g, '')) > -1;
+        var textNum = plainPrices(text);
+        // Coincide si aparece la frase completa, o si aparecen todas las palabras (en cualquier orden).
+        // Los precios se buscan con o sin "$" y puntos: "5990", "5.990" y "$5.990" dan el mismo resultado.
+        var match = !q || text.indexOf(q) > -1 || text.replace(/ /g, '').indexOf(q.replace(/ /g, '')) > -1 ||
+          tokens.every(function (t) {
+            var tn = plainPrices(t);
+            return text.indexOf(t) > -1 || (tn.length > 0 && textNum.indexOf(tn) > -1);
+          });
         card.style.display = match ? '' : 'none';
         if (match) sectionVisible++;
       });
@@ -1230,6 +1305,11 @@
       else if (totalVisible === 0) resultCount.textContent = 'No encontramos resultados para “' + input.value.trim() + '”. Prueba con otra palabra (por ejemplo: mechada, vegano o queso) o escríbenos por WhatsApp.';
       else resultCount.textContent = totalVisible + ' resultado' + (totalVisible !== 1 ? 's' : '');
     }
+  }
+
+  /* "$5.990" -> "5990" (quita el signo y el punto de miles). */
+  function plainPrices(value) {
+    return String(value || '').replace(/(\d)\.(?=\d{3}(\D|$))/g, '$1').replace(/\$/g, '');
   }
 
   /* Texto en el que se busca: nombre, precio, descripción y etiquetas. Se excluye el texto de los botones ("Agregar", "Elegir"). */
@@ -1325,9 +1405,17 @@
     var splash = $('#splash');
     if (!splash) return;
     var dismiss = function () { splash.classList.add('done'); };
-    // CSS animation 1.8s + safety net 6s
-    setTimeout(dismiss, 2200);
-    setTimeout(dismiss, 6000);
+    // Se retira en cuanto la página terminó de cargar, pero se deja un mínimo de 0,7 s desde que
+    // empezó la visita para que la marca alcance a verse (antes cubría el contenido 2,2 s siempre).
+    var MIN_MS = 700;
+    var whenLoaded = function () {
+      var elapsed = window.performance && performance.now ? performance.now() : MIN_MS;
+      setTimeout(dismiss, Math.max(0, MIN_MS - elapsed));
+    };
+    if (document.readyState === 'complete') whenLoaded();
+    else window.addEventListener('load', whenLoaded, { once: true });
+    // Respaldo por si algún recurso externo tarda demasiado en cargar.
+    setTimeout(dismiss, 3000);
   }
 
   /* ═══ HAMBURGER ═══ */

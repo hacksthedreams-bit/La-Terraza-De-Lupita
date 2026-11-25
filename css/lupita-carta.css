@@ -116,7 +116,7 @@
   display: block;
   margin: 0 0 6px;
   color: #d3ae6c;
-  font: 700 .72rem/1.35 var(--font-body, Inter, sans-serif);
+  font: 700 .75rem/1.35 var(--font-body, Inter, sans-serif);
   letter-spacing: .26em;
   text-transform: uppercase;
 }
@@ -264,7 +264,7 @@
   #menu-sections .menu-section .section-head__plate h3 { font-size: clamp(1.3rem, 6.2vw, 1.9rem); letter-spacing: .03em; }
   #menu-sections .menu-section .section-head__plate h3::before { left: 16px; }
   #menu-sections .menu-section .section-head__plate h3::after { right: 16px; }
-  #menu-sections .menu-section .section-head__plate .eyebrow { font-size: .64rem; letter-spacing: .2em; }
+  #menu-sections .menu-section .section-head__plate .eyebrow { font-size: .75rem; letter-spacing: .2em; }
   #menu-sections .menu-section .product-grid { grid-template-columns: minmax(0, 1fr); }
   #menu-sections .menu-section .product-card__top { gap: 9px; }
   #menu-sections .menu-section .product-card__top h4 { font-size: 1.3rem; }
@@ -296,7 +296,7 @@
   border: 1px solid rgba(192, 97, 47, .6);
   background: rgba(232, 182, 94, .1);
   color: var(--hb-gold);
-  font: 600 .7rem/1.2 var(--font-body, Inter, sans-serif);
+  font: 600 .75rem/1.2 var(--font-body, Inter, sans-serif);
   letter-spacing: .06em;
 }
 #menu-sections .menu-section .badge--vegano,

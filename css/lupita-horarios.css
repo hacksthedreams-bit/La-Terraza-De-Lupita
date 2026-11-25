@@ -74,7 +74,7 @@
   gap: 10px;
   margin-bottom: 8px;
   color: var(--hx-marigold);
-  font: 700 .7rem/1 var(--hx-sans);
+  font: 700 .75rem/1 var(--hx-sans);
   letter-spacing: .34em;
   text-transform: uppercase;
 }
@@ -216,7 +216,7 @@
 #horarios .hx-ring__txt span {
   margin-top: 4px;
   color: rgba(246, 236, 215, .55);
-  font: 600 .56rem/1 var(--hx-sans);
+  font: 600 .75rem/1 var(--hx-sans);
   letter-spacing: .16em;
   text-transform: uppercase;
 }
@@ -230,7 +230,7 @@
   border-radius: 999px;
   background: rgba(246, 236, 215, .05);
   color: var(--hx-cream);
-  font: 700 .74rem/1 var(--hx-sans);
+  font: 700 .75rem/1 var(--hx-sans);
   letter-spacing: .16em;
   text-transform: uppercase;
 }
@@ -268,7 +268,7 @@
   border-radius: 999px;
   background: var(--hx-marigold);
   color: #1b1209;
-  font: 800 .58rem/1 var(--hx-sans);
+  font: 800 .75rem/1 var(--hx-sans);
   letter-spacing: .14em;
   text-transform: uppercase;
 }
@@ -303,7 +303,7 @@
   #horarios .hx-day { display: grid; grid-template-columns: auto 1fr; column-gap: 14px; align-items: center; padding: 16px 18px; }
   #horarios .hx-day__icon { grid-row: 1 / span 2; margin: 0; }
   #horarios .hx-day__tag { top: 12px; right: 12px; }
-  #horarios .hx__eyebrow { letter-spacing: .22em; font-size: .64rem; }
+  #horarios .hx__eyebrow { letter-spacing: .22em; font-size: .75rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   #horarios .hx-flag, #horarios .hx-rays, #horarios .hx__aura, #horarios .hx__live,

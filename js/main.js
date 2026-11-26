@@ -187,7 +187,7 @@
     {id:94,catId:"bebidas",name:"Bebida en lata 350 cc",price:1700,desc:"Lata individual bien fría.",badges:[],variants:{title:"Elige tu bebida",required:true,options:INCLUDED_DRINKS.map(function (label) { return {label:label}; })}},
     {id:96,catId:"bebidas",name:"Café",price:2000,desc:"Preparado al momento.",badges:[]},
     {id:97,catId:"bebidas",name:"Bebida en botella 1,25 L",price:3000,desc:"Para toda la mesa.",badges:[],variants:{title:"Elige tu bebida",required:true,options:[{label:"Coca-Cola"},{label:"Coca-Cola Zero"},{label:"Sprite"},{label:"Fanta"}]}},
-    {id:95,catId:"bebidas",name:"Jugos",price:3000,desc:"Variedades. Consultar por stock.",badges:[],variants:{title:"Elige tu sabor",required:true,options:[{label:"Jumex Durazno"},{label:"Jumex Guayaba"},{label:"Jumex Manzana"},{label:"Jumex Piña"}]}},
+    {id:95,catId:"bebidas",name:"Jugos",price:3000,desc:"Variedades. Consultar por stock.",badges:[],variants:{title:"Elige tu sabor",required:true,options:[{label:"Jumex Durazno"},{label:"Jumex Guayaba"},{label:"Jumex Manzana"},{label:"Jumex Piña"},{label:"Jumex Mango"},{label:"Jumex Piña-Coco"}]}},
 
     // ─── Salsas (102-105 + 137-139)
     {id:102,catId:"salsas",name:"Salsa verde",price:800,desc:"Salsa verde.",badges:[]},
@@ -265,6 +265,7 @@
     37:['burrito-lupita',57], 40:['enchiladas-de-pollo',59], 44:['terrible-burrito',59], 46:['quesadilla-mixta',58],
     51:['la-chilena-plato',57], 52:['la-chacarera',52], 56:['gringa',51], 58:['la-napolitana',55], 60:['brasilena',51],
     64:['la-texana',55], 67:['doble-carne',55], 68:['la-pizza-burguer',60], 69:['la-poderosa',79], 75:['crispy-sandwich',55],
+    0:['aros-de-cebolla',57], 2:['empanaditas-de-queso',60], 41:['quesadilla-de-pollo',60], 54:['queso-champi',60], 55:['de-luxe',60], 91:['bebida-express',52],
     123:['taco-luchador',55], 125:['nachos-chili-carne',42], 127:['nachos-supremos',55],
     42:['quesadilla-de-verduras',42], 70:['la-terrible',54], 207:['vegetariana-tradicional',41],
     102:['salsa-verde',40], 103:['salsa-pico-de-gallo',54], 105:['salsa-guacamole',55],
@@ -274,9 +275,44 @@
   /* Productos con varias fotos (una por opción o sabor): id → [[etiqueta, foto, posición], ...].
      Se muestran como miniaturas bajo la foto principal (encuadre 4:3). */
   var PRODUCT_GALLERY = {
-    94:[['Bilz','bilz',44], ['Pepsi','pepsi',40], ['Kem Piña','kem',37], ['Limón Soda','limon-soda',40], ['Pap','pap',41], ['Crush Orange','crush-orange',46]],
-    95:[['Jumex Durazno','jumex-durazno',47], ['Jumex Guayaba','jumex-guayaba',42], ['Jumex Manzana','jumex-manzana',32], ['Jumex Piña','jumex-pina',45]]
+    94:[['Bilz','bilz',44], ['Pepsi','pepsi',40], ['Pepsi Zero','pepsi-zero',52], ['Coca-Cola Zero','coca-zero-350',52], ['Coca-Cola','coca-original-350',52], ['Kem Piña','kem',37], ['Limón Soda','limon-soda',40], ['Pap','pap',41], ['Crush Orange','crush-orange',46]],
+    95:[['Jumex Durazno','jumex-durazno',47], ['Jumex Guayaba','jumex-guayaba',42], ['Jumex Manzana','jumex-manzana',32], ['Jumex Piña','jumex-pina',52], ['Jumex Mango','jumex-mango',52], ['Jumex Piña-Coco','jumex-pina-coco',52]],
+    97:[['Sprite','sprite-125',52], ['Fanta','fanta-125',52], ['Coca-Cola Zero','coca-zero-125',52]]
   };
+
+  /* ── Galería: para sumar una foto basta con agregar una línea [archivo, nombre, id del producto, ancho]. Las más nuevas, primero. ── */
+  var GALLERY = [
+    ['queso-champi', 'Queso Champi', 54, 900],
+    ['de-luxe', 'De Luxe', 55, 900],
+    ['quesadilla-de-pollo', 'Quesadilla de Pollo', 41, 900],
+    ['aros-de-cebolla', 'Aros de Cebolla', 0, 900],
+    ['empanaditas-de-queso', 'Empanaditas de Queso', 2, 900],
+    ['burrito-lupita', 'Burrito Lupita', 37, 800],
+    ['la-poderosa', 'La Poderosa', 69, 1122],
+    ['la-chacarera', 'La Chacarera', 52, 800],
+    ['taco-luchador', 'Taco El Luchador', 123, 800],
+    ['la-napolitana', 'La Napolitana', 58, 800],
+    ['doble-carne', 'Doble Cheeseburger', 67, 800],
+    ['la-chilena', 'La Chilena', 51, 800],
+    ['chorriplancha', 'Chorri Plancha', 31, 800],
+    ['la-texana', 'La Texana', 64, 800],
+    ['crispy-sandwich', 'Crispy Sandwich', 75, 800],
+    ['brasilena-mechada', 'Brasileña Mechada', 60, 800],
+    ['nachos-supremos', 'Nachos Supremos', 127, 800],
+    ['nachos-chili-carne', 'Nachos con Chili de Carne', 125, 800],
+    ['terrible-burrito', 'El Terrible Burrito', 44, 800],
+    ['tablita-lupita', 'Tablita Lupita Tex-Mex', 13, 800],
+    ['jumex-pina', 'Jumex Piña', 95, 900],
+    ['jumex-mango', 'Jumex Mango', 95, 900],
+    ['jumex-pina-coco', 'Jumex Piña-Coco', 95, 900],
+    ['pepsi-zero', 'Pepsi Zero Azúcar', 94, 900],
+    ['coca-zero-350', 'Coca-Cola Zero Azúcar', 94, 900],
+    ['coca-original-350', 'Coca-Cola Original', 94, 900],
+    ['sprite-125', 'Sprite 1,25 L', 97, 900],
+    ['fanta-125', 'Fanta 1,25 L', 97, 900],
+    ['coca-zero-125', 'Coca-Cola Zero Azúcar 1,25 L', 97, 900],
+    ['bebida-express', 'Bebida Express', 91, 900]
+  ];
 
   /* ── DOM Helpers ── */
   var $ = function (s) { return document.querySelector(s); };
@@ -1188,7 +1224,7 @@
     releaseProductDetail();
   }
 
-  function openProductDetail(productId) {
+  function openProductDetail(productId, photoFile) {
     var dlg = $('#product-dialog');
     var box = $('#pd-content');
     var p = PRODUCTS.find(function (x) { return x.id === productId; });
@@ -1268,6 +1304,12 @@
           });
         });
       });
+    }
+
+    if (gallery && photoFile) {
+      var startThumb = null;
+      gallery.forEach(function (g, i) { if (g[1] === photoFile) startThumb = box.querySelectorAll('.pd__thumb')[i]; });
+      if (startThumb) startThumb.click();
     }
 
     var add = $('#pd-add');
@@ -1450,6 +1492,81 @@
     window.addEventListener('scroll', function () {
       if (catNavWrap) catNavWrap.classList.toggle('scrolled', window.scrollY > 300);
     }, { passive: true });
+  }
+
+  /* ═══ GALERÍA: filtros por categoría, "ver más" y ficha del producto al tocar una foto ═══ */
+  function initGallery() {
+    var grid = $('#gallery-grid');
+    var filters = $('#gal-filters');
+    var moreBtn = $('#gal-more');
+    var countEl = $('#gal-count');
+    if (!grid || !filters || !moreBtn) return;
+
+    var mobile = window.matchMedia && window.matchMedia('(max-width: 720px)').matches;
+    var PAGE = mobile ? 6 : 8;
+    var current = 'todo';
+    var shown = PAGE;
+
+    var items = GALLERY.map(function (g) {
+      var p = PRODUCTS.find(function (x) { return x.id === g[2]; });
+      var cat = p && CATEGORIES.find(function (c) { return c.id === p.catId; });
+      return { file: g[0], name: g[1], pid: g[2], w: g[3], catId: p ? p.catId : '', catName: cat ? cat.name : '', local: !!(p && (p.badges || []).indexOf('local') > -1) };
+    });
+
+    var cats = [];
+    items.forEach(function (it) { if (it.catId && !cats.some(function (c) { return c.id === it.catId; })) cats.push({ id: it.catId, name: it.catName }); });
+
+    function countOf(id) { return id === 'todo' ? items.length : items.filter(function (it) { return it.catId === id; }).length; }
+
+    function renderFilters() {
+      var html = '';
+      [{ id: 'todo', name: 'Todo' }].concat(cats).forEach(function (c) {
+        html += '<button type="button" class="gal-chip' + (c.id === current ? ' is-active' : '') + '" data-gcat="' + c.id + '" aria-pressed="' + (c.id === current) + '">' +
+          escHtml(c.name) + ' <span>' + countOf(c.id) + '</span></button>';
+      });
+      filters.innerHTML = html;
+    }
+
+    function render(animateFrom) {
+      var list = items.filter(function (it) { return current === 'todo' || it.catId === current; });
+      var visible = list.slice(0, shown);
+      var html = '';
+      visible.forEach(function (it, i) {
+        var base = 'assets/img/' + it.file;
+        html += '<button type="button" class="gallery-item' + (animateFrom !== undefined && i >= animateFrom ? ' is-new' : '') + '" data-gpid="' + it.pid + '" data-gfile="' + it.file + '" aria-haspopup="dialog" aria-label="Ver ' + escHtml(it.name) + '">' +
+          '<img src="' + base + '.webp" srcset="' + base + '-480.webp 480w, ' + base + '-640.webp 640w, ' + base + '.webp ' + it.w + 'w" sizes="(max-width: 700px) 50vw, (max-width: 1080px) 33vw, 260px" alt="' + escHtml(it.name) + '" width="900" height="1125" loading="lazy" decoding="async">' +
+          (it.local ? '<span class="gallery-item__badge">Solo en el local</span>' : '') +
+          '<span class="gallery-item__cap"><b>' + escHtml(it.name) + '</b><small>' + escHtml(it.catName) + '</small></span></button>';
+      });
+      grid.innerHTML = html;
+      var rest = list.length - visible.length;
+      moreBtn.hidden = rest <= 0;
+      moreBtn.textContent = 'Ver más fotos (' + rest + ')';
+      if (countEl) countEl.textContent = 'Mostrando ' + visible.length + ' de ' + list.length + ' fotos';
+    }
+
+    filters.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-gcat]');
+      if (!b) return;
+      current = b.getAttribute('data-gcat');
+      shown = PAGE;
+      renderFilters();
+      render();
+    });
+    moreBtn.addEventListener('click', function () {
+      var before = shown;
+      shown += PAGE;
+      render(before);
+      var first = grid.querySelectorAll('.gallery-item')[before];
+      if (first) first.focus({ preventScroll: true });
+    });
+    grid.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-gpid]');
+      if (b) openProductDetail(parseInt(b.getAttribute('data-gpid'), 10), b.getAttribute('data-gfile'));
+    });
+
+    renderFilters();
+    render();
   }
 
   /* ═══ SPLASH ═══ */
@@ -1656,25 +1773,6 @@
       );
     });
 
-    // Gallery items stagger
-    safe(function () {
-      gsap.utils.toArray('.gallery-item').forEach(function (item, i) {
-        gsap.to(item, {
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 90%',
-            once: true,
-            onEnter: function () {
-              gsap.fromTo(item,
-                { opacity: 0, y: 30, scale: 0.95 },
-                { opacity: 1, y: 0, scale: 1, duration: 0.6, delay: i * 0.08, ease: 'power2.out' }
-              );
-            }
-          }
-        });
-      });
-    });
-
     // Separator lines: render at full width, no scroll-triggered animation
     safe(function () {
       gsap.set('.separator__line', { scaleX: 1 });
@@ -1705,6 +1803,7 @@
     safe(initCounters);
     safe(initOpenStatus);
     safe(initReservations);
+    safe(initGallery);
     safe(initEventServices);
 
     // Cart events
